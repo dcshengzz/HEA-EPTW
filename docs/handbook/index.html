@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HEA ePTW Handbook</title>
+<meta name="description" content="Plain-English knowledge base and user manual for the HEA Digital Safety Tools (ePTW) system: Permit to Work, Toolbox Meeting, Compliance Check Point, dashboards and administration.">
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f0f2f5; --border:#dde1e7;
+  --text:#1b1f24; --muted:#5b6470; --accent:#0b5cad; --accent-soft:#e3eefa;
+  --ok:#1a7f37; --ok-soft:#dcf3e2; --warn:#9a6700; --warn-soft:#fff3cd;
+  --bad:#c0262d; --bad-soft:#fde2e3; --info:#6639ba; --info-soft:#ece5fa;
+  --grey:#57606a; --grey-soft:#eaecef; --shot:#fbfcfe;
+  --radius:10px; --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1216; --surface:#171b21; --surface-2:#1e232b; --border:#2c333d;
+    --text:#e6e9ee; --muted:#9aa4b1; --accent:#6cb0ff; --accent-soft:#16283d;
+    --ok:#56d37a; --ok-soft:#14301d; --warn:#e3b341; --warn-soft:#352a0c;
+    --bad:#ff7b80; --bad-soft:#3a1719; --info:#b69cff; --info-soft:#271d40;
+    --grey:#a4adb8; --grey-soft:#262c34; --shot:#141920;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1216; --surface:#171b21; --surface-2:#1e232b; --border:#2c333d;
+  --text:#e6e9ee; --muted:#9aa4b1; --accent:#6cb0ff; --accent-soft:#16283d;
+  --ok:#56d37a; --ok-soft:#14301d; --warn:#e3b341; --warn-soft:#352a0c;
+  --bad:#ff7b80; --bad-soft:#3a1719; --info:#b69cff; --info-soft:#271d40;
+  --grey:#a4adb8; --grey-soft:#262c34; --shot:#141920;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+h1,h2,h3,h4{line-height:1.25;margin:1.4em 0 .5em}
+h1{font-size:1.75rem;margin:0}
+h2{font-size:1.4rem}
+h3{font-size:1.15rem}
+h4{font-size:1rem}
+p{margin:.5em 0 .9em}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--surface-2);padding:.1em .35em;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{background:var(--surface);border-bottom:1px solid var(--border)}
+header.top .wrap{padding-top:22px;padding-bottom:16px}
+.sub{color:var(--muted);margin:.3em 0 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:6px 10px}
+.search input{flex:1;border:0;background:transparent;color:var(--text);font:inherit;outline:none;min-width:0}
+.search-count{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:6px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.btn:hover{background:var(--surface-2)}
+nav.tabs{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.tabs button{flex:0 0 auto;border:0;background:transparent;color:var(--muted);font:inherit;font-size:.92rem;padding:12px 12px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+nav.tabs button:hover{color:var(--text)}
+main{padding:8px 0 60px}
+section.panel{display:none}
+section.panel.active{display:block}
+body.searching section.panel{display:block}
+body.searching section.panel.nomatch{display:none}
+.panel-title{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:22px}
+.panel-title h2{margin:0}
+.lead{font-size:1.05rem;color:var(--muted);max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin:14px 0;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.stat{font-size:1.6rem;font-weight:700;color:var(--accent)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:6px;margin:12px 0}
+.callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+.callout.bad{border-color:var(--bad);background:var(--bad-soft)}
+.callout.ok{border-color:var(--ok);background:var(--ok-soft)}
+.callout strong:first-child{display:block;margin-bottom:2px}
+details.acc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:10px 0;box-shadow:var(--shadow)}
+details.acc>summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary::before{content:"▸";color:var(--muted);transition:transform .15s}
+details.acc[open]>summary::before{transform:rotate(90deg)}
+details.acc>.body{padding:0 18px 14px;border-top:1px solid var(--border)}
+.tablewrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);font-weight:600}
+.badge{display:inline-block;padding:.1em .6em;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.02em;white-space:nowrap;border:1px solid transparent}
+.b-new{background:var(--grey-soft);color:var(--grey)}
+.b-sub{background:var(--accent-soft);color:var(--accent)}
+.b-prog{background:var(--info-soft);color:var(--info)}
+.b-ok{background:var(--ok-soft);color:var(--ok)}
+.b-warn{background:var(--warn-soft);color:var(--warn)}
+.b-bad{background:var(--bad-soft);color:var(--bad)}
+.b-dead{background:var(--grey-soft);color:var(--grey);text-decoration:line-through}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:16px 0;overflow:hidden;box-shadow:var(--shadow)}
+.step-h{display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--border)}
+.step-n{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--surface);display:grid;place-items:center;font-weight:700}
+.step-h h4{margin:0;font-size:1.02rem}
+.step-b{padding:12px 16px}
+.who{font-size:.85rem;color:var(--muted)}
+.shot{border:2px dashed var(--border);background:var(--shot);border-radius:8px;padding:12px 14px;margin:10px 0;font-size:.92rem}
+.shot .shot-h{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.shot dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:0}
+.shot dt{font-weight:600;color:var(--muted)}
+.shot dd{margin:0}
+.bg{border-left:3px solid var(--ok);padding:4px 10px;margin:8px 0;background:var(--ok-soft);border-radius:0 6px 6px 0;font-size:.94rem}
+.bg b{color:var(--ok)}
+ul.tight li{margin:.2em 0}
+.mermaid{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin:12px 0;overflow-x:auto;text-align:center}
+.pill{display:inline-block;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:.05em .55em;font-size:.82rem;margin:2px 2px}
+.yes{color:var(--ok);font-weight:700}
+.no{color:var(--bad);font-weight:700}
+.maybe{color:var(--warn);font-weight:700}
+mark{background:#ffe066;color:#000;border-radius:2px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);padding:18px 0 40px}
+.sev{font-weight:700;font-size:.78rem;padding:.1em .5em;border-radius:4px}
+.sev.h{background:var(--bad-soft);color:var(--bad)}
+.sev.m{background:var(--warn-soft);color:var(--warn)}
+.sev.l{background:var(--grey-soft);color:var(--grey)}
+@media (max-width:600px){
+  h1{font-size:1.35rem}
+  .shot dl{grid-template-columns:1fr}
+  .shot dt{margin-top:4px}
+  th,td{padding:6px 7px}
+}
+@media print{
+  nav.tabs,.toolbar{display:none}
+  section.panel{display:block!important}
+  details.acc{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>HEA Digital Safety Tools (ePTW) — Handbook</h1>
+    <p class="sub">A plain-English knowledge base and user manual for the HEA Digital Safety Tools system. The source code calls it "ePTW". It was rebuilt by reading the system's own code and database design, because the original developer left no documentation. It was compiled on 2 October 2026 from the code in the GitHub repository <span class="mono">dcshengzz/HEA-EPTW</span> and from the production database design dated 28 September 2026.</p>
+    <div class="toolbar">
+      <label class="search" for="q">
+        <span aria-hidden="true">🔎</span>
+        <input id="q" type="search" placeholder="Search the whole handbook, e.g. “returned”, “approver”, “MFG”" autocomplete="off">
+        <span class="search-count" id="qcount"></span>
+      </label>
+      <button class="btn" id="expand">Expand all</button>
+      <button class="btn" id="collapse">Collapse all</button>
+      <button class="btn" id="theme" title="Toggle light/dark">◐ Theme</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist" id="tablist">
+    <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+    <button role="tab" data-tab="start">Getting Started</button>
+    <button role="tab" data-tab="ptw">Permit to Work</button>
+    <button role="tab" data-tab="tbm">Toolbox Meeting</button>
+    <button role="tab" data-tab="ccp">Compliance Check Point</button>
+    <button role="tab" data-tab="dash">Dashboard &amp; Reports</button>
+    <button role="tab" data-tab="docs">Documents</button>
+    <button role="tab" data-tab="admin">Administration</button>
+    <button role="tab" data-tab="roles">Roles &amp; Permissions</button>
+    <button role="tab" data-tab="glossary">Glossary &amp; Statuses</button>
+    <button role="tab" data-tab="faq">Troubleshooting</button>
+    <button role="tab" data-tab="risks">Known Issues &amp; Risks</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===================================================== OVERVIEW -->
+<section class="panel active" id="overview" data-title="Overview">
+  <div class="panel-title"><h2>Executive summary</h2></div>
+  <p class="lead">HEA Digital Safety Tools is a web system used by <strong>Hitachi Elevator Asia (HEA)</strong> and its contractors on lift and escalator installation sites in Singapore. It replaces paper safety forms. Each one becomes an online form that is filled in on site, checked by the right people in a fixed order, and kept as a permanent record with photos and GPS location.</p>
+
+  <div class="grid g3">
+    <div class="card"><div class="stat">3</div><strong>safety records</strong><br><span class="who">Permit to Work, Toolbox Meeting, Compliance Check Point</span></div>
+    <div class="card"><div class="stat">11</div><strong>roles</strong><br><span class="who">They decide which buttons and inbox items each person sees</span></div>
+    <div class="card"><div class="stat">0</div><strong>automatic emails about forms</strong><br><span class="who">Nobody is notified about a form. Each person must check their own <em>Pending</em> list.</span></div>
+  </div>
+
+  <details class="acc searchable" open><summary>What problem does the system solve?</summary><div class="body">
+    <ul>
+      <li><strong>Permit to Work (PTW).</strong> High-risk work, such as working at height in a lift shaft, may not start until a chain of people has signed off: an assessor, HEA Safety and the HEA Project Manager. The system enforces that order. It keeps the sign-offs, a daily check for each day of the permit, and the final close-out.</li>
+      <li><strong>Toolbox Meeting (TBM).</strong> Every shift starts with a short safety briefing. The system records who attended, which hazards were discussed, which lifts or escalators were worked on, an equipment safety checklist, and the supervisor's personal safety declarations. A manager then approves the record. This attendance also produces the "manpower on site" figures.</li>
+      <li><strong>Compliance Check Point (CCP).</strong> Some installation steps are critical, for example "Hoisting of Guiderails" or "Setting up of Traction Machine". For each such step on a specific lift, a checklist and photos prove the control measures were in place, and an approver signs it off.</li>
+      <li><strong>Visibility.</strong> Each project has a dashboard with charts of all records by status and a 9-day manpower chart. Every permit and toolbox meeting can be downloaded as a PDF.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable" open><summary>Who uses it (stakeholders)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Person</th><th>Typical job</th><th>What they do in the system</th></tr>
+      <tr><td>Applicant / site supervisor</td><td>Contractor supervisor or HEA site engineer</td><td>Raises permits, holds toolbox meetings, records compliance checks, confirms the daily permit check, and reports work completion</td></tr>
+      <tr><td>WAH Assessor (PTW ASSESSOR)</td><td>Work-at-Height assessor, often from the contractor</td><td>First check of every permit, plus the daily review of approved permits</td></tr>
+      <tr><td>HEA Safety (PTW SAFETY)</td><td>HEA safety officer</td><td>Second check of every permit. Can revoke a live permit.</td></tr>
+      <tr><td>Project Manager (PTW APPROVER)</td><td>HEA Project Manager / Authorized Competent Person</td><td>Final approval of permits. Also approves toolbox meetings.</td></tr>
+      <tr><td>Closure Reviewer (PTW CLOSURE)</td><td>Main contractor representative</td><td>Acknowledges that permitted work has been completed</td></tr>
+      <tr><td>CCP Approver (CCP APPROVER)</td><td>HEA supervisor / safety</td><td>Approves compliance check points</td></tr>
+      <tr><td>Company Admin</td><td>Contractor's office administrator</td><td>Manages their own company's user accounts</td></tr>
+      <tr><td>Application Admin</td><td>HEA system owner</td><td>Manages everything: projects, contractors, all users and all roles</td></tr>
+      <tr><td>IT / Database administrator</td><td>IT department</td><td>Maintains things that have no screen: menus, checklist templates, key activities, and unlocking projects</td></tr>
+    </table></div>
+  </div></details>
+
+  <h3>How the features connect</h3>
+  <p>Everything happens <strong>inside a project</strong> (one building site). The administrator sets up the project, its contractors, its people and its lifts or escalators. After that, site staff create the three kinds of safety record, and managers watch progress on the dashboard.</p>
+  <pre class="mermaid">
+flowchart LR
+  subgraph SETUP["1 · One-time setup (Administrators)"]
+    C[Contractors] --> P[Project]
+    U[Users + Roles] --> P
+    E[Lifts / Escalators&lt;br/&gt;'MFG No.'] --> P
+    T["Checklist templates&lt;br/&gt;(IT only)"] -.-> P
+  end
+  P --> SEL[Staff sign in&lt;br/&gt;and select project]
+  subgraph DAILY["2 · Daily site work"]
+    SEL --> TBM[Toolbox Meeting&lt;br/&gt;every shift]
+    SEL --> PTW[Permit to Work&lt;br/&gt;for risky work]
+    SEL --> CCP[Compliance Check Point&lt;br/&gt;per critical step]
+  end
+  TBM --> A1[Approved by&lt;br/&gt;Project Manager]
+  PTW --> A2[Assessor → Safety →&lt;br/&gt;Project Manager]
+  CCP --> A3[Approved by&lt;br/&gt;CCP Approver]
+  subgraph WATCH["3 · Oversight"]
+    D[Project Overview&lt;br/&gt;charts + manpower]
+    R[PDF reports,&lt;br/&gt;TBM report, CCP monitor]
+  end
+  A1 --> D
+  A2 --> D
+  A3 --> D
+  A1 --> R
+  A2 --> R
+  A3 --> R
+  </pre>
+
+  <details class="acc searchable"><summary>Five things every manager should know first</summary><div class="body">
+    <ol>
+      <li><strong>There are no notifications.</strong> The system never emails anyone when a form needs attention. Approvers must open their <em>Pending</em> list, and applicants must check their own list for returned forms. The only email the system sends is a new or reset password.</li>
+      <li><strong>Roles decide everything.</strong> If someone "can't see the button", the cause is almost always a missing role. Another common cause is that the person does not belong to the project's main contractor. See <a href="#" data-goto="roles">Roles &amp; Permissions</a>.</li>
+      <li><strong>Some settings have no screen.</strong> Menu items, checklist questions, permit work types and CCP key activities can only be changed by IT directly in the database.</li>
+      <li><strong>Several known defects exist.</strong> Examples: "Lock user" permanently deletes the user, and a permit's closure review never moves it out of the reviewer's list. All of them are listed in <a href="#" data-goto="risks">Known Issues &amp; Risks</a>.</li>
+      <li><strong>Errors are often silent.</strong> If a button "does nothing", the save probably failed in the background. Typical causes are a remark that is too long or a session that expired. See <a href="#" data-goto="faq">Troubleshooting</a>.</li>
+    </ol>
+  </div></details>
+
+  <details class="acc searchable"><summary>How this handbook was produced, and its limits</summary><div class="body">
+    <p>Four reviews were carried out on the system: the database design (33 tables, 124 stored routines), the server-side logic, every screen and form, and the administration screens. The findings were then checked against the code itself. Everything here describes what the code <em>actually does</em>, which sometimes differs from what the on-screen wording promises.</p>
+    <p><strong>What could not be seen.</strong> The database backup contains the structure only, not the data. Three things therefore need to be confirmed on the live system:</p>
+    <ul>
+      <li>the exact <strong>wording of the left-hand menu items</strong>, and which roles see them;</li>
+      <li>the <strong>checklist questions</strong> inside each template, and the list of PTW work types;</li>
+      <li>the <strong>visual layout of the PDF reports</strong>.</li>
+    </ul>
+    <p>Wherever this handbook says "menu item (name may differ)", check the wording against the live system. The screen headings quoted in this guide are exact.</p>
+    <p><strong>Screenshots.</strong> Each step has a dashed "Screenshot target" card. It tells whoever captures the screenshot exactly which screen to open, what to highlight, and what sample data to enter.</p>
+  </div></details>
+</section>
+
+<!-- ===================================================== GETTING STARTED -->
+<section class="panel" id="start" data-title="Getting Started">
+  <div class="panel-title"><h2>Getting started: signing in and choosing a project</h2></div>
+  <p class="lead">Every user goes through the same three steps: sign in, pick the project (building site) to work on, then use the menu on the left.</p>
+
+  <details class="acc searchable" open><summary>Key terminology</summary><div class="body">
+    <ul class="tight">
+      <li><strong>User ID.</strong> Your email address. HEA staff can type only the part before "@"; the system adds "@hitachi.com" automatically.</li>
+      <li><strong>Project.</strong> One building or installation site, for example "Tampines GreenGlade Block 512". Every form belongs to exactly one project.</li>
+      <li><strong>Main contractor.</strong> The company named as the project's main contractor. Many approvals and full-visibility rights apply only to staff of this company.</li>
+      <li><strong>Left menu.</strong> The work menu (PTW, TBM, CCP, Overview and so on). It appears only after a project is selected.</li>
+      <li><strong>Configuration menu.</strong> The right-hand settings panel (users, projects, equipment and so on). You see only what your roles allow.</li>
+    </ul>
+  </div></details>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Signing in</h4><div class="who">Everyone</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"HEA Digital Safety Tools" sign-in page · <span class="mono">/Account/SignIn.aspx</span></dd>
+      <dt>Highlight</dt><dd>The <em>User ID</em> box, the <em>Password</em> box with its eye icon (show/hide), the <em>Type the code shown</em> picture code (CAPTCHA), and the <strong>Log In</strong> button</dd>
+      <dt>Sample data</dt><dd>User ID: <span class="mono">tan.weiming</span> (becomes tan.weiming@hitachi.com) · Password: the 8-character password from the welcome email · Code: the digits shown in the image</dd>
+    </dl></div>
+    <p>Type your User ID and password, copy the code from the picture, then click <strong>Log In</strong>.</p>
+    <div class="bg"><b>In the background:</b> the system looks up your account. If it matches, it remembers you for up to about 2½ days, or until the server restarts, and sends you on to choose a project. Your previously selected project is forgotten, so you always pick it again.</div>
+    <p><strong>If it fails:</strong> the message "Invalid login attempt." appears. There is no lock-out after repeated failures, and no "forgot password" link. Ask your Company Admin or Application Admin to reset your password.</p>
+    <p><strong>Pitfall:</strong> contractor staff whose email is <em>not</em> @hitachi.com must type the <em>full</em> email address. Otherwise "@hitachi.com" is added to it and the login fails.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Selecting your project</h4><div class="who">Everyone</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Select the Project" · <span class="mono">/Projects.aspx</span></dd>
+      <dt>Highlight</dt><dd>A project row showing its photo, the main contractor in bold and the start–end dates, plus the <strong>Click To Select</strong> button. Also the search box above the list.</dd>
+      <dt>Sample data</dt><dd>Project "Tampines GreenGlade Block 512" · Main contractor "Hitachi Elevator Asia Pte Ltd" · 01/03/2026 ~ 30/11/2026</dd>
+    </dl></div>
+    <p>Find your site and click <strong>Click To Select</strong>. You are taken to the project's dashboard, and the left menu fills with the features your roles allow.</p>
+    <div class="bg"><b>In the background:</b> the list shows only <em>active</em> projects that you are connected to. You are connected if (a) your company is the main contractor, (b) your company was added as a contractor on the project, or (c) you were added personally as project staff. Application Admins see every active project.</div>
+    <p><strong>Project missing?</strong> Either it has been <em>locked</em>, or you or your company were never linked to it. See <a href="#" data-goto="faq">Troubleshooting</a>.</p>
+    <p>To switch sites later, use <strong>Change Project</strong> at the bottom of the left menu.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Finding your way around</h4><div class="who">Everyone</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Any page after selecting a project, e.g. "Project Overview (Tampines GreenGlade Block 512)"</dd>
+      <dt>Highlight</dt><dd>The left menu (PTW / TBM / CCP items and <em>Change Project</em>), the right "Configuration" panel, and the avatar at the top right</dd>
+      <dt>Sample data</dt><dd>Signed in as a user with the PTW USER and TBM USER roles</dd>
+    </dl></div>
+    <p>Each module (Permit to Work, Toolbox Meeting, Compliance Check Point) usually has three menu entries:</p>
+    <ul class="tight">
+      <li><strong>New</strong>: start a new form.</li>
+      <li><strong>List</strong>: browse records you are allowed to see. Screen headings: "Permit To Work List", "Toolbox Meeting List", "Compliance Check Point List".</li>
+      <li><strong>Pending</strong>: your inbox of records waiting for <em>your</em> action. Screen headings: "Permit To Work - Pending", "Toolbox Meeting - Pending", "Compliance Check Points - Pending".</li>
+    </ul>
+    <p class="who">The exact menu wording is stored in the database and may differ slightly from the above.</p>
+    <div class="callout warn"><strong>Important habit</strong>Lists are a snapshot taken when you open the page. To see changes made by others, reopen the page from the menu rather than leaving it open all day.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Changing your own password</h4><div class="who">Everyone</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"User Management - (All Projects)" · <span class="mono">/Settings/UserSetting.aspx</span>, edit popup of your own row</dd>
+      <dt>Highlight</dt><dd>The <strong>Edit</strong> button on your own row, then the <em>Password</em> and <em>Confirm</em> boxes at the bottom of the popup, and <strong>Update</strong></dd>
+      <dt>Sample data</dt><dd>Password: <span class="mono">Lift2026!</span> · Confirm: <span class="mono">Lift2026!</span></dd>
+    </dl></div>
+    <p>Open User Management from the Configuration panel. Click <strong>Edit</strong> on your own row, type the new password twice, and click <strong>Update</strong>. The password boxes appear <em>only</em> when you edit your own record. Leave them blank to keep your current password.</p>
+    <p><strong>Rules:</strong> the two entries must match, otherwise you see "Please enter the valid password.". Use 20 characters or fewer, because longer passwords cannot be stored. Nothing forces you to change the emailed password, but you should.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Signing out and your personal QR code</h4><div class="who">Everyone</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Any page: click the avatar at the top right</dd>
+      <dt>Highlight</dt><dd>Your name and email, the QR code image, and <strong>Sign out</strong></dd>
+      <dt>Sample data</dt><dd>"Mr. Tan Wei Ming", tan.weiming@hitachi.com</dd>
+    </dl></div>
+    <p><strong>Sign out</strong> ends your session. The QR code identifies you, probably for scanning by a companion mobile app, which is not part of this system. Clicking the QR code opens a profile page that does not work. This is a known issue.</p>
+  </div></div>
+</section>
+
+<!-- ===================================================== PTW -->
+<section class="panel" id="ptw" data-title="Permit to Work">
+  <div class="panel-title"><h2>Permit to Work (PTW)</h2><span class="badge b-sub">Core feature</span></div>
+  <p class="lead">An electronic permit that must be fully approved before high-risk work, typically Work at Height (WAH), may start on a lift unit. The original developer built it to replace the paper permit and its seven signature "Parts". It gives a single, time-stamped record of who allowed the work, who checked it each day, and who confirmed it was finished.</p>
+
+  <details class="acc searchable" open><summary>Feature overview: the permit's journey</summary><div class="body">
+    <p>A permit covers <strong>one lift or escalator unit</strong> (its Manufacturing Number) for <strong>1 to 7 consecutive days</strong>. It passes through four sign-offs before work may begin. During the work it gets a daily check. At the end, the applicant reports completion and the main contractor acknowledges it.</p>
+    <pre class="mermaid">
+stateDiagram-v2
+  direction LR
+  [*] --> SUBMITTED: Applicant clicks Submit
+  SUBMITTED --> ASSESSED: WAH Assessor clicks Verify
+  ASSESSED --> VERIFIED: HEA Safety clicks Verify
+  VERIFIED --> APPROVED: Project Manager clicks Approve
+  APPROVED --> APPROVED: Daily review (Day 1..7)
+  APPROVED --> CLOSED: Applicant clicks Complete the Permit
+  CLOSED --> CLOSED: Closure Reviewer clicks Review
+  SUBMITTED --> RETURNED: Return
+  ASSESSED --> RETURNED: Return
+  VERIFIED --> RETURNED: Return
+  RETURNED --> SUBMITTED: Applicant fixes and resubmits
+  SUBMITTED --> REJECTED: Reject
+  ASSESSED --> REJECTED: Reject
+  VERIFIED --> REJECTED: Reject
+  APPROVED --> REVOKED: Revoke (safety lapse)
+  REJECTED --> [*]
+  REVOKED --> [*]
+    </pre>
+    <p>The form is one long page divided into "Parts". It mirrors the paper permit:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Part</th><th>Heading on screen</th><th>Filled by</th></tr>
+      <tr><td>1</td><td>PTW Applicant (permit details, checklist, photos, declaration)</td><td>Applicant</td></tr>
+      <tr><td>2</td><td>Endorsement by WAH Assessor</td><td>PTW ASSESSOR</td></tr>
+      <tr><td>3</td><td>HEA Safety</td><td>PTW SAFETY</td></tr>
+      <tr><td>4</td><td>Approval by HEA Project Manager / Authorized Competent Person</td><td>PTW APPROVER</td></tr>
+      <tr><td>5</td><td>Daily Review by WAH Supervisor or Above</td><td>Applicant and PTW ASSESSOR, every day</td></tr>
+      <tr><td>6</td><td>Notification of Work Completion (To be fill up by Permit Applicant)</td><td>Applicant</td></tr>
+      <tr><td>7</td><td>Closure Review</td><td>PTW CLOSURE</td></tr>
+    </table></div>
+  </div></details>
+
+  <details class="acc searchable"><summary>Key terminology</summary><div class="body">
+    <ul class="tight">
+      <li><strong>Manufacturing Number (MFG No.)</strong>: the registration number of the lift or escalator unit being worked on. Only equipment registered with the type <em>"MFG NO"</em> appears in the list.</li>
+      <li><strong>Work Type</strong>: the kind of risky work, for example Working at Height. Each work type has its own checklist. Work types and their questions are set up by IT.</li>
+      <li><strong>WAH</strong>: Work at Height.</li>
+      <li><strong>Total Worker</strong>: head-count of workers under this permit (1–1000).</li>
+      <li><strong>Return</strong>: send back to the applicant for correction. The permit can be fixed and resubmitted.</li>
+      <li><strong>Reject</strong>: refuse permanently. A new permit must be raised.</li>
+      <li><strong>Revoke</strong>: cancel a permit that was already approved, usually because of a safety lapse. This is final.</li>
+      <li><strong>Daily Review</strong>: a separate tick for each day of the permit, by the applicant and by the assessor.</li>
+      <li><strong>Complete the Permit</strong>: the applicant's statement that the work is finished.</li>
+      <li><strong>Closure Review</strong>: the main contractor's acknowledgement of completion.</li>
+    </ul>
+    <p><strong>Statuses:</strong>
+      <span class="badge b-sub">SUBMITTED</span> <span class="badge b-prog">ASSESSED</span> <span class="badge b-prog">VERIFIED</span> <span class="badge b-ok">APPROVED</span> <span class="badge b-new">CLOSED</span> <span class="badge b-warn">RETURNED</span> <span class="badge b-bad">REJECTED</span> <span class="badge b-bad">REVOKED</span>. The meaning of each is in <a href="#" data-goto="glossary">Glossary &amp; Statuses</a>.</p>
+  </div></details>
+
+  <h3>Step-by-step user journey</h3>
+  <p class="who">Running example: subcontractor <em>Kong Lift Engineering Pte Ltd</em> needs to install guide rails in lift L2 at "Tampines GreenGlade Block 512" from Thursday 8 to Monday 12 October 2026. HEA is the main contractor.</p>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Starting a new permit and entering the work details</h4><div class="who">Applicant (any user with access to the "New" PTW menu item)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Permit To Work - New" · <span class="mono">/PTW/NewPTW.aspx?Status=N</span></dd>
+      <dt>Highlight</dt><dd>The heading "Permit To Work - New", the read-only <em>Project Name</em>, the <em>Date From</em> / <em>Date To</em> pickers, the <em>Manufacturing Number</em> drop-down (with its RegistrationNo / Description / Type columns), <em>Work Description</em>, <em>Total Worker</em> and <em>Work Type</em>. Also the grey six-point guidelines panel.</dd>
+      <dt>Sample data</dt><dd>Date From 08/10/2026 · Date To 12/10/2026 · Manufacturing Number <span class="mono">L-2231</span> (Lift L2, Passenger 13-person) · Work Description "Installation of guide rails in shaft L2, levels 1–12" · Total Worker 4 · Work Type "Working at Height"</dd>
+    </dl></div>
+    <p>Always start from the menu's <strong>New</strong> item, so that you get a blank form. Fill in every field. All six are required.</p>
+    <ul class="tight">
+      <li><strong>Dates:</strong> the start date cannot be in the past, and the permit can last at most 7 calendar days. A longer job needs a new permit after this one ends, because renewal is not automatic.</li>
+      <li><strong>Work Type:</strong> choosing it reloads the page and shows that work type's safety checklist. <em>Choose the work type first.</em> Changing it later wipes any checklist answers already entered.</li>
+    </ul>
+    <div class="bg"><b>In the background:</b> nothing is saved yet. The draft lives only in your browser session until you click Submit. If you close the browser or your session expires, the draft and any uploaded photos are lost.</div>
+    <p><strong>Note:</strong> the guidelines say permits must be submitted "3 working days in advance". The system does <em>not</em> enforce this. It accepts a permit starting today, so site discipline is up to supervisors.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Completing the safety checklist</h4><div class="who">Applicant</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, checklist area below the Work Type</dd>
+      <dt>Highlight</dt><dd>A bold section heading, a few tick-box items, one text answer box, and one drop-down answer (if the template has one)</dd>
+      <dt>Sample data</dt><dd>Tick "Full body harness inspected", "Lifeline anchored", "Barricade at landing doors". Text: "Rescue plan RP-07 briefed to team".</dd>
+    </dl></div>
+    <p>Answer each item. The questions come from the template for the chosen work type. They can be headings, tick boxes, short text answers, multi-choice lists or drop-downs. Only drop-down answers are compulsory ("Please select the Answer."). Tick boxes are <em>not</em> enforced by the system, so supervisors must make sure every relevant item is ticked honestly.</p>
+    <div class="bg"><b>In the background:</b> every answer is sent to the server as you change it, and stored with the permit when you submit. The questions are <em>copied</em> into the permit, so later edits to the template do not alter existing permits.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Attaching photos or documents</h4><div class="who">Applicant</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, attachments section</dd>
+      <dt>Highlight</dt><dd>The <strong>Browse File</strong> button, the note "Allowed file extensions: .jpg, .jpeg, .gif, .png., .pdf. (Maximum file size: 4 MB.)", the uploaded-files list, and the photo gallery</dd>
+      <dt>Sample data</dt><dd><span class="mono">L2_shaft_barricade.jpg</span> (2.1 MB), <span class="mono">RiskAssessment_WAH_L2.pdf</span> (850 KB)</dd>
+    </dl></div>
+    <p>Click <strong>Browse File</strong> or drag a file onto it. Files upload one at a time, as soon as they are chosen. Each file shows "…has been uploaded on [date] by [user]".</p>
+    <ul class="tight">
+      <li>Maximum size is 4 MB per file. Reduce phone photo sizes if needed.</li>
+      <li>Give each file a different name. Uploading a second file with the same name <em>replaces</em> the first one.</li>
+      <li>PDF attachments are stored but <strong>do not appear in the PDF permit report</strong>. Only photos do.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Submitting the permit (Part 1 declaration)</h4><div class="who">Applicant</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, "PTW Applicant" section at the bottom</dd>
+      <dt>Highlight</dt><dd>The declaration text ("I shall assure that there are no incompatible this PTW… no work shall be carried out before PTW approval."), the auto-filled Name / Designation / Company Name, the Remarks box, the <strong>Submit</strong> button, and the "Location : Latitude …, Longitude …" line</dd>
+      <dt>Sample data</dt><dd>Name "Mr. Lim Ah Kow" · Designation "Site Supervisor" · Company "Kong Lift Engineering Pte Ltd" · Remarks "Work at night shift not required"</dd>
+    </dl></div>
+    <p>Check the auto-filled details, add a remark if needed, and click <strong>Submit</strong>. Allow the browser to share your location when it asks.</p>
+    <div class="bg"><b>In the background:</b> the permit is saved with status <span class="badge b-sub">SUBMITTED</span>, stamped with your name, the time and your GPS position. One daily-review row is created for each day of the permit (Day 1 = 08/10, … Day 5 = 12/10). The permit appears in your <em>Permit To Work List</em>, and in the <em>Pending</em> list of every eligible WAH Assessor. <strong>No email is sent</strong>, so tell your assessor it is waiting.</div>
+    <p><strong>If Submit does nothing:</strong> scroll up and look for red messages: "Please select the Valid Date", "Please select the MFG", "Please enter the Description", "Please enter the Valid Number", "Please select the Work Type" or "Please select the Answer.". If there are none, your remark may be too long (keep remarks under 150 characters) or your session may have expired. Sign in again.</p>
+    <p><strong>The permit has no number.</strong> The system does not give permits a reference number. Identify a permit by project, MFG No., dates and applicant. The PDF file name contains a long internal code.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Endorsement by the WAH Assessor (Part 2)</h4><div class="who">PTW ASSESSOR</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Permit To Work - Pending" · <span class="mono">/PTW/PendingPTW.aspx</span>, then the permit opened via <strong>Verify</strong> (heading "Permit To Work - Submitted")</dd>
+      <dt>Highlight</dt><dd>In the list: the row with dates 08 Oct 2026 – 12 Oct 2026, the description and the bold status "SUBMITTED". In the form: "Part 2: Endorsement by WAH Assessor" with its statement "I Acknowledge the above work activities shall be carried out in accordance with the Risk Assessment and Safe Work Practices.", the Remarks box, the <strong>Verify</strong> button, and the "For Return, Reject &amp; Revoke : Please specify the reason" box with <strong>Return</strong> and <strong>Reject</strong></dd>
+      <dt>Sample data</dt><dd>Remarks "RA and rescue plan sighted" → Verify. Or reason "Rescue plan not attached" → Return.</dd>
+    </dl></div>
+    <p>Open your Pending list and click <strong>Verify</strong> on the permit. Read everything, including the photos. Then do one of the following:</p>
+    <ul class="tight">
+      <li><strong>Verify</strong>: endorse it. The status becomes <span class="badge b-prog">ASSESSED</span> and it moves to HEA Safety's inbox.</li>
+      <li><strong>Return</strong>: type a reason first. The status becomes <span class="badge b-warn">RETURNED</span> and the applicant must fix it.</li>
+      <li><strong>Reject</strong>: type a reason first. The status becomes <span class="badge b-bad">REJECTED</span>. This is final.</li>
+    </ul>
+    <div class="bg"><b>In the background:</b> your name, designation, company, remark and the time are stamped into Part 2. You return to your Pending list.</div>
+    <p><strong>Who sees it:</strong> an assessor from the <em>main contractor</em> sees every submitted permit in the project. An assessor from a subcontractor sees only permits raised by their own company.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>HEA Safety check (Part 3)</h4><div class="who">PTW SAFETY</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Assessed"</dd>
+      <dt>Highlight</dt><dd>Part 2 now completed (assessor's name and time), "Part 3: HEA Safety" with "Satisfaction of the safety provision taken by applicant.", Remarks, and <strong>Verify</strong> / <strong>Return</strong> / <strong>Reject</strong></dd>
+      <dt>Sample data</dt><dd>Remarks "Lifeline anchorage confirmed at L12 machine room"</dd>
+    </dl></div>
+    <p>HEA Safety reviews the permit and clicks <strong>Verify</strong>. The status becomes <span class="badge b-prog">VERIFIED</span> (heading "Permit To Work - Safety Verified"). Return and Reject work the same way as in Step 5. Safety officers see assessed permits from <em>all</em> companies in the project.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Final approval by the Project Manager (Part 4)</h4><div class="who">PTW APPROVER, who must belong to the main contractor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Safety Verified"</dd>
+      <dt>Highlight</dt><dd>"Part 4: Approval by HEA Project Manager / Authorized Competent Person", the line "Permit To Work is :", Remarks, and <strong>Approve</strong> / <strong>Return</strong> / <strong>Reject</strong></dd>
+      <dt>Sample data</dt><dd>Remarks "Approved. Work hours 08:00–18:00 only."</dd>
+    </dl></div>
+    <p>The Project Manager clicks <strong>Approve</strong>. The status becomes <span class="badge b-ok">APPROVED</span> and Part 4 reads "Permit To Work is : Approved". <strong>Only now may work start.</strong> If the manager rejects at this stage, Part 4 reads "Not Approved".</p>
+    <div class="callout warn"><strong>Main contractor only</strong>Approvers who do not belong to the project's main contractor never see permits waiting for approval. If no main-contractor user holds PTW APPROVER, permits stall at VERIFIED indefinitely.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">8</div><div><h4>Daily review while work is in progress (Part 5)</h4><div class="who">Applicant and PTW ASSESSOR, once per day each</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Permit opened from My PTW (applicant) or Pending (assessor), heading "Permit To Work - Approved"</dd>
+      <dt>Highlight</dt><dd>"Part 5: Daily Review by WAH Supervisor or Above", the row "Day 1 (08/10/26)" with the <em>Applicant</em> tick and remark plus its <strong>Verify</strong>, and the <em>Assessor</em> tick and remark plus its <strong>Verify</strong>. Later days greyed out.</dd>
+      <dt>Sample data</dt><dd>Day 1 applicant remark "Harness check done 07:45, 4 workers" · assessor remark "Site walk 10:30 – OK"</dd>
+    </dl></div>
+    <p>Each day, the applicant opens the permit and clicks <strong>Verify</strong> for that day with a short remark. The assessor does the same in the Assessor column.</p>
+    <ul class="tight">
+      <li><strong>Time window:</strong> a day can be verified only on that day or the day after. After that, its buttons stay disabled for good. A missed day remains visibly blank on the record.</li>
+      <li>If the assessor verifies a day that the applicant has not yet verified, the system <em>automatically marks the applicant as verified</em> with a blank remark.</li>
+      <li>The daily review never changes the status. The permit stays APPROVED.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">9</div><div><h4>Revoking an approved permit (if a safety lapse is found)</h4><div class="who">PTW ASSESSOR, PTW SAFETY or PTW APPROVER</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Approved permit opened from Pending</dd>
+      <dt>Highlight</dt><dd>The reason box "For Return, Reject &amp; Revoke : Please specify the reason" and the <strong>Revoke</strong> button</dd>
+      <dt>Sample data</dt><dd>Reason "Worker found without lanyard at L9, 10/10/2026 14:20"</dd>
+    </dl></div>
+    <p>Type the reason and click <strong>Revoke</strong>. The status becomes <span class="badge b-bad">REVOKED</span>. The permit is dead, work must stop, and a new permit is needed. There is no "un-revoke" button. Past corrections have been made by IT directly in the database.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">10</div><div><h4>Notifying work completion (Part 6)</h4><div class="who">The original applicant only</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Approved permit opened from "Permit To Work List" via <strong>Details</strong></dd>
+      <dt>Highlight</dt><dd>"Part 6: Notification of Work Completion (To be fill up by Permit Applicant)", Remarks, and the <strong>Complete the Permit</strong> button</dd>
+      <dt>Sample data</dt><dd>Remarks "Guide rails L1–L12 installed, shaft cleared, barricades remain"</dd>
+    </dl></div>
+    <p>When the work is finished, the applicant clicks <strong>Complete the Permit</strong>. The status becomes <span class="badge b-new">CLOSED</span>. Nothing forces this to happen on the last day, and nothing closes permits automatically after Date To. Supervisors should make sure finished permits are completed.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">11</div><div><h4>Closure review by the main contractor (Part 7)</h4><div class="who">PTW CLOSURE</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Closed"</dd>
+      <dt>Highlight</dt><dd>"Part 7: Closure Review", "Acknowledgement of activity completion by Main Constructor.", Remarks, and the <strong>Review</strong> and <strong>Back</strong> buttons</dd>
+      <dt>Sample data</dt><dd>Remarks "Area inspected, handed over to finishing works"</dd>
+    </dl></div>
+    <p>The closure reviewer clicks <strong>Review</strong>. Their acknowledgement is recorded as "Closure Review on [date time]".</p>
+    <div class="callout bad"><strong>Known defect</strong>After the review the permit still shows <em>CLOSED</em> and stays in every closure reviewer's Pending list for good. The Review button disappears, which tells you it has been reviewed. Part 7 shows the reviewer's email instead of their name.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">12</div><div><h4>Fixing and resubmitting a returned permit</h4><div class="who">The original applicant only</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Permit To Work List" → row with status RETURNED → <strong>Details</strong> (heading "Permit To Work - Returned")</dd>
+      <dt>Highlight</dt><dd>The read-only return reason, the editable fields, and <strong>Submit</strong></dd>
+      <dt>Sample data</dt><dd>Reason shown "Rescue plan not attached" → upload <span class="mono">RescuePlan_RP07.pdf</span> → Submit</dd>
+    </dl></div>
+    <p>Returned permits appear in <em>your List</em>, not in Pending. Open the permit, correct it, and click <strong>Submit</strong>. It goes back to the start of the approval chain.</p>
+    <ul class="tight">
+      <li>If the original start date has passed, change the dates, otherwise Submit fails with "Please select the Valid Date".</li>
+      <li>Resubmitting <strong>erases all previous sign-offs</strong>. Assessor, Safety and Manager must approve again.</li>
+      <li>Deleting a previously saved photo here removes it immediately, even if you never resubmit.</li>
+      <li>Changing the Work Type on a returned permit <em>adds</em> the new checklist next to the old one, which makes the record confusing. Avoid it, and raise a new permit instead.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">13</div><div><h4>Downloading the permit as a PDF</h4><div class="who">Anyone who can see the permit in their List</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Permit To Work List" · <span class="mono">/PTW/MyPTW.aspx</span></dd>
+      <dt>Highlight</dt><dd>The <strong>Report</strong> button on a row, and the downloaded file <span class="mono">PTW_xxxxxxxx-….pdf</span></dd>
+      <dt>Sample data</dt><dd>The approved permit for L-2231, 08–12 Oct 2026</dd>
+    </dl></div>
+    <p>Click <strong>Report</strong> to download the printable permit, including its checklist and photos. It can be downloaded at any status, so <em>check the status printed on it</em> before relying on it as proof of approval. If nothing downloads, one of the photos may be corrupt. The error is hidden.</p>
+  </div></div>
+
+  <details class="acc searchable"><summary>Common pitfalls and edge cases (PTW)</summary><div class="body">
+    <ul>
+      <li><strong>Button does nothing:</strong> usually a remark or reason longer than 150 characters, or an expired session. Shorten the text, or sign in again.</li>
+      <li><strong>Empty Manufacturing Number list:</strong> the project has no equipment of type "MFG NO", or the units were registered under another type. An administrator must fix this in Equipment List.</li>
+      <li><strong>Empty Work Type list:</strong> no PTW templates are active. IT must add them.</li>
+      <li><strong>Permit stuck at a stage:</strong> nobody holds the needed role, or, for approval, no main-contractor user is an approver.</li>
+      <li><strong>Old permit appears when clicking "New":</strong> you reached the form some way other than the New menu item, for example with the browser Back button. Use the menu.</li>
+      <li><strong>Two people act at once:</strong> the last save wins and can overwrite the other person's sign-off. Coordinate with each other, and reopen the list before acting.</li>
+      <li><strong>Same person at several stages:</strong> the system does not stop one person who holds several roles from approving their own permit. This must be controlled by policy.</li>
+      <li><strong>Permit not closed after the end date:</strong> it stays APPROVED until someone completes or revokes it.</li>
+      <li><strong>Unused screen sections:</strong> "Equipments to be Used" and staff lists exist in the design but are switched off. Record the crew size in <em>Total Worker</em>.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable"><summary>Permissions / role access (PTW)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Action</th><th>Who</th><th>When</th></tr>
+      <tr><td>Create and submit a permit</td><td>Anyone who can open the New PTW page (menu given by role, typically PTW USER)</td><td>New</td></tr>
+      <tr><td>Edit and resubmit</td><td>The original applicant</td><td>RETURNED</td></tr>
+      <tr><td>Verify (Part 2), Return, Reject</td><td>PTW ASSESSOR</td><td>SUBMITTED</td></tr>
+      <tr><td>Verify (Part 3), Return, Reject</td><td>PTW SAFETY</td><td>ASSESSED</td></tr>
+      <tr><td>Approve (Part 4), Return, Reject</td><td>PTW APPROVER (main contractor)</td><td>VERIFIED</td></tr>
+      <tr><td>Daily review</td><td>Applicant and PTW ASSESSOR</td><td>APPROVED</td></tr>
+      <tr><td>Revoke</td><td>PTW ASSESSOR, PTW SAFETY, PTW APPROVER</td><td>APPROVED</td></tr>
+      <tr><td>Complete the Permit</td><td>Original applicant only</td><td>APPROVED</td></tr>
+      <tr><td>Closure Review</td><td>PTW CLOSURE</td><td>CLOSED</td></tr>
+    </table></div>
+    <p><strong>Who sees which permits in the List.</strong></p>
+    <ul class="tight">
+      <li>Main-contractor staff with an admin, safety, approver or assessor role see every permit in the project.</li>
+      <li>Subcontractor staff with those roles see only their own company's permits.</li>
+      <li>Everyone else sees only the permits they raised themselves.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ===================================================== TBM -->
+<section class="panel" id="tbm" data-title="Toolbox Meeting">
+  <div class="panel-title"><h2>Toolbox Meeting (TBM)</h2><span class="badge b-sub">Daily</span></div>
+  <p class="lead">The electronic record of the short safety briefing a supervisor holds with the crew before each work session, morning (AM) or afternoon (PM). It proves the team was briefed on the day's work, hazards and safety checks. It also feeds the "Manpower at Site" figures on the dashboard.</p>
+
+  <details class="acc searchable" open><summary>Feature overview</summary><div class="body">
+    <p>One TBM record covers one session (AM <em>or</em> PM) on one day. It captures:</p>
+    <ul class="tight">
+      <li>the briefing questions;</li>
+      <li>who attended;</li>
+      <li>the hazards discussed and the counter-measures;</li>
+      <li>which lift or escalator units are being worked on;</li>
+      <li>an equipment-specific safety checklist;</li>
+      <li>the team's goal for the day;</li>
+      <li>worker feedback;</li>
+      <li>photos;</li>
+      <li>four personal declarations by the person in charge.</li>
+    </ul>
+    <p>An HEA Project Manager then approves it.</p>
+    <pre class="mermaid">
+stateDiagram-v2
+  direction LR
+  [*] --> SUBMITTED: Supervisor clicks Submit
+  SUBMITTED --> APPROVED: Approve
+  SUBMITTED --> RETURNED: Return (with reason)
+  SUBMITTED --> REJECTED: Reject (with reason)
+  RETURNED --> SUBMITTED: Creator fixes and resubmits
+  APPROVED --> [*]
+  REJECTED --> [*]
+    </pre>
+    <div class="callout warn"><strong>Approval role surprise</strong>Toolbox meetings are approved by users holding <strong>PTW APPROVER</strong>. A separate role called "TBM APPROVER" exists, but it does nothing. Someone who holds only TBM APPROVER sees an empty Pending list.</div>
+  </div></details>
+
+  <details class="acc searchable"><summary>Key terminology</summary><div class="body">
+    <ul class="tight">
+      <li><strong>Session (AM / PM)</strong>: decided by which Work Description you fill in. Exactly one of the two must be filled.</li>
+      <li><strong>Attendee</strong>: a worker present at the briefing. Pick from users of <em>your own company</em> linked to the project.</li>
+      <li><strong>Hazard / Issue Record</strong>: one hazard. It records the work activity, the cause, what could happen, and the action priority with remarks.</li>
+      <li><strong>Action priority</strong>:
+        <ul>
+          <li>Priority 1: environment and facilities (elimination, substitution, engineering control)</li>
+          <li>Priority 2: people and behaviour (administrative control)</li>
+          <li>Priority 3: protective equipment (PPE)</li>
+        </ul>
+      </li>
+      <li><strong>Machine Type</strong>: Elevator or Escalator. It decides which safety checklist appears.</li>
+      <li><strong>Today Team Action Goal</strong>: the team's safety goal for the session, e.g. "Zero open landing doors left unattended".</li>
+      <li><strong>Touch and Call</strong>: the point-and-call safety phrase chanted by the team, e.g. "Harness hooked – Yoshi!".</li>
+      <li><strong>Declarations</strong>: four mandatory tick boxes in which the person in charge accepts responsibility.</li>
+    </ul>
+  </div></details>
+
+  <h3>Step-by-step user journey</h3>
+  <p class="who">Running example: supervisor Lim Ah Kow of Kong Lift Engineering briefs his crew on the morning of 9 October 2026 at "Tampines GreenGlade Block 512".</p>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Starting the meeting record and entering basic details</h4><div class="who">Supervisor (TBM user)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Toolbox Meeting - New" · <span class="mono">/TBM/NewTBM.aspx?Status=N</span></dd>
+      <dt>Highlight</dt><dd><em>Project Name</em>, <em>Toolbox Meeting Date</em>, <em>Supervisor / Manager</em>, <em>Safety Supervisor</em>, and the two boxes <em>Work Description (AM)</em> and <em>Work Description (PM)</em></dd>
+      <dt>Sample data</dt><dd>Date 09/10/2026 · Supervisor / Manager "Tan Wei Ming" · Safety Supervisor "Rajesh Kumar" · Work Description (AM) "Guide rail installation L2, levels 5–8; material hoisting at L1" · PM left empty</dd>
+    </dl></div>
+    <p>Open the New TBM menu item. The meeting date defaults to today. Past dates are allowed, but dates later than tomorrow are refused ("Please enter the valid Date"). Fill in <strong>either</strong> the AM <strong>or</strong> the PM description, never both. For two sessions, create two records.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Answering the briefing questions</h4><div class="who">Supervisor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, section headed <em>Please carry out items briefing and select "Yes" after it is done. :-</em></dd>
+      <dt>Highlight</dt><dd>Two or three questions with their drop-downs set to "Yes", and the Remarks box below</dd>
+      <dt>Sample data</dt><dd>All items "Yes" · Remarks "New worker Ahmad briefed separately on harness use"</dd>
+    </dl></div>
+    <p>Go through each briefing item with the crew and select the answer. Every item is required ("Please select the Answer."). The questions come from the "TBM" template, which is maintained by IT.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Recording attendees</h4><div class="who">Supervisor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, "Attendee Records" grid</dd>
+      <dt>Highlight</dt><dd>The <strong>Add Attendee</strong> and <strong>Remove Attendee</strong> buttons, the <em>User ID</em> picker showing UserID / FullName / Position / ConstructorName, and the auto-filled name, position and company</dd>
+      <dt>Sample data</dt><dd>Add "ahmad.rizal@konglift.com.sg – Ahmad Rizal – Installer", "chen.jun@konglift.com.sg – Chen Jun – Installer"</dd>
+    </dl></div>
+    <p>Click <strong>Add Attendee</strong>, pick each worker, and save the row. Only people from your company who are linked to the project can be picked. Nothing stops you adding the same person twice, so check the list. Attendees are optional, but they drive the manpower count, so record everyone.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Recording hazards and countermeasures</h4><div class="who">Supervisor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, "Hazard / Issue Records" grid, edit form open</dd>
+      <dt>Highlight</dt><dd><strong>New Record</strong> / <strong>Update Record</strong> / <strong>Remove Record</strong>, and the fields <em>Work Activity</em>, <em>What cause the hazard?</em>, <em>What happen as a result?</em>, <em>Action To Be Taken</em> and <em>Remarks for Actions</em></dd>
+      <dt>Sample data</dt><dd>Work Activity "Hoisting" · Cause "Unsecured load on chain block at L1" · Result "Load drops into pit, struck-by injury" · Action "Priority 1: Measures with environment and facilities…" · Remarks "Exclusion zone barricaded under hoist"</dd>
+    </dl></div>
+    <p>Add one record for each hazard discussed. If you pick "Others" as the activity, describe it in "Others, Please specify". All other fields are required. Hazards are optional, but a briefing without hazards will usually be returned by the approver.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Team goal, Touch and Call, and feedback</h4><div class="who">Supervisor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, below the hazards</dd>
+      <dt>Highlight</dt><dd><em>Today Team Action Goal</em>, <em>Today Touch and Call</em>, <em>Feedback from worker at site</em></dd>
+      <dt>Sample data</dt><dd>Goal "100% harness hook-on above 2 m" · Touch and Call "Hook on – OK!" · Feedback "Request more lighting at L7 landing"</dd>
+    </dl></div>
+    <p>All three are required.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>Adding the lift/escalator units, then the safety checklist</h4><div class="who">Supervisor</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, "Unit No / Manufacturing Number" grid and the checklist that appears below it</dd>
+      <dt>Highlight</dt><dd><strong>Add Equipment</strong>, the <em>Registration No</em> picker, the <em>Machine Type</em> drop-down (Elevator / Escalator), and the generated checklist of tick boxes</dd>
+      <dt>Sample data</dt><dd>Registration No <span class="mono">L-2231</span> · Machine Type Elevator → tick all Elevator checklist items</dd>
+    </dl></div>
+    <p>Add every unit the crew will work on, and set its Machine Type. The matching Elevator and/or Escalator safety checklist then appears. Tick each item.</p>
+    <div class="callout warn"><strong>Do it in this order</strong>Finish the equipment list <em>before</em> ticking the checklist. Adding or removing a unit rebuilds the checklist and clears your ticks. Only tick-box items are saved reliably. Text or list answers in this checklist may not be stored.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Attachments, declarations and Submit</h4><div class="who">Supervisor (person in charge)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, attachments and "Applicant Details"</dd>
+      <dt>Highlight</dt><dd><strong>Browse File</strong>, the four declaration tick boxes (starting "Before start of work, I have explained…", "During the work, I will supervise…", "If the work cannot be carried out safely, I will suspend…", "I will ensure that no one is exposed to danger…"), the auto-filled Name / Designation / Company Name, and <strong>Submit</strong></dd>
+      <dt>Sample data</dt><dd>Photo <span class="mono">TBM_0910_AM_group.jpg</span> · all four boxes ticked</dd>
+    </dl></div>
+    <p>Upload a group photo of the briefing (jpg/png/gif/pdf, 4 MB maximum). Tick all four declarations; each is mandatory ("Please check the box for confirmation."). Then click <strong>Submit</strong>.</p>
+    <div class="bg"><b>In the background:</b> the meeting is saved as <span class="badge b-sub">SUBMITTED</span> together with all its lists, photos and your GPS location. It appears in "Toolbox Meeting List" for everyone in the project, and in the "Toolbox Meeting - Pending" list of every PTW APPROVER. It immediately counts towards the manpower figures, even before approval. No email is sent.</div>
+    <p>The page also shows a fixed "Consent Form for Video Surveillance" notice (PDPA). It is for information only.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">8</div><div><h4>Approving, returning or rejecting the meeting</h4><div class="who">PTW APPROVER (not the person who held the meeting)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Toolbox Meeting - Pending" · <span class="mono">/TBM/PendingTBM.aspx</span> → <strong>Verify</strong> → heading "Toolbox Meeting - Submitted"</dd>
+      <dt>Highlight</dt><dd>"If want to Return or Reject, please specify the Reason :-", "Part 2: Approval by HEA Project Manager / Authorized Competent Person" with Name / Designation / Company / Remarks, and <strong>Approve</strong> / <strong>Reject</strong> / <strong>Return</strong></dd>
+      <dt>Sample data</dt><dd>Remarks "Good briefing" → Approve. Or reason "Add lifting hazard for L1 hoist" → Return.</dd>
+    </dl></div>
+    <p>Review and choose an action. <strong>Approve</strong> gives <span class="badge b-ok">APPROVED</span>, and the approval panel shows "Approved on [date time]". <strong>Return</strong> and <strong>Reject</strong> need a reason of 150 characters or fewer. You cannot approve a meeting you conducted yourself.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">9</div><div><h4>Fixing a returned meeting and exporting the PDF</h4><div class="who">Creator / anyone in the project</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Toolbox Meeting List" · <span class="mono">/TBM/MyTBM.aspx</span></dd>
+      <dt>Highlight</dt><dd>A RETURNED row with its <strong>Details</strong> button, and the <strong>Export PDF</strong> button (tooltip "Download this Toolbox Meeting as a PDF")</dd>
+      <dt>Sample data</dt><dd>The 09/10/2026 AM meeting</dd>
+    </dl></div>
+    <p>The creator opens a returned meeting with <strong>Details</strong>, corrects it, and clicks <strong>Submit</strong> again. Existing hazard rows cannot be edited, only removed and re-added. The worker-feedback box stays locked. Removing a row deletes it immediately.</p>
+    <p><strong>Export PDF</strong> downloads <span class="mono">TBM_….pdf</span>. It includes the meeting, attendees, hazards and photos. It does <em>not</em> include the equipment list, the safety checklist or the briefing answers. A PDF attachment on the meeting will probably make the export fail.</p>
+  </div></div>
+
+  <details class="acc searchable"><summary>Common pitfalls and edge cases (TBM)</summary><div class="body">
+    <ul>
+      <li>Both or neither AM/PM descriptions filled in → the record will not submit.</li>
+      <li>Approver sees nothing in Pending → they need <strong>PTW APPROVER</strong>, not TBM APPROVER.</li>
+      <li>The list shows "Submitted on" with the <em>meeting date</em>, not the actual time of submission.</li>
+      <li>Checklist ticks lost → equipment was changed after ticking.</li>
+      <li>If location permission is refused, no GPS is recorded and no warning is shown.</li>
+      <li>A meeting cannot be deleted from the screen. Ask IT if one was created by mistake.</li>
+      <li>Text longer than the allowed size (reason 150, descriptions 2000, goals and feedback 1500 characters) is cut off or makes the save fail silently.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable"><summary>Permissions / role access (TBM)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Action</th><th>Who</th></tr>
+      <tr><td>Create and submit</td><td>Anyone who can reach the New TBM page (menu typically given to TBM USER)</td></tr>
+      <tr><td>See the Toolbox Meeting List</td><td>Everyone with menu access sees <em>all</em> meetings of the selected project</td></tr>
+      <tr><td>Approve / Return / Reject</td><td>PTW APPROVER, and not the meeting's own conductor</td></tr>
+      <tr><td>Edit and resubmit after Return</td><td>The original creator</td></tr>
+      <tr><td>Add attendees</td><td>Limited to users of the creator's own company in the project</td></tr>
+    </table></div>
+  </div></details>
+</section>
+
+<!-- ===================================================== CCP -->
+<section class="panel" id="ccp" data-title="Compliance Check Point">
+  <div class="panel-title"><h2>Compliance Check Point (CCP)</h2><span class="badge b-sub">Per critical step</span></div>
+  <p class="lead">A sign-off that a critical installation activity on a specific lift was carried out with the required control measures in place. The developer built it so management can see, for each lift, when each critical step was checked and approved.</p>
+
+  <details class="acc searchable" open><summary>Feature overview</summary><div class="body">
+    <p>Each CCP record is one <strong>key activity</strong> on one <strong>lift (MFG No.)</strong> on one date, with a checklist and photos. The CCP monitoring report tracks seven key activities:</p>
+    <p><span class="pill">Entrance Barricade</span><span class="pill">Life lines &amp; Safety Hook</span><span class="pill">Hoisting of Guiderails</span><span class="pill">Setting up of Traction Machine</span><span class="pill">Hoisting of Control Panel</span><span class="pill">Hoisting of Cage Platform</span><span class="pill">Hoisting &amp; securing of Cwt Frame</span></p>
+    <pre class="mermaid">
+stateDiagram-v2
+  direction LR
+  [*] --> SUBMITTED: Submit
+  SUBMITTED --> COMPLETED: CCP Approver clicks Approve
+  SUBMITTED --> RETURNED: Return (with reason)
+  SUBMITTED --> REJECTED: Reject (with reason)
+  RETURNED --> SUBMITTED: Creator fixes and resubmits
+  RETURNED --> DELETED: Creator clicks Delete
+  COMPLETED --> [*]
+  REJECTED --> [*]
+  DELETED --> [*]
+    </pre>
+  </div></details>
+
+  <details class="acc searchable"><summary>Key terminology</summary><div class="body">
+    <ul class="tight">
+      <li><strong>Key Activity</strong>: a critical installation step (list above). Each key activity has its own checklist template, with the same name.</li>
+      <li><strong>Control Measures Implemented</strong>: the checklist heading. Each item is answered from a drop-down.</li>
+      <li><strong>COMPLETED</strong>: the CCP equivalent of "approved". The dashboard chart labels it "Approved".</li>
+      <li><strong>CCP Project Monitoring</strong>: a matrix of lifts × key activities showing the latest approval date in each cell.</li>
+    </ul>
+  </div></details>
+
+  <h3>Step-by-step user journey</h3>
+  <p class="who">Running example: site engineer Nur Aisyah checks the landing barricades for lift L-2231 on 6 October 2026.</p>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Creating a check point</h4><div class="who">CCP user</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Compliance Check Point - New" · <span class="mono">/CCP/NewCCP.aspx?Status=N</span></dd>
+      <dt>Highlight</dt><dd><em>Manufacturing Number</em> picker, <em>Key Activities</em> picker, <em>Date</em>, <em>Activities Description</em>, and the "Control Measures Implemented :-" checklist that appears after you pick the activity</dd>
+      <dt>Sample data</dt><dd>MFG <span class="mono">L-2231</span> · Key Activity "Entrance Barricade" · Date 06/10/2026 · Description "Rigid barricades installed at L1–L12 landings, signage posted"</dd>
+    </dl></div>
+    <p>Pick the lift, then the key activity. The page reloads with that activity's checklist. Answer every item; each is required ("Please select the Answer."). Add the date and a description of 500 characters or fewer.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Adding evidence and submitting</h4><div class="who">CCP user</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>Same page, attachments and buttons</dd>
+      <dt>Highlight</dt><dd><strong>Browse File</strong>, the photo gallery, and the <strong>Submit</strong> and <strong>Cancel</strong> buttons</dd>
+      <dt>Sample data</dt><dd><span class="mono">L2_barricade_L1.jpg</span>, <span class="mono">L2_barricade_L7.jpg</span></dd>
+    </dl></div>
+    <p>Upload photos as evidence and click <strong>Submit</strong>. <strong>Cancel</strong> returns you to the list without saving.</p>
+    <div class="bg"><b>In the background:</b> the record is saved as <span class="badge b-sub">SUBMITTED</span> with your GPS position. It appears in the Pending list of every CCP APPROVER in the project. No email is sent.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Approving, returning or rejecting</h4><div class="who">CCP APPROVER (not the creator)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Compliance Check Points - Pending" · <span class="mono">/CCP/PendingCCP.aspx</span> → <strong>Verify</strong></dd>
+      <dt>Highlight</dt><dd>"If want to Return or Reject, please specify the Reason :-", and <strong>Approve</strong> / <strong>Reject</strong> / <strong>Return</strong></dd>
+      <dt>Sample data</dt><dd>Reason "L7 barricade missing in photos" → Return. Later → Approve.</dd>
+    </dl></div>
+    <p><strong>Approve</strong> gives <span class="badge b-ok">COMPLETED</span>. Return and Reject need a reason. The approver's name is stored, but it is <em>not shown</em> on the CCP form.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Correcting or deleting a returned check point</h4><div class="who">Creator</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Compliance Check Point List" · <span class="mono">/CCP/MyCCP.aspx</span> → <strong>Details</strong> on the RETURNED row</dd>
+      <dt>Highlight</dt><dd>The read-only reason, and the <strong>Submit</strong>, <strong>Delete</strong> and <strong>Cancel</strong> buttons</dd>
+      <dt>Sample data</dt><dd>Add photo <span class="mono">L2_barricade_L7_fixed.jpg</span> → Submit</dd>
+    </dl></div>
+    <p>Fix the record and click <strong>Submit</strong>, or click <strong>Delete</strong> to withdraw it. Avoid changing the Key Activity on a returned record. Old and new checklists get mixed together, so create a new CCP instead.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Monitoring progress across lifts</h4><div class="who">Managers (menu-dependent)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"CCP Project Monitoring" · <span class="mono">/CCP/CCPReport.aspx</span></dd>
+      <dt>Highlight</dt><dd><em>Date From</em> / <em>Date To</em>, <strong>Refresh</strong>, the column-chooser (Customization Window) button with the seven activity columns being switched on, and the "Export to" XLSX/PDF/CSV options</dd>
+      <dt>Sample data</dt><dd>Date From 01/09/2026 · Date To 02/10/2026 → row L-2231 shows "Entrance Barricade: 06/10/2026"</dd>
+    </dl></div>
+    <p>Set the date range and click <strong>Refresh</strong>. <strong>The seven activity columns are hidden at first.</strong> Open the column chooser and drag them in, otherwise the report looks empty. The report covers <em>all projects</em>, not only the selected one.</p>
+  </div></div>
+
+  <details class="acc searchable"><summary>Common pitfalls and edge cases (CCP)</summary><div class="body">
+    <ul>
+      <li>Lift missing from the Manufacturing Number list → it is not registered with Equipment Type exactly "MFG NO", or it is locked.</li>
+      <li>Report column stays empty → the key activity was renamed. The report matches the seven names <em>exactly</em>.</li>
+      <li>Approver sees nothing → they need the <strong>CCP APPROVER</strong> role.</li>
+      <li>Button does nothing → the reason is over 150 characters or the description is over 500, or the session expired.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable"><summary>Permissions / role access (CCP)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Action</th><th>Who</th></tr>
+      <tr><td>Create and submit</td><td>Anyone who can reach the New CCP page (menu typically given to CCP USER)</td></tr>
+      <tr><td>See all CCPs in the List</td><td>APPLICATION ADMIN and PTW SAFETY. Everyone else sees only records they created or approved.</td></tr>
+      <tr><td>Approve / Return / Reject</td><td>CCP APPROVER, and not the creator</td></tr>
+      <tr><td>Edit, resubmit or delete after Return</td><td>The creator</td></tr>
+    </table></div>
+  </div></details>
+</section>
+
+<!-- ===================================================== DASHBOARD -->
+<section class="panel" id="dash" data-title="Dashboard & Reports">
+  <div class="panel-title"><h2>Project Overview dashboard and reports</h2></div>
+  <p class="lead">The dashboard is the first page after selecting a project. It gives managers a one-glance picture of safety paperwork and manpower on site.</p>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Reading the Project Overview</h4><div class="who">Everyone with the project selected</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Project Overview (Tampines GreenGlade Block 512)" · <span class="mono">/ProjectOverview.aspx</span></dd>
+      <dt>Highlight</dt><dd>The project photo and details, the three doughnut charts "Permit To Work", "Toobox Meeting" (misspelled on screen) and "Compliance Check Point", the "Manpower at Site" bar chart, and the detail grid's Export to XLSX button</dd>
+      <dt>Sample data</dt><dd>PTW: 12 Approved, 3 Submitted, 1 Returned · Manpower 09/10: Kong Lift 4.5, HEA 2</dd>
+    </dl></div>
+    <ul>
+      <li><strong>Header:</strong> project photo, name, location, description, main contractor and its contact person.</li>
+      <li><strong>Three doughnut charts:</strong> the number and percentage of PTW, TBM and CCP records in each status. Deleted records are included, and any unknown status is counted as "Rejected".</li>
+      <li><strong>Manpower at Site:</strong> the last 9 days, with one bar per company per day. It is calculated <em>only from toolbox meetings</em>: the conductor plus attendees, AM and PM sessions, submitted or approved.</li>
+    </ul>
+    <div class="callout"><strong>How to read the manpower number</strong>Each person counts ½ for each session they attended. A worker at both the AM and PM briefings counts 1, and a worker at only one briefing counts 0.5. If crews skip toolbox meetings, the figures will be low.</div>
+    <p><strong>Detail grid:</strong> one row per person per session (Applied Date, Company Name, Applicant Name, Job Designation, Session). You can filter it and export it to Excel.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>TBM Report (all projects)</h4><div class="who">Menu-dependent; there is no data restriction</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"TBM Report" · <span class="mono">/Settings/TBMReportAll.aspx</span></dd>
+      <dt>Highlight</dt><dd>The columns Applied Date, Project Name, Company Name, Applicant Name, Job Designation, MFG No and Session, the group-by panel, and Export to XLSX</dd>
+      <dt>Sample data</dt><dd>09/10/2026 · Tampines GreenGlade Block 512 · Kong Lift Engineering · Ahmad Rizal · Installer · L-2231 · AM</dd>
+    </dl></div>
+    <p>An attendance register across <strong>every project</strong>. Use it for headcount, billing and audit questions such as "who was on which lift on which day". "(No MFG Selected)" means the meeting listed no equipment.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>PDF reports and CCP monitoring</h4><div class="who">See the respective tabs</div></div></div><div class="step-b">
+    <ul class="tight">
+      <li><strong>PTW PDF:</strong> the <strong>Report</strong> button in "Permit To Work List". See <a href="#" data-goto="ptw">Permit to Work</a>, step 13.</li>
+      <li><strong>TBM PDF:</strong> the <strong>Export PDF</strong> button in "Toolbox Meeting List". See <a href="#" data-goto="tbm">Toolbox Meeting</a>, step 9.</li>
+      <li><strong>CCP Project Monitoring:</strong> see <a href="#" data-goto="ccp">Compliance Check Point</a>, step 5.</li>
+    </ul>
+    <p>The PDFs need the "Crystal Reports" component installed on the web server. If every PDF download fails after a server move, that component is the first thing to check.</p>
+  </div></div>
+</section>
+
+<!-- ===================================================== DOCUMENTS -->
+<section class="panel" id="docs" data-title="Documents">
+  <div class="panel-title"><h2>Document library</h2></div>
+  <p class="lead">A simple per-project filing cabinet for reference documents such as method statements, risk assessments, lifting plans and drawings. Each document is filed under a Document Type.</p>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Uploading a document</h4><div class="who">Users with the Documents menu</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Document List" · <span class="mono">/DocumentManagement.aspx</span>, <strong>New</strong> form</dd>
+      <dt>Highlight</dt><dd>The <strong>New</strong> and <strong>Edit</strong> toolbar buttons, the <em>Document Type</em> drop-down, <em>Title</em>, the <em>Document</em> upload with its <strong>Remove</strong> link, and <strong>Update</strong></dd>
+      <dt>Sample data</dt><dd>Document Type "Method Statement" · Title "MS-012 Guide Rail Installation Rev B" · File <span class="mono">MS-012_RevB.pdf</span> (1.8 MB)</dd>
+    </dl></div>
+    <p>Click <strong>New</strong>, choose the type, enter a title, upload the file (4 MB maximum) and click <strong>Update</strong>. The document is filed under the currently selected project.</p>
+    <p>Possible messages: "Please select the Document Type.", "Please enter the Equipment Description." (a wrong label: it actually means the Title is missing), and "Please select and upload the Document.".</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Finding and downloading a document</h4><div class="who">Users with the Documents menu</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Document List"</dd>
+      <dt>Highlight</dt><dd>A row showing Document Type and Title, and its <strong>Download</strong> button</dd>
+      <dt>Sample data</dt><dd>"Method Statement – MS-012 Guide Rail Installation Rev B"</dd>
+    </dl></div>
+    <p>Click <strong>Download</strong> to get the file under its original name. To replace a file, select the row, click <strong>Edit</strong> and upload the new version. There is no delete button.</p>
+    <div class="callout bad"><strong>Likely defect: documents vanish for long project names</strong>The save step keeps only the first 20 characters of the project name. For a project such as "Tampines GreenGlade Block 512" (29 characters), uploaded documents are probably filed under a shortened name and never show in the list. Test with one upload before relying on this feature, and report it to IT if documents disappear.</div>
+  </div></div>
+</section>
+
+<!-- ===================================================== ADMIN -->
+<section class="panel" id="admin" data-title="Administration">
+  <div class="panel-title"><h2>Administration and project setup</h2></div>
+  <p class="lead">These screens live in the right-hand <strong>Configuration</strong> panel. They are normally used by Application Admins, and by Company Admins for their own staff. Follow this order when opening a new site:</p>
+
+  <pre class="mermaid">
+flowchart LR
+  A[1 · Contractor List&lt;br/&gt;create companies] --> B[2 · User Management&lt;br/&gt;create people + roles]
+  A --> C[3 · Project Management&lt;br/&gt;create the project]
+  B --> D[4 · Project Configuration&lt;br/&gt;link contractors + staff]
+  C --> D
+  E[5a · Equipment Type&lt;br/&gt;ensure 'MFG NO' exists] --> F[5b · Equipment List&lt;br/&gt;register each lift]
+  D --> F
+  G[6 · Document Type] --> H[Document List]
+  I[("IT: templates,&lt;br/&gt;key activities, menus")] -.-> J[Site staff can start&lt;br/&gt;PTW / TBM / CCP]
+  F --> J
+  </pre>
+
+  <details class="acc searchable" open><summary>Key terminology</summary><div class="body">
+    <ul class="tight">
+      <li><strong>Contractor (shown as "Constructor" in some places)</strong>: a company. HEA itself and each subcontractor are contractors.</li>
+      <li><strong>Main Constructor</strong>: the company that leads the project. Its staff get full visibility and approval rights.</li>
+      <li><strong>Lock</strong>: on most screens, make a record inactive. <em>For users, "Delete" removes the account permanently.</em></li>
+      <li><strong>Registration No</strong>: a unique identifier of a piece of equipment across the <em>whole system</em>.</li>
+      <li><strong>Equipment Type "MFG NO"</strong>: the special type that makes a unit selectable in PTW and CCP forms.</li>
+    </ul>
+  </div></details>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Registering contractor companies</h4><div class="who">Application Admin</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Contractor List - (All Projects)" · <span class="mono">/Settings/ConstructorSetting.aspx</span></dd>
+      <dt>Highlight</dt><dd>The <strong>New</strong> / <strong>Edit</strong> / <strong>Lock</strong> / <strong>Unlock</strong> toolbar, the columns Name / Description / Address / Contact Person / Contact Number / Status, and the edit form</dd>
+      <dt>Sample data</dt><dd>Name "Kong Lift Engineering Pte Ltd" · Description "Lift installation subcontractor" · Address "21 Woodlands Close #05-12, Singapore 737854" · Contact Person "Mr Kong Boon Hock" · Contact Number "+65 6123 4567"</dd>
+    </dl></div>
+    <p>All fields are required. <strong>The name cannot be changed later</strong>, because it links the company to its users and projects, so spell it carefully. Saving a new contractor with an empty name causes an error page. Lock and Unlock take effect immediately, without asking for confirmation.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Creating user accounts and assigning roles</h4><div class="who">Application Admin (any company) or Company Admin (own company)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"User Management - (All Projects)" · <span class="mono">/Settings/UserSetting.aspx</span></dd>
+      <dt>Highlight</dt><dd>The <strong>New</strong> button, the edit popup fields (Title, First Name, Last Name, Document Type NRIC/FIN/WP, Document No, Contact No, Email Address, Contractor Name, Position, Photo), then an expanded user row showing "User Role Collection" with <strong>New</strong> / <strong>Delete</strong></dd>
+      <dt>Sample data</dt><dd>Mr · Lim · Ah Kow · FIN · G1234567N · 9123 4567 · ahkow.lim@konglift.com.sg · Kong Lift Engineering Pte Ltd · Site Supervisor → roles PTW USER, TBM USER</dd>
+    </dl></div>
+    <p>Click <strong>New</strong>, fill in every field, and click <strong>Update</strong>. The email address becomes the person's <strong>User ID</strong>. Then expand the user's row and add roles under <em>User Role Collection</em>.</p>
+    <div class="bg"><b>In the background:</b> the system generates a random 8-character password and queues a "Reset Password" email to the user from safetytools@hitachi.com. A blind copy of this email (BCC) goes to a fixed HEA mailbox (see <a href="#" data-goto="risks">risks</a>). If the user doesn't receive it, check spam, then use <strong>Reset Password</strong>.</div>
+    <ul class="tight">
+      <li>"The Email has been registered." means the user already exists. This check fails for email addresses longer than 20 characters, which may <em>overwrite</em> the existing account. Search the list first.</li>
+      <li>Company Admins cannot grant the approval roles: PTW APPROVER, PTW SAFETY, PTW CLOSURE, TBM and CCP roles, or the admin roles. Only an Application Admin can.</li>
+      <li><strong>Changing someone's email address creates a second account</strong> with no roles. Avoid it. Create a new user instead, and delete the old one.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Resetting a password or removing a user</h4><div class="who">Application Admin / Company Admin</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>User Management grid</dd>
+      <dt>Highlight</dt><dd>The row buttons <strong>Reset Password</strong> and <strong>Delete</strong>, and the "Are you sure you want to proceed?" confirmation</dd>
+      <dt>Sample data</dt><dd>User chen.jun@konglift.com.sg, who has left the company</dd>
+    </dl></div>
+    <ul>
+      <li><strong>Reset Password</strong> runs <em>immediately, without confirmation</em>. The old password stops working and a new one is emailed.</li>
+      <li><strong>Delete</strong> permanently removes the account and all its roles. A copy is kept in a history table, but <em>there is no way to restore it from the screens</em>. Re-create the user if needed. Their past forms remain.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Creating the project</h4><div class="who">Application Admin</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Project Management - (All Projects)" · <span class="mono">/Settings/ProjectSetting.aspx</span></dd>
+      <dt>Highlight</dt><dd><strong>New</strong>, the popup fields Photo / Project Name / Description / Location / Main Constructor / Start Date / End Date, and the row buttons <strong>Edit</strong> / <strong>Lock</strong> / <strong>Unlock</strong></dd>
+      <dt>Sample data</dt><dd>Project Name "Tampines GreenGlade Block 512" · Description "HDB BTO – 6 passenger lifts, 2 escalators" · Location "512 Tampines Ave 9, Singapore 520512" · Main Constructor "Hitachi Elevator Asia Pte Ltd" · 01/03/2026 – 30/11/2026</dd>
+    </dl></div>
+    <p>All fields except Photo are required. <strong>The project name is permanent</strong>, because every record links to it by name. The system does not check that the end date is after the start date.</p>
+    <div class="callout warn"><strong>Do not Lock a project unless you mean it</strong>A locked project disappears from this screen and from everyone's project list. It <em>cannot be unlocked from the screens</em>; IT must fix it in the database. Editing a project also silently makes it active again.</div>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Linking contractors and individual staff to the project</h4><div class="who">Application Admin (Company Admin for own projects)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Project Configuration - (All Projects)" · <span class="mono">/Settings/ProjectConstructor.aspx</span>, with a project row expanded</dd>
+      <dt>Highlight</dt><dd>Section "1. Contractors" with <strong>Add</strong> / <strong>Delete</strong>, and section "2. Manpower &amp; Staff" with <strong>Add</strong> / <strong>Delete</strong> and the User ID picker</dd>
+      <dt>Sample data</dt><dd>Contractors: "Kong Lift Engineering Pte Ltd", "Sin Heng Scaffolding Pte Ltd" · Staff: "rajesh.kumar@hitachi.com" (HEA Safety)</dd>
+    </dl></div>
+    <p>Who can see a project:</p>
+    <ul class="tight">
+      <li>staff of the main contractor;</li>
+      <li>staff of every contractor added under "1. Contractors";</li>
+      <li>everyone added individually under "2. Manpower &amp; Staff".</li>
+    </ul>
+    <p>Add a whole company when all its staff should see the project. Add individuals for people from other companies, for example a consultant.</p>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>Registering lifts and escalators</h4><div class="who">Administrators (with the project selected)</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Equipment Type - (All Projects)" · <span class="mono">/Settings/EquipmentTypeSetting.aspx</span>, then "Equipment List - Tampines GreenGlade Block 512" · <span class="mono">/Settings/EquipmentSetting.aspx</span></dd>
+      <dt>Highlight</dt><dd>The type "MFG NO" in the type list. In the equipment form: <em>Registration No</em>, <em>Equipment Type</em>, <em>Equipment Name</em>, <em>Description</em>, Photo and Document.</dd>
+      <dt>Sample data</dt><dd>Registration No "L-2231" · Type "MFG NO" · Name "Lift L2 – Passenger 13p" · Description "Hitachi Urban Ace, 13 persons, 1.75 m/s, 14 stops"</dd>
+    </dl></div>
+    <p>First make sure the type <strong>MFG NO</strong> exists under Equipment Type, with a category, the type name and a description. Then select the project and add each unit in Equipment List. <em>Only units of type "MFG NO" can be chosen on permits and compliance check points.</em> Toolbox meetings can use any type.</p>
+    <ul class="tight">
+      <li>A Registration No is unique system-wide. Entering an existing number in another project <strong>silently moves</strong> that unit to the current project.</li>
+      <li>The Lock and Unlock buttons on Equipment List do nothing. On Equipment Type they cause an error. Renaming a type creates a duplicate rather than renaming it.</li>
+    </ul>
+  </div></div>
+
+  <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Document types</h4><div class="who">Administrators</div></div></div><div class="step-b">
+    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+      <dt>Screen</dt><dd>"Document Type - (All Projects)" · <span class="mono">/Settings/DocumentTypeSetting.aspx</span></dd>
+      <dt>Highlight</dt><dd>The New / Edit / Lock / Unlock buttons and the Document Type and Description fields</dd>
+      <dt>Sample data</dt><dd>"Method Statement" – "Approved method statements"; "Lifting Plan" – "Appointed person lifting plans"</dd>
+    </dl></div>
+    <p>Both fields are required. Locking a type does not hide it from the upload drop-down.</p>
+  </div></div>
+
+  <details class="acc searchable"><summary>Things that only IT can change (there is no screen for them)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>What</th><th>Why it matters</th></tr>
+      <tr><td>Left and Configuration menu items, and which role sees which item</td><td>Decides who can reach each page. A new role is useless until IT maps menus to it.</td></tr>
+      <tr><td>PTW Work Types and their checklist questions</td><td>A new kind of permit, such as Hot Work, needs a new template</td></tr>
+      <tr><td>TBM briefing questions ("TBM"), and the Elevator / Escalator safety checklists</td><td>Changing the briefing content</td></tr>
+      <tr><td>TBM work activities and CCP key activities, and the CCP checklists</td><td>A new critical step. The CCP report's seven columns are also fixed in the system.</td></tr>
+      <tr><td>Role catalogue</td><td>Adding a new role</td></tr>
+      <tr><td>Unlocking a project, restoring a deleted user, reversing a revoked permit</td><td>There are no screens for these actions</td></tr>
+    </table></div>
+    <p>Screens named "Templates", "Process Workflow Control", "Plan Project", "Personnel List" and "Register" exist in the code as unfinished prototypes. They are not part of the live system.</p>
+  </div></details>
+</section>
+
+<!-- ===================================================== ROLES -->
+<section class="panel" id="roles" data-title="Roles & Permissions">
+  <div class="panel-title"><h2>Roles and permissions</h2></div>
+  <p class="lead">Access is controlled by three things together: (1) the <strong>roles</strong> a person holds, which apply to every project; (2) whether their company is the <strong>main contractor</strong> of the selected project; and (3) the <strong>status</strong> of the form.</p>
+
+  <details class="acc searchable" open><summary>Role catalogue</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Role</th><th>Purpose</th><th>Who may grant it</th></tr>
+      <tr><td>APPLICATION ADMIN</td><td>Full control: all projects, companies, users and roles</td><td>Application Admin</td></tr>
+      <tr><td>COMPANY ADMIN</td><td>Manages user accounts of their own company</td><td>Application Admin</td></tr>
+      <tr><td>PTW USER</td><td>Raise permits (via menu access)</td><td>Application or Company Admin</td></tr>
+      <tr><td>PTW ASSESSOR</td><td>Part 2 endorsement, daily review, revoke</td><td>Application or Company Admin</td></tr>
+      <tr><td>PTW SAFETY</td><td>Part 3 HEA Safety check, revoke; sees all CCPs</td><td>Application Admin</td></tr>
+      <tr><td>PTW APPROVER</td><td>Part 4 approval, revoke, <strong>and toolbox meeting approval</strong></td><td>Application Admin</td></tr>
+      <tr><td>PTW CLOSURE</td><td>Part 7 closure review</td><td>Application Admin</td></tr>
+      <tr><td>TBM USER</td><td>Hold toolbox meetings (via menu access)</td><td>Application Admin</td></tr>
+      <tr><td>TBM APPROVER</td><td><em>No effect in the current system</em></td><td>Application Admin</td></tr>
+      <tr><td>CCP USER</td><td>Create compliance check points (via menu access)</td><td>Application Admin</td></tr>
+      <tr><td>CCP APPROVER</td><td>Approve compliance check points</td><td>Application Admin</td></tr>
+    </table></div>
+    <p class="who">"Via menu access" means the role has no special button rights. It only decides which menu items appear, and that mapping is stored in the database.</p>
+  </div></details>
+
+  <details class="acc searchable" open><summary>Permission matrix: who can do what</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Action</th><th>App Admin</th><th>Company Admin</th><th>Assessor</th><th>Safety</th><th>Approver</th><th>Closure</th><th>CCP Approver</th><th>Regular user</th></tr>
+      <tr><td>Raise PTW / TBM / CCP</td><td colspan="8">Anyone whose roles show the "New" menu item</td></tr>
+      <tr><td>Endorse PTW (Part 2)</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Safety-verify PTW (Part 3)</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Approve PTW (Part 4)</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="maybe">✓ main contr.</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Daily review PTW</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="maybe">own permits</td></tr>
+      <tr><td>Revoke PTW</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Closure review PTW</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Approve TBM</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Approve CCP</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>See all permits in project</td><td class="maybe">main contr.</td><td class="maybe">main contr.</td><td class="maybe">main contr.</td><td class="maybe">main contr.</td><td class="maybe">main contr.</td><td class="no">own only</td><td class="no">own only</td><td class="no">own only</td></tr>
+      <tr><td>Manage users</td><td class="yes">all</td><td class="maybe">own company</td><td colspan="6">Only their own profile and password</td></tr>
+      <tr><td>Manage projects, contractors, equipment</td><td class="yes">✓</td><td colspan="7">Only if the menu item is given. <strong>The pages themselves do not check roles.</strong></td></tr>
+    </table></div>
+    <p class="who">A person can hold several roles, and gains the rights of each. Nobody may approve a TBM or CCP that they created themselves. For PTW, this rule is <em>not</em> enforced.</p>
+  </div></details>
+
+  <details class="acc searchable"><summary>The "main contractor" rule explained</summary><div class="body">
+    <p>Each project names one main contractor, typically Hitachi Elevator Asia. A user counts as main contractor when the company on their profile is <em>exactly</em> that company. Main-contractor staff:</p>
+    <ul class="tight">
+      <li>see every permit in the project, instead of only their own company's;</li>
+      <li>are the only ones who can give Part 4 approval;</li>
+      <li>see approved permits in Pending for daily review and revocation.</li>
+    </ul>
+    <p>If an HEA manager "can't see" permits, check that their profile's Contractor Name matches the project's Main Constructor <em>exactly</em>.</p>
+  </div></details>
+</section>
+
+<!-- ===================================================== GLOSSARY -->
+<section class="panel" id="glossary" data-title="Glossary & Statuses">
+  <div class="panel-title"><h2>Global status reference and glossary</h2></div>
+  <p class="lead">The system itself shows statuses as bold <em>text</em> in lists. The colours below are this handbook's convention, to make the meaning easy to spot.</p>
+
+  <details class="acc searchable" open><summary>Status reference: all modules</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Status</th><th>Module</th><th>Meaning</th><th>Waiting for</th><th>Next possible</th></tr>
+      <tr><td><span class="badge b-new">NEW</span></td><td>All</td><td>Form being filled in, not yet saved</td><td>Creator to Submit</td><td>Submitted</td></tr>
+      <tr><td><span class="badge b-sub">SUBMITTED</span></td><td>All</td><td>Sent for checking</td><td>PTW: WAH Assessor · TBM: PTW Approver · CCP: CCP Approver</td><td>Assessed / Approved / Completed, Returned, Rejected</td></tr>
+      <tr><td><span class="badge b-prog">ASSESSED</span></td><td>PTW</td><td>Assessor endorsed (Part 2)</td><td>HEA Safety</td><td>Verified, Returned, Rejected</td></tr>
+      <tr><td><span class="badge b-prog">VERIFIED</span></td><td>PTW</td><td>HEA Safety satisfied (Part 3)</td><td>Project Manager</td><td>Approved, Returned, Rejected</td></tr>
+      <tr><td><span class="badge b-ok">APPROVED</span></td><td>PTW, TBM</td><td>PTW: work may proceed; daily reviews due. TBM: final.</td><td>PTW: daily reviews and completion</td><td>PTW: Closed or Revoked</td></tr>
+      <tr><td><span class="badge b-ok">COMPLETED</span></td><td>CCP</td><td>Check point approved (final)</td><td>Nothing</td><td>None</td></tr>
+      <tr><td><span class="badge b-new">CLOSED</span></td><td>PTW</td><td>Applicant reported the work finished (Part 6)</td><td>Closure Reviewer (Part 7)</td><td>Stays Closed (see known issue)</td></tr>
+      <tr><td><span class="badge b-new">CLOSURE REVIEW</span></td><td>PTW</td><td>Defined, but never used by the current system</td><td>n/a</td><td>n/a</td></tr>
+      <tr><td><span class="badge b-warn">RETURNED</span></td><td>All</td><td>Sent back with a reason. Fix it and resubmit.</td><td>Original creator</td><td>Submitted (CCP also: Deleted)</td></tr>
+      <tr><td><span class="badge b-bad">REJECTED</span></td><td>All</td><td>Refused (final)</td><td>Nothing; raise a new form</td><td>None</td></tr>
+      <tr><td><span class="badge b-bad">REVOKED</span></td><td>PTW</td><td>An approved permit was cancelled (final)</td><td>Nothing; raise a new permit</td><td>None</td></tr>
+      <tr><td><span class="badge b-dead">DELETED</span></td><td>CCP (PTW/TBM in theory)</td><td>Withdrawn by its creator</td><td>Nothing</td><td>None</td></tr>
+      <tr><td><span class="badge b-ok">ACTIVE</span> / <span class="badge b-new">LOCKED</span></td><td>Projects, contractors, equipment, types</td><td>Usable / hidden from selection lists</td><td>n/a</td><td>Unlock (not possible for projects from the screen)</td></tr>
+    </table></div>
+  </div></details>
+
+  <details class="acc searchable" open><summary>Glossary A–Z</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Applicant</td><td>The person who raises a permit and is responsible for the work</td></tr>
+      <tr><td>Attendee</td><td>A worker recorded as present at a toolbox meeting</td></tr>
+      <tr><td>Authorized Competent Person</td><td>The person allowed to give final permit approval, normally the HEA Project Manager</td></tr>
+      <tr><td>CCP</td><td>Compliance Check Point: a sign-off for a critical installation step on one lift</td></tr>
+      <tr><td>Configuration</td><td>The right-hand settings menu</td></tr>
+      <tr><td>Constructor / Contractor</td><td>A company working on projects. Both spellings appear on screen.</td></tr>
+      <tr><td>Cwt Frame</td><td>Counterweight frame of a lift</td></tr>
+      <tr><td>Daily Review</td><td>PTW Part 5: a check for each day by the applicant and the assessor</td></tr>
+      <tr><td>Document Type (user)</td><td>NRIC (Singapore identity card), FIN (foreign identification number) or WP (work permit)</td></tr>
+      <tr><td>GPS / Location</td><td>The browser's position, captured when a form is submitted</td></tr>
+      <tr><td>HEA</td><td>Hitachi Elevator Asia</td></tr>
+      <tr><td>Key Activity</td><td>A critical installation step tracked by CCP, or a work activity in TBM hazards</td></tr>
+      <tr><td>Main Constructor</td><td>The project's lead company, whose staff hold full rights</td></tr>
+      <tr><td>Manpower at Site</td><td>Dashboard head-count calculated from toolbox meetings (½ per session)</td></tr>
+      <tr><td>MFG No. / Manufacturing Number / Registration No</td><td>Unique number of a lift or escalator unit</td></tr>
+      <tr><td>Pending</td><td>Your personal inbox of forms waiting for your action</td></tr>
+      <tr><td>PDPA</td><td>Singapore's Personal Data Protection Act (the video-surveillance consent notice)</td></tr>
+      <tr><td>PTW</td><td>Permit to Work</td></tr>
+      <tr><td>Return / Reject / Revoke</td><td>Send back to fix / refuse permanently / cancel after approval</td></tr>
+      <tr><td>Session (AM/PM)</td><td>Morning or afternoon shift of a toolbox meeting</td></tr>
+      <tr><td>TBM</td><td>Toolbox Meeting: the pre-work safety briefing</td></tr>
+      <tr><td>Template</td><td>A predefined list of checklist questions behind a form</td></tr>
+      <tr><td>Touch and Call</td><td>The team's spoken point-and-call safety confirmation</td></tr>
+      <tr><td>WAH</td><td>Work at Height</td></tr>
+      <tr><td>Work Type</td><td>The category of a permit, which decides its checklist</td></tr>
+    </table></div>
+  </div></details>
+</section>
+
+<!-- ===================================================== FAQ -->
+<section class="panel" id="faq" data-title="Troubleshooting">
+  <div class="panel-title"><h2>FAQ and day-to-day troubleshooting</h2></div>
+
+  <details class="acc searchable" open><summary>Daily operations checklist</summary><div class="body">
+    <ul>
+      <li><strong>Approvers (Assessor, Safety, Project Manager, CCP Approver):</strong> open your <em>Pending</em> lists at least twice a day. Nobody is notified automatically.</li>
+      <li><strong>Supervisors:</strong> submit a toolbox meeting for every AM and PM session, with all attendees. This is the only source of manpower figures.</li>
+      <li><strong>Applicants:</strong> complete the daily review on the day itself or the next day. Check your List for RETURNED items, and click <em>Complete the Permit</em> when the work ends.</li>
+      <li><strong>Admins:</strong> when someone leaves, delete their account. When someone joins, create the account, add roles, and make sure their company is linked to the project.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable"><summary>"I can't log in."</summary><div class="body"><ul>
+    <li>Contractor staff: type your <em>full</em> email address. Without "@", the system adds "@hitachi.com".</li>
+    <li>The password is case-sensitive. Use the eye icon to check what you typed.</li>
+    <li>Was your account deleted? Deleted accounts cannot log in. Ask an admin to re-create it.</li>
+    <li>Forgot your password: an admin clicks <strong>Reset Password</strong> and you get a new one by email.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"I don't see my project."</summary><div class="body"><ul>
+    <li>Your company must be the main contractor, or be added under Project Configuration → "1. Contractors". Alternatively, you must be added personally under "2. Manpower &amp; Staff".</li>
+    <li>The project may have been locked. IT must reactivate it.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"A menu item or button is missing."</summary><div class="body"><ul>
+    <li>Menu items depend on your roles. Ask an admin which roles you have.</li>
+    <li>The left menu only appears after you select a project.</li>
+    <li>Action buttons only appear at the right status <em>and</em> for the right role. For example, the Approve button for a toolbox meeting needs PTW APPROVER, and you cannot approve your own TBM or CCP.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"My Pending list is empty, but I know there are forms waiting."</summary><div class="body"><ul>
+    <li>Check you have selected the right project.</li>
+    <li>Toolbox meetings need <strong>PTW APPROVER</strong>, not TBM APPROVER.</li>
+    <li>PTW final approval: your profile's company must equal the project's main contractor exactly.</li>
+    <li>Reopen the Pending page from the menu. The list is a snapshot taken when the page was opened.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"I clicked Submit / Approve and nothing happened."</summary><div class="body"><ul>
+    <li>Scroll up and look for red validation messages.</li>
+    <li>Shorten long remarks or reasons to under 150 characters, and descriptions to their limits.</li>
+    <li>Your session may have expired, or the server restarted. Sign in again. Unsaved drafts are lost.</li>
+    <li>PTW: check the dates. The start cannot be in the past, and the permit can cover at most 7 days.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"The Manufacturing Number / Work Type / Key Activity list is empty."</summary><div class="body"><ul>
+    <li>Manufacturing Number: the project needs active equipment of type <strong>MFG NO</strong>.</li>
+    <li>Work Type, Key Activity and checklist questions are set up by IT. Ask IT to add them.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"Clicking New shows an old form."</summary><div class="body"><p>Always open forms from the <strong>New</strong> menu item. Using the browser's Back button or a bookmark can reopen the last form you viewed.</p></div></details>
+
+  <details class="acc searchable"><summary>"The PDF won't download."</summary><div class="body"><ul>
+    <li>TBM: a PDF attachment on the meeting probably breaks the export. Remove the PDF, or attach images instead.</li>
+    <li>PTW: a corrupt photo can stop the export without any message.</li>
+    <li>If <em>all</em> PDFs fail, the server's Crystal Reports component is missing. Contact IT.</li>
+  </ul></div></details>
+
+  <details class="acc searchable"><summary>"A closed permit stays in my Pending list forever."</summary><div class="body"><p>This is a known defect. Once you have done the Closure Review, the Review button disappears and you can ignore the item.</p></div></details>
+
+  <details class="acc searchable"><summary>"A permit was revoked by mistake."</summary><div class="body"><p>There is no screen to undo this. IT has a database script that restores revoked permits to Approved. Ask IT, and provide the project, MFG No., dates and applicant.</p></div></details>
+
+  <details class="acc searchable"><summary>"An uploaded document doesn't appear in Document List."</summary><div class="body"><p>This is the long-project-name defect described in the Documents tab. Report it to IT.</p></div></details>
+
+  <details class="acc searchable"><summary>"Error messages show technical details."</summary><div class="body"><p>The site is configured to show full technical error pages. Take a screenshot and send it to IT. It helps them diagnose the problem.</p></div></details>
+</section>
+
+<!-- ===================================================== RISKS -->
+<section class="panel" id="risks" data-title="Known Issues & Risks">
+  <div class="panel-title"><h2>Known issues and risks (for management)</h2></div>
+  <p class="lead">These issues were found by reading the code. They are ranked by business impact. Each one should go onto a remediation list for whoever maintains the system next.</p>
+
+  <details class="acc searchable" open><summary>Security</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Severity</th><th>Issue</th><th>Business impact</th></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>The main database administrator ("sa") password is written in plain text in the system's configuration file. That file is in the GitHub repository.</td><td>Anyone who can read the repository could take full control of the test database, and possibly production too if the same password is used there. Change the password, and make the repository private.</td></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>User passwords are stored as readable text, not encrypted.</td><td>Anyone with database access can read every user's password.</td></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>Every password email, including the password itself, is blind-copied to one named individual's mailbox.</td><td>One person receives all users' passwords. If that person has left, the emails still go to that mailbox.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>Pages do not check roles themselves. Hiding a menu item is the only protection.</td><td>A user who knows a page address can open admin screens or the all-project TBM report.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>There is no lock-out after failed logins, and nothing forces a change from the emailed password.</td><td>Accounts are easier to guess into.</td></tr>
+      <tr><td><span class="sev l">LOW</span></td><td>Full technical error pages are shown to users. The QR-code encryption key is fixed in the program.</td><td>Leaks internal details to users.</td></tr>
+    </table></div>
+  </div></details>
+
+  <details class="acc searchable" open><summary>Process and data integrity</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Severity</th><th>Issue</th><th>Business impact</th></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>No notifications of any kind for forms.</td><td>Permits and meetings can wait unnoticed. Work may be delayed, or may start without approval.</td></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>No audit trail. Resubmitting a returned permit erases the earlier sign-offs, and "created by/on" is overwritten on every save.</td><td>Weak evidence in an incident investigation.</td></tr>
+      <tr><td><span class="sev h">HIGH</span></td><td>Errors during saving are hidden. The button just "does nothing".</td><td>Users believe they acted when they did not.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>"Delete" on a user removes them permanently. There is no restore from the screens.</td><td>An admin mistake requires the account to be re-created.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>A locked project cannot be unlocked from the screens.</td><td>Requires IT intervention.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>Closure Review never finishes a permit. It stays CLOSED and in the reviewer's inbox.</td><td>Cluttered inbox. The dashboard's "Closure Review" count is always zero.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>Documents may disappear for project names longer than 20 characters.</td><td>The document library may be unusable for most real projects.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>The TBM APPROVER role does nothing; PTW APPROVER is used instead.</td><td>Confusing role setup, and stalled toolbox meetings.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>A person holding several PTW roles can approve their own permit.</td><td>Segregation of duties depends on policy, not on the system.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>Two people acting on the same form at the same time can overwrite each other.</td><td>A sign-off may be lost.</td></tr>
+      <tr><td><span class="sev m">MED</span></td><td>The duplicate-email check and some user-ID fields cut off at 20 characters.</td><td>Long email addresses can overwrite another account, or be stored wrongly.</td></tr>
+      <tr><td><span class="sev l">LOW</span></td><td>The "3 working days in advance" rule is not enforced. Permits are not closed automatically after their end date.</td><td>Relies on site discipline.</td></tr>
+      <tr><td><span class="sev l">LOW</span></td><td>Re-entering an existing equipment number silently moves the unit to another project. Equipment/Document Type lock does not work.</td><td>Equipment can end up in the wrong project.</td></tr>
+      <tr><td><span class="sev l">LOW</span></td><td>TBM PDF omits the equipment and checklist. PTW PDF omits PDF attachments.</td><td>Printed records are incomplete.</td></tr>
+    </table></div>
+  </div></details>
+
+  <details class="acc searchable"><summary>Operational dependencies to keep running</summary><div class="body">
+    <ul>
+      <li><strong>Database server:</strong> SQL Server (2017 compatibility). The production database is "ePTW_PRD", about 45 GB including its log. Almost all of it is photos and documents, which are stored <em>inside</em> the database. Back it up accordingly.</li>
+      <li><strong>Email:</strong> the system does not send email itself. It drops password emails into a queue in a separate database called "HEAData". Another program, which is <em>not</em> part of this system, sends them. If password emails stop arriving, check that program.</li>
+      <li><strong>Web server components:</strong> the DevExpress 23.2 user-interface library, and the SAP Crystal Reports runtime for PDFs.</li>
+      <li><strong>Sessions:</strong> held in the web server's memory. A server or app restart signs everyone out and loses unsaved drafts. Schedule maintenance out of hours.</li>
+      <li><strong>Possible companion mobile app:</strong> the personal QR code, a GPS-logging table and a "currently valid permits" lookup suggest that a mobile app exists. It is not part of this code. Ask the team whether one is in use.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc searchable"><summary>Information to collect from the live system (to complete this handbook)</summary><div class="body">
+    <ol>
+      <li>The menu list and which role sees each item (database tables "Menu" and "RoleMenu").</li>
+      <li>The list of roles actually in use, and who holds them.</li>
+      <li>All checklist templates: PTW work types, "TBM", "SAFETYCHECKLIST-E", "SAFETYCHECKLIST-P" and each CCP key activity, with their questions.</li>
+      <li>The TBM work activity list and the CCP key activity list.</li>
+      <li>A sample PTW PDF and TBM PDF, to document their layout.</li>
+      <li>Who runs the email-sending program, and who owns the mailbox that receives the blind copies.</li>
+    </ol>
+  </div></details>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">HEA Digital Safety Tools (ePTW) Handbook · Reconstructed from source code and database design · 2 October 2026 · The screen headings and messages quoted are exact. Sample people, companies and numbers are illustrative.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('eptw-theme'); if(saved) root.setAttribute('data-theme',saved);}catch(e){}
+  function isDark(){
+    var t=root.getAttribute('data-theme');
+    if(t) return t==='dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  // ---- Mermaid: keep source, render lazily per visible panel, re-render on theme change
+  var diagrams=[].slice.call(document.querySelectorAll('pre.mermaid'));
+  diagrams.forEach(function(d){ d.setAttribute('data-src', d.textContent); });
+  function initMermaid(){
+    if(!window.mermaid) return false;
+    mermaid.initialize({startOnLoad:false, theme: isDark()?'dark':'default', securityLevel:'strict', flowchart:{htmlLabels:true}});
+    return true;
+  }
+  function renderIn(container){
+    if(!window.mermaid) return;
+    var nodes=[].slice.call(container.querySelectorAll('pre.mermaid:not([data-processed])'));
+    nodes=nodes.filter(function(n){ return n.offsetParent!==null; });
+    if(nodes.length) mermaid.run({nodes:nodes}).catch(function(){});
+  }
+  function resetDiagrams(){
+    diagrams.forEach(function(d){ d.removeAttribute('data-processed'); d.innerHTML=''; d.textContent=d.getAttribute('data-src'); });
+  }
+  var ready=initMermaid();
+
+  // ---- Tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  var panels=[].slice.call(document.querySelectorAll('section.panel'));
+  function show(id, push){
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.tab===id ? 'true':'false'); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id===id); });
+    try{ localStorage.setItem('eptw-tab', id);}catch(e){}
+    if(push!==false) history.replaceState(null,'','#tab-'+id);
+    var p=document.getElementById(id); if(p) renderIn(p);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ clearSearch(); show(t.dataset.tab); window.scrollTo({top:0}); }); });
+  document.addEventListener('click', function(e){
+    var a=e.target.closest('[data-goto]'); if(!a) return;
+    e.preventDefault(); clearSearch(); show(a.dataset.goto); window.scrollTo({top:0});
+  });
+  var start=(location.hash||'').replace(/^#(tab-)?/,'');
+  if(!document.getElementById(start)){ try{ start=localStorage.getItem('eptw-tab')||'overview'; }catch(e){ start='overview'; } }
+  if(!document.getElementById(start)) start='overview';
+  show(start,false);
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.scrollTo(0,0); setTimeout(function(){ window.scrollTo(0,0); },0);
+  window.addEventListener('load', function(){ if(!ready) ready=initMermaid(); renderIn(document.querySelector('section.panel.active')); });
+
+  // ---- Theme toggle
+  document.getElementById('theme').addEventListener('click', function(){
+    var next=isDark()?'light':'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('eptw-theme', next);}catch(e){}
+    if(initMermaid()){ resetDiagrams(); renderIn(document.body.classList.contains('searching')?document.body:document.querySelector('section.panel.active')); }
+  });
+
+  // ---- Expand / collapse
+  document.getElementById('expand').addEventListener('click', function(){ document.querySelectorAll('details.acc').forEach(function(d){d.open=true;}); });
+  document.getElementById('collapse').addEventListener('click', function(){ document.querySelectorAll('details.acc').forEach(function(d){d.open=false;}); });
+
+  // ---- Search across all tabs
+  var q=document.getElementById('q'), qc=document.getElementById('qcount');
+  var items=[].slice.call(document.querySelectorAll('.searchable'));
+  items.forEach(function(el){ el._text=el.textContent.toLowerCase(); });
+  function unmark(){ document.querySelectorAll('mark').forEach(function(m){ m.replaceWith(document.createTextNode(m.textContent)); }); document.querySelectorAll('.searchable').forEach(function(el){el.normalize();}); }
+  function markIn(el, term){
+    var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes=[], n;
+    while((n=walker.nextNode())){ if(n.parentNode.closest('script,style,pre.mermaid,svg')) continue; if(n.nodeValue.toLowerCase().indexOf(term)>-1) nodes.push(n); }
+    nodes.forEach(function(node){
+      var txt=node.nodeValue, low=txt.toLowerCase(), frag=document.createDocumentFragment(), i=0, j;
+      while((j=low.indexOf(term,i))>-1){ frag.appendChild(document.createTextNode(txt.slice(i,j))); var m=document.createElement('mark'); m.textContent=txt.slice(j,j+term.length); frag.appendChild(m); i=j+term.length; }
+      frag.appendChild(document.createTextNode(txt.slice(i))); node.parentNode.replaceChild(frag,node);
+    });
+  }
+  function clearSearch(){ if(!q.value) return; q.value=''; run(); }
+  var timer;
+  function run(){
+    unmark();
+    var term=q.value.trim().toLowerCase();
+    if(term.length<2){
+      document.body.classList.remove('searching');
+      items.forEach(function(el){ el.style.display=''; });
+      panels.forEach(function(p){ p.classList.remove('nomatch'); });
+      qc.textContent=''; return;
+    }
+    document.body.classList.add('searching');
+    var count=0;
+    panels.forEach(function(p){
+      var hits=0;
+      [].slice.call(p.querySelectorAll('.searchable')).forEach(function(el){
+        var hit=el._text.indexOf(term)>-1;
+        el.style.display=hit?'':'none';
+        if(hit){ hits++; if(el.tagName==='DETAILS') el.open=true; markIn(el,term); }
+      });
+      p.classList.toggle('nomatch', hits===0);
+      count+=hits;
+    });
+    qc.textContent=count+(count===1?' match':' matches');
+  }
+  q.addEventListener('input', function(){ clearTimeout(timer); timer=setTimeout(run,180); });
+  q.addEventListener('keydown', function(e){ if(e.key==='Escape'){ clearSearch(); } });
+})();
+</script>
+</body>
+</html>
