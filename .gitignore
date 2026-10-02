@@ -1,0 +1,25 @@
+# Visual Studio and user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+packages/
+
+# Runtime-generated files
+DXTempFolder/
+App_Data/UploadTemp/
+Outputs/
+Thumb/
+
+# Local editor and operating-system files
+.vscode/*.log
+.DS_Store
+Thumbs.db
+
