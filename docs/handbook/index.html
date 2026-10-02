@@ -125,6 +125,153 @@ footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);pa
   .shot dt{margin-top:4px}
   th,td{padding:6px 7px}
 }
+
+/* ---------- reconstructed app screens (always light, like the real app) ---------- */
+.mk-wrap{margin:12px 0 6px}
+.mk-ribbon{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.03em;color:var(--warn);background:var(--warn-soft);border-radius:6px 6px 0 0;padding:3px 10px}
+.mk-box{overflow:hidden;border-radius:0 8px 8px 8px}
+.mk-stage{width:1000px;transform-origin:0 0}
+.mk-legend{font-size:.9rem;margin:6px 0 0}
+.mk-legend ol{margin:4px 0;padding-left:0;list-style:none;counter-reset:mk}
+.mk-legend li{counter-increment:mk;margin:3px 0;padding-left:30px;position:relative}
+.mk-legend li::before{content:counter(mk);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:#e5484d;color:#fff;font:700 12px/20px Arial,sans-serif;text-align:center}
+.mk-legend .mk-n{color:var(--muted);font-size:.85rem;margin:4px 0 0}
+.mk-window{border:1px solid #c4c9d0;border-radius:8px;overflow:hidden;background:#fff;color:#333;font:14px Arial,Helvetica,sans-serif;line-height:1.35;text-align:left}
+.mk-window *{box-sizing:border-box}
+.mk-chrome{background:#e6e8eb;padding:7px 10px;display:flex;gap:7px;align-items:center;border-bottom:1px solid #d3d6da}
+.mk-chrome .d{width:11px;height:11px;border-radius:50%;background:#c9ccd1}
+.mk-url{flex:1;margin-left:8px;background:#fff;border-radius:12px;padding:3px 12px;font-size:12px;color:#555}
+.mk-head{height:50px;background:#fff;border-bottom:1px solid #e4e4e4;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.mk-head .l,.mk-head .r{display:flex;align-items:center;gap:14px}
+.mk-burger{font-size:18px;color:#666}
+.mk-logo{font-size:16px;color:#c3002f;font-weight:700;letter-spacing:.02em}
+.mk-logo b{color:#444;font-weight:600}
+.mk-av{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#d9e2ee;color:#3a5a85;font-weight:700;font-size:12px}
+.mk-av.big{width:44px;height:44px;font-size:15px}
+.mk-body{display:flex;align-items:stretch;position:relative;min-height:200px}
+.mk-left{width:190px;flex:0 0 190px;background:#f4f4f4;border-right:1px solid #e4e4e4;padding:6px 0;font-size:13px;align-self:stretch}
+.mk-right{width:170px;flex:0 0 170px;background:#fafafa;border-left:1px solid #e4e4e4;padding:0 0 6px;font-size:13px}
+.mk-rcap{font-weight:700;color:#494949;padding:10px 12px;border-bottom:1px solid #eee}
+.mk-mi{padding:5px 12px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-mi.grp{font-weight:700;color:#333;margin-top:4px}
+.mk-mi.sub{padding-left:26px}
+.mk-mi.on{background:#dbe5f1;color:#1f4e8c;font-weight:700}
+.mk-main{flex:1;padding:12px 14px 16px;background:#fff;position:relative;min-width:0}
+.mk-foot{font-size:11px;color:#999;padding:6px 12px;border-top:1px solid #f0f0f0}
+.mk-title{background:#494949;color:#fff;font-weight:700;font-size:18px;padding:10px 14px;margin:0 0 10px}
+.mk-row{display:flex;align-items:center;gap:10px;margin:6px 0}
+.mk-row.top{align-items:flex-start}
+.mk-row.top .mk-cap{padding-top:6px}
+.mk-cap{width:170px;flex:0 0 170px;color:#333;font-size:13px}
+.mk-ctl{flex:1;min-width:0}
+.mk-2{display:flex;gap:18px}
+.mk-2>div{flex:1;min-width:0}
+.mk-in{border:1px solid #cfcfcf;border-radius:2px;padding:5px 8px;min-height:30px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;color:#222}
+.mk-in.memo{align-items:flex-start}
+.mk-in .ph{color:#9a9a9a}
+.mk-in.ro{background:#f2f2f2;color:#555}
+.mk-in.dis{background:#f7f7f7;color:#777;border-color:#e0e0e0}
+.mk-in.bad{background:#FFE6EE;border-color:#e88aa6}
+.mk-ic{color:#777;font-size:12px}
+.mk-err{color:#d0021b;font-size:12px;margin-top:3px}
+.mk-btns{margin:10px 0 2px;display:flex;gap:8px;flex-wrap:wrap}
+.mk-btn{display:inline-block;border:1px solid #c6c6c6;background:#fff;color:#333;padding:6px 16px;border-radius:2px;font-size:13px;white-space:nowrap}
+.mk-btn.pri{background:#4F81BD;border-color:#4F81BD;color:#fff}
+.mk-btn.danger{background:#fff;border-color:#c0504d;color:#c0504d;font-weight:700}
+.mk-btn.dis{color:#aaa;border-color:#e2e2e2;background:#f7f7f7}
+.mk-chk{display:flex;gap:8px;align-items:flex-start;margin:5px 0;font-size:13px}
+.mk-chk .box{flex:0 0 16px;height:16px;border:1px solid #9c9c9c;border-radius:2px;display:grid;place-items:center;font-size:11px;color:#fff;margin-top:1px}
+.mk-chk .box.on{background:#4F81BD;border-color:#4F81BD}
+.mk-chk.dis{color:#888}
+.mk-part{border:2px solid darkgray;padding:8px 12px 10px;margin:10px 0}
+.mk-ph{font-weight:700;font-size:15px;margin:0 0 6px}
+.mk-decl{font-size:13px;color:#333;margin:2px 0 8px}
+.mk-reason{background:#fff8f0;border:1px solid #f0d9c0;padding:6px 10px;margin:10px 0}
+.mk-guide{background:#f3f3f3;border:1px solid #e0e0e0;padding:8px 10px;margin:10px 0;font-size:12px;color:#444}
+.mk-guide ol{margin:0;padding-left:18px}
+.mk-q{margin:10px 0;padding:6px 0;border-top:1px solid #eee}
+.mk-q .b1{font-weight:700;font-size:15px;margin:4px 0 6px}
+.mk-q .b2{font-weight:700;margin:8px 0 4px}
+.mk-status{text-align:right;font-weight:700;margin-top:4px}
+.mk-pvp{display:flex;gap:30px;margin-top:4px}
+.mk-loc{font-size:12px;color:#666;margin-top:10px}
+.mk-upl{display:flex;gap:8px;align-items:center;margin:8px 0 2px}
+.mk-upl .mk-in{flex:1}
+.mk-small{font-size:12px;color:#666}
+.mk-file{font-size:13px;margin:4px 0}
+.mk-file a{color:#2b5797;text-decoration:underline}
+.mk-del{color:#c0504d;margin-left:8px;text-decoration:underline}
+.mk-link{color:#2b5797;text-decoration:underline;font-size:13px}
+.mk-gal{display:flex;gap:8px;margin:8px 0}
+.mk-photo{background:linear-gradient(135deg,#cfd8e3,#9fb1c7);border-radius:3px;display:grid;place-items:end start;flex:0 0 auto}
+.mk-photo span{font-size:10px;color:#fff;background:rgba(0,0,0,.35);padding:1px 5px;border-radius:2px;margin:4px}
+.mk-pp{display:flex;gap:14px;align-items:flex-start;font-size:13px}
+.mk-kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;font-size:13px}
+.mk-kv span{color:#777}
+.mk-kv b{font-weight:600}
+.mk-grid{border:1px solid #d6d6d6;margin:8px 0;font-size:13px}
+.mk-gtitle{background:WhiteSmoke;color:#717171;font-weight:700;font-size:15px;padding:7px 10px;border-bottom:1px solid #e1e1e1}
+.mk-gtool{display:flex;gap:4px;align-items:center;padding:5px 8px;border-bottom:1px solid #e1e1e1;background:#fafafa;flex-wrap:wrap}
+.mk-tbtn{display:inline-flex;gap:5px;align-items:center;padding:4px 10px;color:#333}
+.mk-tbtn em{font-style:normal;color:#4F81BD;font-weight:700}
+.mk-menu{font-size:12px;color:#666;margin-left:4px}
+.mk-gsearch{padding:6px 8px;border-bottom:1px solid #e1e1e1}
+.mk-grid table{border-collapse:collapse;width:100%}
+.mk-grid th{background:#f3f3f3;font-weight:400;color:#555;text-align:left;padding:6px 8px;border:1px solid #e1e1e1}
+.mk-grid td{padding:6px 8px;border:1px solid #e9e9e9;vertical-align:middle}
+.mk-grid tr.sel td{background:#e8eff8}
+.mk-grid tr.pv td{background:#fcfcfc;color:#444;border-top:0}
+.mk-gfoot{padding:5px 8px;background:#f7f7f7;font-size:12px;color:#555;border-top:1px solid #e1e1e1}
+.mk-pager{padding:5px 8px;text-align:right;font-size:12px;color:#888;display:flex;gap:10px;justify-content:flex-end}
+.mk-pager b{color:#fff;background:#4F81BD;border-radius:2px;padding:0 6px}
+.mk-group{font-size:12px;color:#999;border:1px dashed #ccc;padding:5px 8px}
+.mk-ddl{border:1px solid #c6c6c6;box-shadow:0 4px 10px rgba(0,0,0,.12);margin-top:2px;font-size:12px;background:#fff}
+.mk-ddl table{border-collapse:collapse;width:100%}
+.mk-ddl th{background:#f3f3f3;text-align:left;padding:4px 8px;font-weight:400;color:#555}
+.mk-ddl td{padding:4px 8px;border-top:1px solid #f0f0f0}
+.mk-ddl tr.sel td{background:#4F81BD;color:#fff}
+.mk-editform{border:1px solid #d6d6d6;background:#fbfbfb;padding:6px 12px 8px;margin:-9px 0 8px}
+.mk-detail{margin:-8px 0 8px 26px}
+.mk-day{border-top:1px solid #eee;padding:6px 0}
+.mk-day .dh{font-weight:700;margin-bottom:4px}
+.mk-day .mk-in{min-height:24px}
+.mk-mini{opacity:.92}
+.mk-arrow{text-align:center;font-size:12px;color:#777;margin:2px 0 8px}
+.mk-fade{opacity:.45}
+.mk-dl{margin-top:10px;font-size:13px;background:#f5f5f5;border:1px solid #ddd;padding:8px 10px;border-radius:4px}
+.mk-tip{display:inline-block;background:#333;color:#fff;font-size:12px;padding:4px 8px;border-radius:3px;margin-left:600px;margin-top:-4px}
+.mk-ov{position:absolute;inset:0;background:rgba(0,0,0,.32);display:flex;justify-content:center;align-items:flex-start;padding-top:96px;z-index:3}
+.mk-main.hasov{min-height:600px}
+.mk-ov.tr{background:transparent;justify-content:flex-end;padding:0 4px 0 0}
+.mk-pop{background:#fff;border:1px solid #bdbdbd;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.mk-poph{background:#f3f3f3;border-bottom:1px solid #ddd;padding:8px 12px;font-weight:700;display:flex;justify-content:space-between}
+.mk-poph span{color:#888;font-weight:400}
+.mk-popb{padding:8px 14px}
+.mk-popf{padding:8px 14px 12px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid #eee}
+.mk-acc{background:#fff;border:1px solid #ccc;box-shadow:0 8px 24px rgba(0,0,0,.2);width:280px;padding:12px}
+.mk-ui{display:flex;gap:10px;align-items:center;font-size:13px}
+.mk-muted{color:#888;font-size:12px}
+.mk-so{padding:8px 4px;border-top:1px solid #eee;font-size:14px}
+.mk-confirm{display:flex;align-items:flex-start;justify-content:center;width:100%;padding-top:60px}
+.mk-cbox{background:#fff;border:1px solid #bbb;box-shadow:0 8px 24px rgba(0,0,0,.25);padding:16px 18px;min-width:320px}
+.mk-charts{display:flex;gap:16px;margin:12px 0}
+.mk-chart{border:1px solid #e3e3e3;padding:8px;flex:1;text-align:center}
+.mk-chart .ct{font-weight:700;color:#555;margin-bottom:4px}
+.mk-chart .lg{display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center;font-size:11px;color:#555}
+.mk-chart .lg i{display:inline-block;width:9px;height:9px;margin-right:4px}
+.mk-chart.wide{margin:8px 0}
+.mk-signin{background:linear-gradient(160deg,#5d7894 0%,#2b3c50 55%,#1a2532 100%);padding:46px 0;display:grid;place-items:center}
+.mk-signin .card{background:rgba(0,10,20,.7);border-radius:20px;padding:26px 32px;width:420px;color:#fff}
+.mk-signin h2{color:#fff;margin:0 0 14px;font-size:26px;text-align:center}
+.mk-signin .cap{color:#fff;font-size:13px;margin:10px 0 4px}
+.mk-captcha{display:flex;gap:10px;align-items:center}
+.mk-captcha .code{background:repeating-linear-gradient(45deg,#ddd,#ddd 4px,#eee 4px,#eee 8px);color:#333;font:italic 700 20px Georgia,serif;letter-spacing:4px;padding:4px 12px;border-radius:3px}
+.mk-hl{position:relative;display:inline-block;outline:2.5px solid #e5484d;outline-offset:2px;border-radius:2px}
+.mk-hl.blk{display:block}
+.mk-body>.mk-hl{outline-offset:-3px}
+.mk-body>.mk-hl>i{top:4px;left:4px}
+.mk-hl>i{position:absolute;top:-12px;left:-12px;background:#e5484d;color:#fff;border-radius:50%;width:21px;height:21px;font:700 12px/21px Arial,sans-serif;text-align:center;font-style:normal;z-index:5;box-shadow:0 0 0 2px #fff}
+@media print{.mk-stage{transform:none!important}.mk-box{height:auto!important;overflow:visible}}
 @media print{
   nav.tabs,.toolbar{display:none}
   section.panel{display:block!important}
@@ -275,7 +422,7 @@ flowchart LR
   </div></details>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Signing in</h4><div class="who">Everyone</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"HEA Digital Safety Tools" sign-in page · <span class="mono">/Account/SignIn.aspx</span></dd>
       <dt>Highlight</dt><dd>The <em>User ID</em> box, the <em>Password</em> box with its eye icon (show/hide), the <em>Type the code shown</em> picture code (CAPTCHA), and the <strong>Log In</strong> button</dd>
       <dt>Sample data</dt><dd>User ID: <span class="mono">tan.weiming</span> (becomes tan.weiming@hitachi.com) · Password: the 8-character password from the welcome email · Code: the digits shown in the image</dd>
@@ -287,7 +434,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Selecting your project</h4><div class="who">Everyone</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Select the Project" · <span class="mono">/Projects.aspx</span></dd>
       <dt>Highlight</dt><dd>A project row showing its photo, the main contractor in bold and the start–end dates, plus the <strong>Click To Select</strong> button. Also the search box above the list.</dd>
       <dt>Sample data</dt><dd>Project "Tampines GreenGlade Block 512" · Main contractor "Hitachi Elevator Asia Pte Ltd" · 01/03/2026 ~ 30/11/2026</dd>
@@ -299,7 +446,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Finding your way around</h4><div class="who">Everyone</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Any page after selecting a project, e.g. "Project Overview (Tampines GreenGlade Block 512)"</dd>
       <dt>Highlight</dt><dd>The left menu (PTW / TBM / CCP items and <em>Change Project</em>), the right "Configuration" panel, and the avatar at the top right</dd>
       <dt>Sample data</dt><dd>Signed in as a user with the PTW USER and TBM USER roles</dd>
@@ -315,7 +462,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Changing your own password</h4><div class="who">Everyone</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"User Management - (All Projects)" · <span class="mono">/Settings/UserSetting.aspx</span>, edit popup of your own row</dd>
       <dt>Highlight</dt><dd>The <strong>Edit</strong> button on your own row, then the <em>Password</em> and <em>Confirm</em> boxes at the bottom of the popup, and <strong>Update</strong></dd>
       <dt>Sample data</dt><dd>Password: <span class="mono">Lift2026!</span> · Confirm: <span class="mono">Lift2026!</span></dd>
@@ -325,7 +472,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Signing out and your personal QR code</h4><div class="who">Everyone</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Any page: click the avatar at the top right</dd>
       <dt>Highlight</dt><dd>Your name and email, the QR code image, and <strong>Sign out</strong></dd>
       <dt>Sample data</dt><dd>"Mr. Tan Wei Ming", tan.weiming@hitachi.com</dd>
@@ -396,7 +543,7 @@ stateDiagram-v2
   <p class="who">Running example: subcontractor <em>Kong Lift Engineering Pte Ltd</em> needs to install guide rails in lift L2 at "Tampines GreenGlade Block 512" from Thursday 8 to Monday 12 October 2026. HEA is the main contractor.</p>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Starting a new permit and entering the work details</h4><div class="who">Applicant (any user with access to the "New" PTW menu item)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Permit To Work - New" · <span class="mono">/PTW/NewPTW.aspx?Status=N</span></dd>
       <dt>Highlight</dt><dd>The heading "Permit To Work - New", the read-only <em>Project Name</em>, the <em>Date From</em> / <em>Date To</em> pickers, the <em>Manufacturing Number</em> drop-down (with its RegistrationNo / Description / Type columns), <em>Work Description</em>, <em>Total Worker</em> and <em>Work Type</em>. Also the grey six-point guidelines panel.</dd>
       <dt>Sample data</dt><dd>Date From 08/10/2026 · Date To 12/10/2026 · Manufacturing Number <span class="mono">L-2231</span> (Lift L2, Passenger 13-person) · Work Description "Installation of guide rails in shaft L2, levels 1–12" · Total Worker 4 · Work Type "Working at Height"</dd>
@@ -411,7 +558,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Completing the safety checklist</h4><div class="who">Applicant</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, checklist area below the Work Type</dd>
       <dt>Highlight</dt><dd>A bold section heading, a few tick-box items, one text answer box, and one drop-down answer (if the template has one)</dd>
       <dt>Sample data</dt><dd>Tick "Full body harness inspected", "Lifeline anchored", "Barricade at landing doors". Text: "Rescue plan RP-07 briefed to team".</dd>
@@ -421,7 +568,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Attaching photos or documents</h4><div class="who">Applicant</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, attachments section</dd>
       <dt>Highlight</dt><dd>The <strong>Browse File</strong> button, the note "Allowed file extensions: .jpg, .jpeg, .gif, .png., .pdf. (Maximum file size: 4 MB.)", the uploaded-files list, and the photo gallery</dd>
       <dt>Sample data</dt><dd><span class="mono">L2_shaft_barricade.jpg</span> (2.1 MB), <span class="mono">RiskAssessment_WAH_L2.pdf</span> (850 KB)</dd>
@@ -435,7 +582,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Submitting the permit (Part 1 declaration)</h4><div class="who">Applicant</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, "PTW Applicant" section at the bottom</dd>
       <dt>Highlight</dt><dd>The declaration text ("I shall assure that there are no incompatible this PTW… no work shall be carried out before PTW approval."), the auto-filled Name / Designation / Company Name, the Remarks box, the <strong>Submit</strong> button, and the "Location : Latitude …, Longitude …" line</dd>
       <dt>Sample data</dt><dd>Name "Mr. Lim Ah Kow" · Designation "Site Supervisor" · Company "Kong Lift Engineering Pte Ltd" · Remarks "Work at night shift not required"</dd>
@@ -447,7 +594,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Endorsement by the WAH Assessor (Part 2)</h4><div class="who">PTW ASSESSOR</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Permit To Work - Pending" · <span class="mono">/PTW/PendingPTW.aspx</span>, then the permit opened via <strong>Verify</strong> (heading "Permit To Work - Submitted")</dd>
       <dt>Highlight</dt><dd>In the list: the row with dates 08 Oct 2026 – 12 Oct 2026, the description and the bold status "SUBMITTED". In the form: "Part 2: Endorsement by WAH Assessor" with its statement "I Acknowledge the above work activities shall be carried out in accordance with the Risk Assessment and Safe Work Practices.", the Remarks box, the <strong>Verify</strong> button, and the "For Return, Reject &amp; Revoke : Please specify the reason" box with <strong>Return</strong> and <strong>Reject</strong></dd>
       <dt>Sample data</dt><dd>Remarks "RA and rescue plan sighted" → Verify. Or reason "Rescue plan not attached" → Return.</dd>
@@ -463,7 +610,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>HEA Safety check (Part 3)</h4><div class="who">PTW SAFETY</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Assessed"</dd>
       <dt>Highlight</dt><dd>Part 2 now completed (assessor's name and time), "Part 3: HEA Safety" with "Satisfaction of the safety provision taken by applicant.", Remarks, and <strong>Verify</strong> / <strong>Return</strong> / <strong>Reject</strong></dd>
       <dt>Sample data</dt><dd>Remarks "Lifeline anchorage confirmed at L12 machine room"</dd>
@@ -472,7 +619,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Final approval by the Project Manager (Part 4)</h4><div class="who">PTW APPROVER, who must belong to the main contractor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Safety Verified"</dd>
       <dt>Highlight</dt><dd>"Part 4: Approval by HEA Project Manager / Authorized Competent Person", the line "Permit To Work is :", Remarks, and <strong>Approve</strong> / <strong>Return</strong> / <strong>Reject</strong></dd>
       <dt>Sample data</dt><dd>Remarks "Approved. Work hours 08:00–18:00 only."</dd>
@@ -482,7 +629,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">8</div><div><h4>Daily review while work is in progress (Part 5)</h4><div class="who">Applicant and PTW ASSESSOR, once per day each</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Permit opened from My PTW (applicant) or Pending (assessor), heading "Permit To Work - Approved"</dd>
       <dt>Highlight</dt><dd>"Part 5: Daily Review by WAH Supervisor or Above", the row "Day 1 (08/10/26)" with the <em>Applicant</em> tick and remark plus its <strong>Verify</strong>, and the <em>Assessor</em> tick and remark plus its <strong>Verify</strong>. Later days greyed out.</dd>
       <dt>Sample data</dt><dd>Day 1 applicant remark "Harness check done 07:45, 4 workers" · assessor remark "Site walk 10:30 – OK"</dd>
@@ -496,7 +643,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">9</div><div><h4>Revoking an approved permit (if a safety lapse is found)</h4><div class="who">PTW ASSESSOR, PTW SAFETY or PTW APPROVER</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Approved permit opened from Pending</dd>
       <dt>Highlight</dt><dd>The reason box "For Return, Reject &amp; Revoke : Please specify the reason" and the <strong>Revoke</strong> button</dd>
       <dt>Sample data</dt><dd>Reason "Worker found without lanyard at L9, 10/10/2026 14:20"</dd>
@@ -505,7 +652,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">10</div><div><h4>Notifying work completion (Part 6)</h4><div class="who">The original applicant only</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Approved permit opened from "Permit To Work List" via <strong>Details</strong></dd>
       <dt>Highlight</dt><dd>"Part 6: Notification of Work Completion (To be fill up by Permit Applicant)", Remarks, and the <strong>Complete the Permit</strong> button</dd>
       <dt>Sample data</dt><dd>Remarks "Guide rails L1–L12 installed, shaft cleared, barricades remain"</dd>
@@ -514,7 +661,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">11</div><div><h4>Closure review by the main contractor (Part 7)</h4><div class="who">PTW CLOSURE</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Pending list → permit with heading "Permit To Work - Closed"</dd>
       <dt>Highlight</dt><dd>"Part 7: Closure Review", "Acknowledgement of activity completion by Main Constructor.", Remarks, and the <strong>Review</strong> and <strong>Back</strong> buttons</dd>
       <dt>Sample data</dt><dd>Remarks "Area inspected, handed over to finishing works"</dd>
@@ -524,7 +671,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">12</div><div><h4>Fixing and resubmitting a returned permit</h4><div class="who">The original applicant only</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Permit To Work List" → row with status RETURNED → <strong>Details</strong> (heading "Permit To Work - Returned")</dd>
       <dt>Highlight</dt><dd>The read-only return reason, the editable fields, and <strong>Submit</strong></dd>
       <dt>Sample data</dt><dd>Reason shown "Rescue plan not attached" → upload <span class="mono">RescuePlan_RP07.pdf</span> → Submit</dd>
@@ -539,7 +686,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">13</div><div><h4>Downloading the permit as a PDF</h4><div class="who">Anyone who can see the permit in their List</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Permit To Work List" · <span class="mono">/PTW/MyPTW.aspx</span></dd>
       <dt>Highlight</dt><dd>The <strong>Report</strong> button on a row, and the downloaded file <span class="mono">PTW_xxxxxxxx-….pdf</span></dd>
       <dt>Sample data</dt><dd>The approved permit for L-2231, 08–12 Oct 2026</dd>
@@ -639,7 +786,7 @@ stateDiagram-v2
   <p class="who">Running example: supervisor Lim Ah Kow of Kong Lift Engineering briefs his crew on the morning of 9 October 2026 at "Tampines GreenGlade Block 512".</p>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Starting the meeting record and entering basic details</h4><div class="who">Supervisor (TBM user)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Toolbox Meeting - New" · <span class="mono">/TBM/NewTBM.aspx?Status=N</span></dd>
       <dt>Highlight</dt><dd><em>Project Name</em>, <em>Toolbox Meeting Date</em>, <em>Supervisor / Manager</em>, <em>Safety Supervisor</em>, and the two boxes <em>Work Description (AM)</em> and <em>Work Description (PM)</em></dd>
       <dt>Sample data</dt><dd>Date 09/10/2026 · Supervisor / Manager "Tan Wei Ming" · Safety Supervisor "Rajesh Kumar" · Work Description (AM) "Guide rail installation L2, levels 5–8; material hoisting at L1" · PM left empty</dd>
@@ -648,7 +795,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Answering the briefing questions</h4><div class="who">Supervisor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, section headed <em>Please carry out items briefing and select "Yes" after it is done. :-</em></dd>
       <dt>Highlight</dt><dd>Two or three questions with their drop-downs set to "Yes", and the Remarks box below</dd>
       <dt>Sample data</dt><dd>All items "Yes" · Remarks "New worker Ahmad briefed separately on harness use"</dd>
@@ -657,7 +804,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Recording attendees</h4><div class="who">Supervisor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, "Attendee Records" grid</dd>
       <dt>Highlight</dt><dd>The <strong>Add Attendee</strong> and <strong>Remove Attendee</strong> buttons, the <em>User ID</em> picker showing UserID / FullName / Position / ConstructorName, and the auto-filled name, position and company</dd>
       <dt>Sample data</dt><dd>Add "ahmad.rizal@konglift.com.sg – Ahmad Rizal – Installer", "chen.jun@konglift.com.sg – Chen Jun – Installer"</dd>
@@ -666,7 +813,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Recording hazards and countermeasures</h4><div class="who">Supervisor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, "Hazard / Issue Records" grid, edit form open</dd>
       <dt>Highlight</dt><dd><strong>New Record</strong> / <strong>Update Record</strong> / <strong>Remove Record</strong>, and the fields <em>Work Activity</em>, <em>What cause the hazard?</em>, <em>What happen as a result?</em>, <em>Action To Be Taken</em> and <em>Remarks for Actions</em></dd>
       <dt>Sample data</dt><dd>Work Activity "Hoisting" · Cause "Unsecured load on chain block at L1" · Result "Load drops into pit, struck-by injury" · Action "Priority 1: Measures with environment and facilities…" · Remarks "Exclusion zone barricaded under hoist"</dd>
@@ -675,7 +822,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Team goal, Touch and Call, and feedback</h4><div class="who">Supervisor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, below the hazards</dd>
       <dt>Highlight</dt><dd><em>Today Team Action Goal</em>, <em>Today Touch and Call</em>, <em>Feedback from worker at site</em></dd>
       <dt>Sample data</dt><dd>Goal "100% harness hook-on above 2 m" · Touch and Call "Hook on – OK!" · Feedback "Request more lighting at L7 landing"</dd>
@@ -684,7 +831,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>Adding the lift/escalator units, then the safety checklist</h4><div class="who">Supervisor</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, "Unit No / Manufacturing Number" grid and the checklist that appears below it</dd>
       <dt>Highlight</dt><dd><strong>Add Equipment</strong>, the <em>Registration No</em> picker, the <em>Machine Type</em> drop-down (Elevator / Escalator), and the generated checklist of tick boxes</dd>
       <dt>Sample data</dt><dd>Registration No <span class="mono">L-2231</span> · Machine Type Elevator → tick all Elevator checklist items</dd>
@@ -694,7 +841,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Attachments, declarations and Submit</h4><div class="who">Supervisor (person in charge)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, attachments and "Applicant Details"</dd>
       <dt>Highlight</dt><dd><strong>Browse File</strong>, the four declaration tick boxes (starting "Before start of work, I have explained…", "During the work, I will supervise…", "If the work cannot be carried out safely, I will suspend…", "I will ensure that no one is exposed to danger…"), the auto-filled Name / Designation / Company Name, and <strong>Submit</strong></dd>
       <dt>Sample data</dt><dd>Photo <span class="mono">TBM_0910_AM_group.jpg</span> · all four boxes ticked</dd>
@@ -705,7 +852,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">8</div><div><h4>Approving, returning or rejecting the meeting</h4><div class="who">PTW APPROVER (not the person who held the meeting)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Toolbox Meeting - Pending" · <span class="mono">/TBM/PendingTBM.aspx</span> → <strong>Verify</strong> → heading "Toolbox Meeting - Submitted"</dd>
       <dt>Highlight</dt><dd>"If want to Return or Reject, please specify the Reason :-", "Part 2: Approval by HEA Project Manager / Authorized Competent Person" with Name / Designation / Company / Remarks, and <strong>Approve</strong> / <strong>Reject</strong> / <strong>Return</strong></dd>
       <dt>Sample data</dt><dd>Remarks "Good briefing" → Approve. Or reason "Add lifting hazard for L1 hoist" → Return.</dd>
@@ -714,7 +861,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">9</div><div><h4>Fixing a returned meeting and exporting the PDF</h4><div class="who">Creator / anyone in the project</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Toolbox Meeting List" · <span class="mono">/TBM/MyTBM.aspx</span></dd>
       <dt>Highlight</dt><dd>A RETURNED row with its <strong>Details</strong> button, and the <strong>Export PDF</strong> button (tooltip "Download this Toolbox Meeting as a PDF")</dd>
       <dt>Sample data</dt><dd>The 09/10/2026 AM meeting</dd>
@@ -783,7 +930,7 @@ stateDiagram-v2
   <p class="who">Running example: site engineer Nur Aisyah checks the landing barricades for lift L-2231 on 6 October 2026.</p>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Creating a check point</h4><div class="who">CCP user</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Compliance Check Point - New" · <span class="mono">/CCP/NewCCP.aspx?Status=N</span></dd>
       <dt>Highlight</dt><dd><em>Manufacturing Number</em> picker, <em>Key Activities</em> picker, <em>Date</em>, <em>Activities Description</em>, and the "Control Measures Implemented :-" checklist that appears after you pick the activity</dd>
       <dt>Sample data</dt><dd>MFG <span class="mono">L-2231</span> · Key Activity "Entrance Barricade" · Date 06/10/2026 · Description "Rigid barricades installed at L1–L12 landings, signage posted"</dd>
@@ -792,7 +939,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Adding evidence and submitting</h4><div class="who">CCP user</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>Same page, attachments and buttons</dd>
       <dt>Highlight</dt><dd><strong>Browse File</strong>, the photo gallery, and the <strong>Submit</strong> and <strong>Cancel</strong> buttons</dd>
       <dt>Sample data</dt><dd><span class="mono">L2_barricade_L1.jpg</span>, <span class="mono">L2_barricade_L7.jpg</span></dd>
@@ -802,7 +949,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Approving, returning or rejecting</h4><div class="who">CCP APPROVER (not the creator)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Compliance Check Points - Pending" · <span class="mono">/CCP/PendingCCP.aspx</span> → <strong>Verify</strong></dd>
       <dt>Highlight</dt><dd>"If want to Return or Reject, please specify the Reason :-", and <strong>Approve</strong> / <strong>Reject</strong> / <strong>Return</strong></dd>
       <dt>Sample data</dt><dd>Reason "L7 barricade missing in photos" → Return. Later → Approve.</dd>
@@ -811,7 +958,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Correcting or deleting a returned check point</h4><div class="who">Creator</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Compliance Check Point List" · <span class="mono">/CCP/MyCCP.aspx</span> → <strong>Details</strong> on the RETURNED row</dd>
       <dt>Highlight</dt><dd>The read-only reason, and the <strong>Submit</strong>, <strong>Delete</strong> and <strong>Cancel</strong> buttons</dd>
       <dt>Sample data</dt><dd>Add photo <span class="mono">L2_barricade_L7_fixed.jpg</span> → Submit</dd>
@@ -820,7 +967,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Monitoring progress across lifts</h4><div class="who">Managers (menu-dependent)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"CCP Project Monitoring" · <span class="mono">/CCP/CCPReport.aspx</span></dd>
       <dt>Highlight</dt><dd><em>Date From</em> / <em>Date To</em>, <strong>Refresh</strong>, the column-chooser (Customization Window) button with the seven activity columns being switched on, and the "Export to" XLSX/PDF/CSV options</dd>
       <dt>Sample data</dt><dd>Date From 01/09/2026 · Date To 02/10/2026 → row L-2231 shows "Entrance Barricade: 06/10/2026"</dd>
@@ -854,7 +1001,7 @@ stateDiagram-v2
   <p class="lead">The dashboard is the first page after selecting a project. It gives managers a one-glance picture of safety paperwork and manpower on site.</p>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Reading the Project Overview</h4><div class="who">Everyone with the project selected</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Project Overview (Tampines GreenGlade Block 512)" · <span class="mono">/ProjectOverview.aspx</span></dd>
       <dt>Highlight</dt><dd>The project photo and details, the three doughnut charts "Permit To Work", "Toobox Meeting" (misspelled on screen) and "Compliance Check Point", the "Manpower at Site" bar chart, and the detail grid's Export to XLSX button</dd>
       <dt>Sample data</dt><dd>PTW: 12 Approved, 3 Submitted, 1 Returned · Manpower 09/10: Kong Lift 4.5, HEA 2</dd>
@@ -869,7 +1016,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>TBM Report (all projects)</h4><div class="who">Menu-dependent; there is no data restriction</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"TBM Report" · <span class="mono">/Settings/TBMReportAll.aspx</span></dd>
       <dt>Highlight</dt><dd>The columns Applied Date, Project Name, Company Name, Applicant Name, Job Designation, MFG No and Session, the group-by panel, and Export to XLSX</dd>
       <dt>Sample data</dt><dd>09/10/2026 · Tampines GreenGlade Block 512 · Kong Lift Engineering · Ahmad Rizal · Installer · L-2231 · AM</dd>
@@ -893,7 +1040,7 @@ stateDiagram-v2
   <p class="lead">A simple per-project filing cabinet for reference documents such as method statements, risk assessments, lifting plans and drawings. Each document is filed under a Document Type.</p>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Uploading a document</h4><div class="who">Users with the Documents menu</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Document List" · <span class="mono">/DocumentManagement.aspx</span>, <strong>New</strong> form</dd>
       <dt>Highlight</dt><dd>The <strong>New</strong> and <strong>Edit</strong> toolbar buttons, the <em>Document Type</em> drop-down, <em>Title</em>, the <em>Document</em> upload with its <strong>Remove</strong> link, and <strong>Update</strong></dd>
       <dt>Sample data</dt><dd>Document Type "Method Statement" · Title "MS-012 Guide Rail Installation Rev B" · File <span class="mono">MS-012_RevB.pdf</span> (1.8 MB)</dd>
@@ -903,7 +1050,7 @@ stateDiagram-v2
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Finding and downloading a document</h4><div class="who">Users with the Documents menu</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Document List"</dd>
       <dt>Highlight</dt><dd>A row showing Document Type and Title, and its <strong>Download</strong> button</dd>
       <dt>Sample data</dt><dd>"Method Statement – MS-012 Guide Rail Installation Rev B"</dd>
@@ -942,7 +1089,7 @@ flowchart LR
   </div></details>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">1</div><div><h4>Registering contractor companies</h4><div class="who">Application Admin</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Contractor List - (All Projects)" · <span class="mono">/Settings/ConstructorSetting.aspx</span></dd>
       <dt>Highlight</dt><dd>The <strong>New</strong> / <strong>Edit</strong> / <strong>Lock</strong> / <strong>Unlock</strong> toolbar, the columns Name / Description / Address / Contact Person / Contact Number / Status, and the edit form</dd>
       <dt>Sample data</dt><dd>Name "Kong Lift Engineering Pte Ltd" · Description "Lift installation subcontractor" · Address "21 Woodlands Close #05-12, Singapore 737854" · Contact Person "Mr Kong Boon Hock" · Contact Number "+65 6123 4567"</dd>
@@ -951,7 +1098,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">2</div><div><h4>Creating user accounts and assigning roles</h4><div class="who">Application Admin (any company) or Company Admin (own company)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"User Management - (All Projects)" · <span class="mono">/Settings/UserSetting.aspx</span></dd>
       <dt>Highlight</dt><dd>The <strong>New</strong> button, the edit popup fields (Title, First Name, Last Name, Document Type NRIC/FIN/WP, Document No, Contact No, Email Address, Contractor Name, Position, Photo), then an expanded user row showing "User Role Collection" with <strong>New</strong> / <strong>Delete</strong></dd>
       <dt>Sample data</dt><dd>Mr · Lim · Ah Kow · FIN · G1234567N · 9123 4567 · ahkow.lim@konglift.com.sg · Kong Lift Engineering Pte Ltd · Site Supervisor → roles PTW USER, TBM USER</dd>
@@ -966,7 +1113,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">3</div><div><h4>Resetting a password or removing a user</h4><div class="who">Application Admin / Company Admin</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>User Management grid</dd>
       <dt>Highlight</dt><dd>The row buttons <strong>Reset Password</strong> and <strong>Delete</strong>, and the "Are you sure you want to proceed?" confirmation</dd>
       <dt>Sample data</dt><dd>User chen.jun@konglift.com.sg, who has left the company</dd>
@@ -978,7 +1125,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">4</div><div><h4>Creating the project</h4><div class="who">Application Admin</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Project Management - (All Projects)" · <span class="mono">/Settings/ProjectSetting.aspx</span></dd>
       <dt>Highlight</dt><dd><strong>New</strong>, the popup fields Photo / Project Name / Description / Location / Main Constructor / Start Date / End Date, and the row buttons <strong>Edit</strong> / <strong>Lock</strong> / <strong>Unlock</strong></dd>
       <dt>Sample data</dt><dd>Project Name "Tampines GreenGlade Block 512" · Description "HDB BTO – 6 passenger lifts, 2 escalators" · Location "512 Tampines Ave 9, Singapore 520512" · Main Constructor "Hitachi Elevator Asia Pte Ltd" · 01/03/2026 – 30/11/2026</dd>
@@ -988,7 +1135,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">5</div><div><h4>Linking contractors and individual staff to the project</h4><div class="who">Application Admin (Company Admin for own projects)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Project Configuration - (All Projects)" · <span class="mono">/Settings/ProjectConstructor.aspx</span>, with a project row expanded</dd>
       <dt>Highlight</dt><dd>Section "1. Contractors" with <strong>Add</strong> / <strong>Delete</strong>, and section "2. Manpower &amp; Staff" with <strong>Add</strong> / <strong>Delete</strong> and the User ID picker</dd>
       <dt>Sample data</dt><dd>Contractors: "Kong Lift Engineering Pte Ltd", "Sin Heng Scaffolding Pte Ltd" · Staff: "rajesh.kumar@hitachi.com" (HEA Safety)</dd>
@@ -1003,7 +1150,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">6</div><div><h4>Registering lifts and escalators</h4><div class="who">Administrators (with the project selected)</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Equipment Type - (All Projects)" · <span class="mono">/Settings/EquipmentTypeSetting.aspx</span>, then "Equipment List - Tampines GreenGlade Block 512" · <span class="mono">/Settings/EquipmentSetting.aspx</span></dd>
       <dt>Highlight</dt><dd>The type "MFG NO" in the type list. In the equipment form: <em>Registration No</em>, <em>Equipment Type</em>, <em>Equipment Name</em>, <em>Description</em>, Photo and Document.</dd>
       <dt>Sample data</dt><dd>Registration No "L-2231" · Type "MFG NO" · Name "Lift L2 – Passenger 13p" · Description "Hitachi Urban Ace, 13 persons, 1.75 m/s, 14 stops"</dd>
@@ -1016,7 +1163,7 @@ flowchart LR
   </div></div>
 
   <div class="step searchable"><div class="step-h"><div class="step-n">7</div><div><h4>Document types</h4><div class="who">Administrators</div></div></div><div class="step-b">
-    <div class="shot"><div class="shot-h">📷 Screenshot target</div><dl>
+    <div class="shot"><div class="shot-h">🖥 Screen details</div><dl>
       <dt>Screen</dt><dd>"Document Type - (All Projects)" · <span class="mono">/Settings/DocumentTypeSetting.aspx</span></dd>
       <dt>Highlight</dt><dd>The New / Edit / Lock / Unlock buttons and the Document Type and Description fields</dd>
       <dt>Sample data</dt><dd>"Method Statement" – "Approved method statements"; "Lifting Plan" – "Appointed person lifting plans"</dd>
@@ -1279,6 +1426,474 @@ flowchart LR
   <div class="wrap">HEA Digital Safety Tools (ePTW) Handbook · Reconstructed from source code and database design · 2 October 2026 · The screen headings and messages quoted are exact. Sample people, companies and numbers are illustrative.</div>
 </footer>
 
+
+<script>
+/* Reconstructed UI screens for the HEA ePTW handbook.
+   Layout, labels, buttons and messages are taken from the application's .aspx pages
+   (DevExpress "Office365" theme, base colour #4F81BD, dark title bar #494949).
+   Left-menu wording is illustrative: the real labels live in the database. */
+(function(){
+var P='Tampines GreenGlade Block 512';
+var HOST='https://eptw-server/';
+
+function hl(n,inner,blk){return '<span class="mk-hl'+(blk?' blk':'')+'"><i>'+n+'</i>'+inner+'</span>';}
+function tb(v,o){o=o||{};
+  return '<div class="mk-in'+(o.ro?' ro':'')+(o.bad?' bad':'')+(o.dis?' dis':'')+'"'+(o.w?' style="width:'+o.w+'px"':'')+'>'+
+    '<span'+(v?'':' class="ph"')+'>'+(v||o.ph||'&nbsp;')+'</span>'+(o.icon?'<span class="mk-ic">'+o.icon+'</span>':'')+'</div>'+
+    (o.err?'<div class="mk-err">'+o.err+'</div>':'');}
+function dd(v,o){o=o||{};o.icon='▾';return tb(v,o);}
+function dt(v,o){o=o||{};o.icon='▾';return tb(v,o);}
+function memo(v,rows,o){o=o||{};return '<div class="mk-in memo'+(o.ro?' ro':'')+(o.dis?' dis':'')+'" style="min-height:'+((rows||3)*19)+'px">'+(v||'')+'</div>'+(o.err?'<div class="mk-err">'+o.err+'</div>':'');}
+function row(c,ctl,o){o=o||{};return '<div class="mk-row'+(o.top?' top':'')+'"><div class="mk-cap"'+(o.cw?' style="flex-basis:'+o.cw+'px;width:'+o.cw+'px"':'')+'>'+c+'</div><div class="mk-ctl">'+ctl+'</div></div>';}
+function two(a,b){return '<div class="mk-2"><div>'+a+'</div><div>'+b+'</div></div>';}
+function btn(t,k){return '<span class="mk-btn'+(k?' '+k:'')+'">'+t+'</span>';}
+function btns(){return '<div class="mk-btns">'+[].slice.call(arguments).join('')+'</div>';}
+function chk(l,on,o){o=o||{};return '<div class="mk-chk'+(o.dis?' dis':'')+'"><span class="box'+(on?' on':'')+'">'+(on?'✓':'')+'</span><span>'+l+'</span></div>';}
+function title(t){return '<div class="mk-title">'+t+'</div>';}
+function part(h,inner){return '<div class="mk-part"><div class="mk-ph">'+h+'</div>'+inner+'</div>';}
+function note(t){return '<div class="mk-note">'+t+'</div>';}
+function photo(w,h,lbl){return '<div class="mk-photo" style="width:'+w+'px;height:'+h+'px"><span>'+(lbl||'')+'</span></div>';}
+function grid(o){
+  var h='<div class="mk-grid">';
+  if(o.title) h+='<div class="mk-gtitle">'+o.title+'</div>';
+  if(o.toolbar) h+='<div class="mk-gtool">'+o.toolbar.join('')+'</div>';
+  if(o.search) h+='<div class="mk-gsearch">'+(o.search===true?tb('',{ph:'Enter text to search...',w:300}):o.search)+'</div>';
+  h+='<table>';
+  if(o.cols) h+='<tr>'+o.cols.map(function(c){return '<th>'+c+'</th>';}).join('')+'</tr>';
+  o.rows.forEach(function(r,i){
+    h+='<tr'+(o.sel===i?' class="sel"':'')+'>'+r.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';
+    if(o.preview&&o.preview[i]) h+='<tr class="pv"><td colspan="'+r.length+'">'+o.preview[i]+'</td></tr>';
+  });
+  h+='</table>';
+  if(o.footer) h+='<div class="mk-gfoot">'+o.footer+'</div>';
+  if(o.pager!==false) h+='<div class="mk-pager"><span>‹</span><b>1</b><span>›</span></div>';
+  return h+'</div>';
+}
+function tbtn(t,ic){return '<span class="mk-tbtn">'+(ic?'<em>'+ic+'</em>':'')+t+'</span>';}
+function popup(t,inner,foot,w){return '<div class="mk-pop" style="width:'+(w||600)+'px"><div class="mk-poph">'+t+'<span>✕</span></div><div class="mk-popb">'+inner+'</div>'+(foot?'<div class="mk-popf">'+foot+'</div>':'')+'</div>';}
+function signer(name,des,comp,rem,o){o=o||{};
+  return two(row('Name',tb(name,{ro:1}),{cw:110}),row('Designation',tb(des,{ro:1}),{cw:110}))+
+         two(row('Company Name',tb(comp,{ro:1}),{cw:110}),'')+
+         row('Remarks',memo(rem,2,{dis:o.dis}),{cw:110,top:1});}
+function status(s){return '<div class="mk-status">'+s+'</div>';}
+function loc(){return '<div class="mk-loc">Location : Latitude 1.35421, Longitude 103.94498</div>';}
+function attach(o){o=o||{};
+  var up=o.noUpload?'':'<div class="mk-upl">'+tb(o.uploading||'',{ph:'Drop file here or click Browse File'})+btn('Browse File','pri')+'</div>'+
+    '<div class="mk-small">Allowed file extensions: .jpg, .jpeg, .gif, .png., .pdf. (Maximum file size: 4 MB.)</div>';
+  var files=(o.files||[]).map(function(f){return '<div class="mk-file"><a>The '+(f[1]==='PDF'?'PDF':'Image')+' File '+f[0]+'</a> has been uploaded on '+f[2]+' by '+f[3]+(o.noDelete?'':' <span class="mk-del">Delete</span>')+'</div>';}).join('');
+  var gal=o.gallery?'<div class="mk-gal">'+o.gallery.map(function(g){return photo(110,74,g);}).join('')+'</div>':'';
+  return {up:up,files:files,gal:gal};}
+function qr(){var s='',seed=7;for(var y=0;y<21;y++)for(var x=0;x<21;x++){seed=(seed*9301+49297)%233280;var f=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);var on=f?((x%6===0||y%6===0||x===20||y===20||(x>=2&&x<=4&&y>=2&&y<=4)||(x>=16&&x<=18&&y>=2&&y<=4)||(x>=2&&x<=4&&y>=16&&y<=18))&&!(x===6&&y>13)&&!(y===6&&x>13)):seed/233280>.5;if((x>13&&y<7)){var xx=x-14;on=(xx===0||xx===6||y===0||y===6||(xx>=2&&xx<=4&&y>=2&&y<=4));}if(x<7&&y>13){var yy=y-14;on=(x===0||x===6||yy===0||yy===6||(x>=2&&x<=4&&yy>=2&&yy<=4));}if(x<7&&y<7){on=(x===0||x===6||y===0||y===6||(x>=2&&x<=4&&y>=2&&y<=4));}if(on)s+='<rect x="'+x+'" y="'+y+'" width="1" height="1"/>';}
+  return '<svg viewBox="-1 -1 23 23" width="150" height="150" style="background:#fff">'+s+'</svg>';}
+
+var MENU=[['Project Overview',0],['Permit To Work',1],['New Permit',2],['Permit List',2],['Pending',2],['Toolbox Meeting',1],['New Meeting',2],['Meeting List',2],['Pending',2],['Compliance Check Point',1],['New CCP',2],['CCP List',2],['Pending',2],['CCP Monitoring',2],['Documents',0],['TBM Report',0],['Change Project',0]];
+var CFG=['User Management','Project Management','Project Configuration','Contractor List','Equipment List','Equipment Type','Document Type'];
+function frame(o){
+  var m='';
+  if(!o.nomenu){var grp='';
+    m='<div class="mk-left">';
+    var items=o.noproj?[['Select Project',0]]:MENU;
+    items.forEach(function(it){if(it[1]===1)grp=it[0];var key=(it[1]===2?grp+'>':'')+it[0];
+      m+='<div class="mk-mi'+(it[1]===2?' sub':'')+(it[1]===1?' grp':'')+(o.active===key?' on':'')+'">'+(it[1]===1?'▾ ':'')+it[0]+'</div>';});
+    m+='</div>';
+    if(o.hlMenu) m=hl(o.hlMenu,m,1);}
+  var cfg='';
+  if(o.config){cfg='<div class="mk-right"><div class="mk-rcap">Configuration</div>'+CFG.map(function(x){return '<div class="mk-mi'+(o.config===x?' on':'')+'">'+x+'</div>';}).join('')+'</div>';
+    if(o.hlCfg) cfg=hl(o.hlCfg,cfg,1);}
+  var av='<span class="mk-av">'+(o.initials||'LA')+'</span>'; if(o.hlAv) av=hl(o.hlAv,av);
+  var gear='<span class="mk-burger">⋮</span>';
+  return '<div class="mk-window"><div class="mk-chrome"><span class="d"></span><span class="d"></span><span class="d"></span><div class="mk-url">'+HOST+o.url+'</div></div>'+
+    (o.bare?o.body:
+    '<div class="mk-head"><div class="l"><span class="mk-burger">☰</span><span class="mk-logo">HEA <b>Digital Safety Tools</b></span></div><div class="r">'+av+gear+'</div></div>'+
+    '<div class="mk-body">'+m+'<div class="mk-main'+(o.overlay?' hasov':'')+'">'+o.body+(o.overlay?'<div class="mk-ov'+(o.ovCls?' '+o.ovCls:'')+'">'+o.overlay+'</div>':'')+'</div>'+cfg+'</div>'+
+    '<div class="mk-foot">© 2025 Hitachi Elevator Asia</div>')+'</div>';
+}
+
+/* ---------------- PTW building blocks ---------------- */
+var GUIDE='<div class="mk-guide"><ol>'+
+ '<li>Applicant(s) shall comply with WSH Act, WSH Subsidiary Legislations, NEA Legislations, Code of Practices etc</li>'+
+ '<li>Permit-To-Work is to be submitted 3 working days in advance (minimum) &amp; PTW-maximum period is 7 days and non-automatic renewal and to resubmit PTW for approval. Daily Permit-To-Work shall apply which applicable.</li>'+
+ '<li>Permit-To-Work is to be approval by Project Manager before commence of work &amp; submit minimum 3 days in advance.</li>'+
+ '<li>Approved PTW to be displayed prominently at where the working at height is to be carried out, e.g. Access Point</li>'+
+ '<li>Workers must have complete CSOC &amp; Safety Induction &amp; to adhere with HEA Safety &amp; Health Management System (SHMS), Safe Work Practices (SWP) and comply with all relevant Occupational Safety &amp; Health (OSH) legislations including MOM, NEA, HDB, SCDF etc</li>'+
+ '<li>PTW will be revoked &amp; shall be considered invalid if any safety non-compliance/lapse is found &amp; communicated.</li></ol></div>';
+function ptwHeader(o){o=o||{};var ro=!o.edit;
+  return row('Project Name',tb(P,{ro:1}))+
+   two(row('Date From',dt('08/10/2026',{dis:ro})),row('Date To',dt('12/10/2026',{dis:ro}),{cw:90}))+
+   row('Manufacturing Number',dd('L-2231',{dis:ro}))+
+   row('Work Description',memo('Installation of guide rails in shaft L2, levels 1–12',2,{dis:ro}),{top:1})+
+   two(row('Total Worker',tb('4',{dis:ro,icon:'⇕',w:120})),row('Work Type',dd('Working at Height',{dis:ro}),{cw:90}));}
+var CHECK='<div class="mk-q"><div class="b1">WORKING AT HEIGHT – CONTROL MEASURES</div>'+
+  chk('Full body harness inspected and tagged',1)+chk('Lifeline anchored to approved anchorage point',1)+chk('Barricade and signage at all landing doors',1)+
+  '<div class="b2">Rescue arrangement</div>'+row('Rescue plan reference',tb('Rescue plan RP-07 briefed to team'),{cw:200})+'</div>';
+var DECL='<div class="mk-decl">I shall assure that there are no incompatible this PTW and shall ensure that all safety control measures are duly checked by the person responsible until work completion. I am aware that no work shall be carried out before PTW approval.</div>';
+function applicantPart(submitted,o){o=o||{};
+  return part(submitted?'PTW Applicant (Submitted on 05 Oct 2026 09:12)':'PTW Applicant',DECL+signer('Mr. Lim Ah Kow','Site Supervisor','Kong Lift Engineering Pte Ltd',submitted?'Work at night shift not required':'',{dis:submitted})+(o.btn||''));}
+function assessorPart(done,o){o=o||{};
+  return part('Part 2: Endorsement by WAH Assessor'+(done?' (Assessed on 05 Oct 2026 14:03)':''),'<div class="mk-decl">I Acknowledge the above work activities shall be carried out in accordance with the Risk Assessment and Safe Work Practices.</div>'+
+    signer(done?'Mr. Ong Kah Seng':'Mr. Ong Kah Seng','WAH Assessor','Kong Lift Engineering Pte Ltd',done?'RA and rescue plan sighted':(o.rem||''),{dis:done})+(o.btn||''));}
+function safetyPart(done,o){o=o||{};
+  return part('Part 3: HEA Safety'+(done?' (Verified on 06 Oct 2026 10:20)':''),'<div class="mk-decl">Satisfaction of the safety provision taken by applicant.</div>'+
+    signer('Mr. Rajesh Kumar','Safety Officer','Hitachi Elevator Asia Pte Ltd',done?'Lifeline anchorage confirmed at L12 machine room':(o.rem||''),{dis:done})+(o.btn||''));}
+function approvePart(done,o){o=o||{};
+  return part('Part 4: Approval by HEA Project Manager / Authorized Competent Person'+(done?' (Approved on 06 Oct 2026 16:45)':''),'<div class="mk-decl"><b>Permit To Work is :'+(done?' Approved':'')+'</b></div>'+
+    signer('Mr. Tan Wei Ming','Project Manager','Hitachi Elevator Asia Pte Ltd',done?'Approved. Work hours 08:00–18:00 only.':(o.rem||''),{dis:done})+(o.btn||''));}
+function reasonBox(n,val,buttons){var inner=row('For Return, Reject &amp; Revoke : Please specify the reason',memo(val||'',2),{top:1,cw:220})+(buttons?btns(buttons):'');
+  return n?hl(n,'<div class="mk-reason">'+inner+'</div>',1):'<div class="mk-reason">'+inner+'</div>';}
+function ptwListRow(st,o){o=o||{};return {
+  row:['08 Oct 2026','12 Oct 2026','Working at Height',(o.btns||'')],
+  pv:'<div>Installation of guide rails in shaft L2, levels 1–12</div><div class="mk-pvp"><span>Mr. Lim Ah Kow</span><span>Site Supervisor</span><span>Kong Lift Engineering Pte Ltd</span></div>'+status(st)};}
+
+/* ---------------- TBM building blocks ---------------- */
+function tbmTop(o){o=o||{};var d=o.dis;
+  return row('Project Name',tb(P,{ro:1}))+
+   row('Toolbox Meeting Date',dt('09/10/2026',{dis:d,w:220}))+
+   two(row('Supervisor / Manager',tb('Tan Wei Ming',{dis:d})),row('Safety Supervisor',tb('Rajesh Kumar',{dis:d}),{cw:120}))+
+   two(row('Work Description (AM)',memo('Guide rail installation L2, levels 5–8; material hoisting at L1',3,{dis:d}),{top:1}),row('Work Description (PM)',memo('',3,{dis:d}),{top:1,cw:120}));}
+var TBMQ=['Today’s work location, content and procedure explained','Worker assignment and roles confirmed','Fitness for work of all workers checked','PPE (helmet, harness, safety shoes) checked'];
+var ATT=[['ahkow.lim@konglift.com.sg','Mr. Lim Ah Kow','Site Supervisor','Kong Lift Engineering Pte Ltd'],['ahmad.rizal@konglift.com.sg','Mr. Ahmad Rizal','Installer','Kong Lift Engineering Pte Ltd'],['chen.jun@konglift.com.sg','Mr. Chen Jun','Installer','Kong Lift Engineering Pte Ltd']];
+var DECL4=['Before start of work, I have explained and provided instructions on the specific details of the day\'s work location, work content and procedures, worker assignments and roles, as well as potential hazards and countermeasures. I will also confirm that all team members have understood these points before starting the work.',
+ 'During the work, I will supervise and ensure that all personnel confirm their safety at all times before proceeding to the next action.',
+ 'If the work cannot be carried out safely, I will suspend the work and ensure that it is reported to my supervisor (line manager).',
+ 'I will ensure that no one is exposed to danger and that the work is completed safely from start to finish.'];
+function tbmListRow(st){return {row:['09 Oct 2026',btn('Export PDF')+' '+btn('Details')],pv:'<div>AM : Guide rail installation L2, levels 5–8; material hoisting at L1</div><div>PM : </div>'+status(st)};}
+
+/* ---------------- CCP building blocks ---------------- */
+function ccpTop(o){o=o||{};var d=o.dis;
+  return row('Project Name',tb(P,{ro:1}))+
+   row('Manufacturing Number',dd('L-2231',{dis:d}))+
+   row('Key Activities',dd('Entrance Barricade',{dis:d}))+
+   row('Date',dt('06/10/2026',{dis:d,w:220}))+
+   row('Activities Description',memo('Rigid barricades installed at L1–L12 landings, signage posted',2,{dis:d}),{top:1});}
+var CCPQ='<div class="mk-q"><div class="b1">Control Measures Implemented :-</div>'+
+  row('Rigid barricade min. 1.1 m height at every landing',dd('Yes'),{cw:380})+
+  row('Barricade secured and cannot be removed by hand',dd('Yes'),{cw:380})+
+  row('Danger signage displayed at each landing',dd('Yes'),{cw:380})+'</div>';
+
+/* ---------------- Admin building blocks ---------------- */
+function userGrid(o){o=o||{};
+  var pv=function(n,c,d,p,r){return '<div class="mk-pp">'+photo(56,56,'')+'<div class="mk-kv"><span>Full Name</span><b>'+n+'</b><span>Contact</span><b>'+c+'</b><span>Document No</span><b>'+d+'</b><span>Position</span><b>'+p+'</b><span>User Roles</span><b>'+r+'</b></div></div>';};
+  var act=function(i){return btn('Edit')+(o.self?'':' '+(o.hlR===i?hl(o.hlRn,btn('Reset Password')):btn('Reset Password'))+' '+(o.hlD===i?hl(o.hlDn,btn('Delete')):btn('Delete')));};
+  var rows=[['Kong Lift Engineering Pte Ltd','ahkow.lim@konglift.com.sg','ACTIVE',(o.hlE?hl(o.hlE,btn('Edit')):act(0))],
+            ['Kong Lift Engineering Pte Ltd','chen.jun@konglift.com.sg','ACTIVE',act(1)]];
+  return grid({title:null,toolbar:o.self?null:[o.hlNew?hl(o.hlNew,tbtn('New','+')):tbtn('New','+')],search:true,cols:['Contractor Name','User ID','Status',''],rows:rows,
+    preview:[pv('Mr. Lim Ah Kow','9123 4567','G1234567N','Site Supervisor','PTW USER, TBM USER'),pv('Mr. Chen Jun','8234 5678','G7654321K','Installer','TBM USER')]});}
+
+/* ================= SCREENS ================= */
+var S={};
+
+S.signin={url:'Account/SignIn.aspx',frame:{bare:1,body:
+ '<div class="mk-signin"><div class="card"><h2>HEA Digital Safety Tools</h2>'+
+ '<div class="cap">User ID</div>'+hl(1,tb('tan.weiming'),1)+
+ '<div class="cap">Password</div>'+hl(2,tb('••••••••',{icon:'👁'}),1)+
+ '<div class="cap">Type the code shown</div>'+hl(3,'<div class="mk-captcha"><span class="code">4 7 2 9 1</span>'+tb('47291',{w:150})+'</div>',1)+
+ '<div style="margin-top:16px">'+hl(4,btn('Log In','pri'))+'</div></div></div>'},
+ legend:['User ID: your email address. HEA staff may type only the part before “@”.','Password, with the eye button to show or hide it','“Type the code shown”: copy the digits from the picture','Log In']};
+
+S.projects={url:'Projects.aspx',frame:{noproj:1,active:'Select Project',body:
+ title('Select the Project')+grid({search:hl(1,tb('',{ph:'Enter text to search...',w:300})),cols:null,rows:[['<b>'+P+'</b>',hl(2,btn('Click To Select','pri'))],['<b>Bukit Batok West Ave 8 Blk 291</b>',btn('Click To Select','pri')]],
+  preview:[hl(3,'<div class="mk-pp">'+photo(120,80,'project photo')+'<div>HDB BTO – 6 passenger lifts, 2 escalators<br><b>Hitachi Elevator Asia Pte Ltd</b><br>01/03/2026 ~ 30/11/2026</div></div>',1),
+           '<div class="mk-pp">'+photo(120,80,'project photo')+'<div>Retrofit of 4 lifts<br><b>Hitachi Elevator Asia Pte Ltd</b><br>15/06/2026 ~ 31/03/2027</div></div>']})},
+ legend:['Search box','“Click To Select” opens the project','Project preview: photo, description, main contractor (bold) and start ~ end dates']};
+
+S.nav={url:'ProjectOverview.aspx',frame:{active:'Project Overview',hlMenu:1,config:true,hlCfg:2,hlAv:3,body:
+ title('Project Overview ('+P+')')+'<div class="mk-pp">'+photo(240,160,'project photo')+'<div class="mk-kv"><span>Name</span><b>'+P+'</b><span>Location</span><b>512 Tampines Ave 9, Singapore 520512</b><span>Description</span><b>HDB BTO – 6 passenger lifts, 2 escalators</b><span>Main Constructor</span><b>Hitachi Elevator Asia Pte Ltd</b></div></div>'},
+ legend:['Left menu: each module has New / List / Pending items, with “Change Project” at the bottom (wording illustrative, as it is stored in the database)','Right “Configuration” panel: settings your roles allow','Avatar: your account, QR code and Sign out']};
+
+S.userself={url:'Settings/UserSetting.aspx',frame:{config:'User Management',body:title('User Management - (All Projects)')+userGrid({self:1,hlE:1}),
+ overlay:popup('Edit',two(row('Title',dd('Mr'),{cw:100}),row('First Name',tb('Wei Ming'),{cw:100}))+two(row('Last Name',tb('Tan'),{cw:100}),row('Document Type',dd('NRIC'),{cw:100}))+
+   two(row('Document No',tb('S8012345A'),{cw:100}),row('Contact No',tb('9876 5432'),{cw:100}))+row('Email Address',tb('tan.weiming@hitachi.com'),{cw:100})+
+   two(row('Contractor Name',dd('Hitachi Elevator Asia Pte Ltd'),{cw:100}),row('Position',tb('Project Manager'),{cw:100}))+
+   hl(2,two(row('Password',tb('••••••••'),{cw:100}),row('Confirm',tb('••••••••'),{cw:100})),1),
+   hl(3,btn('Update','pri'))+btn('Cancel'),640)},
+ legend:['Edit button on your own row','Password and Confirm: shown only when you edit your own record. Leave blank to keep your password.','Update saves']};
+
+S.account={url:'ProjectOverview.aspx',frame:{active:'Project Overview',initials:'TW',body:title('Project Overview ('+P+')')+'<div class="mk-pp">'+photo(240,160,'project photo')+'</div>',ovCls:'tr',
+ overlay:'<div class="mk-acc">'+hl(1,'<div class="mk-ui"><span class="mk-av big">TW</span><div><b>Mr. Tan Wei Ming</b><br><span class="mk-muted">tan.weiming@hitachi.com</span></div></div>',1)+
+   '<div style="text-align:center;padding:8px 0">'+hl(2,qr())+'</div>'+hl(3,'<div class="mk-so">⇥ Sign out</div>',1)+'</div>'},
+ legend:['Your name and email','Your personal QR code (do not click: the profile page it opens is broken)','Sign out']};
+
+S.ptwnew={url:'PTW/NewPTW.aspx?Status=N',frame:{active:'Permit To Work>New Permit',body:
+ hl(1,title('Permit To Work - New'),1)+row('Project Name',hl(2,tb(P,{ro:1}),1))+
+ hl(3,two(row('Date From',dt('08/10/2026')),row('Date To',dt('12/10/2026'),{cw:90})),1)+
+ row('Manufacturing Number',hl(4,dd('L-2231'),1)+'<div class="mk-ddl"><table><tr><th>RegistrationNo</th><th>Description</th><th>EquipmentType</th></tr><tr class="sel"><td>L-2231</td><td>Lift L2 – Passenger 13p</td><td>MFG NO</td></tr><tr><td>L-2232</td><td>Lift L3 – Passenger 13p</td><td>MFG NO</td></tr><tr><td>E-0911</td><td>Escalator ES1</td><td>MFG NO</td></tr></table></div>')+
+ row('Work Description',hl(5,memo('Installation of guide rails in shaft L2, levels 1–12',2),1),{top:1})+
+ two(row('Total Worker',hl(6,tb('4',{icon:'⇕',w:120}))),row('Work Type',hl(7,dd('Working at Height'),1),{cw:90}))+hl(8,GUIDE,1)},
+ legend:['Heading “Permit To Work - New”','Project Name (read-only, from the selected project)','Date From / Date To (max 7 days, not in the past)','Manufacturing Number list (only equipment of type “MFG NO”)','Work Description','Total Worker (1–1000)','Work Type: choose first, as it loads the checklist','The six fixed guideline rules']};
+
+S.ptwcheck={url:'PTW/NewPTW.aspx?Status=N',frame:{active:'Permit To Work>New Permit',body:
+ title('Permit To Work - New')+'<div class="mk-fade">'+two(row('Total Worker',tb('4',{icon:'⇕',w:120})),row('Work Type',dd('Working at Height'),{cw:90}))+'</div>'+
+ '<div class="mk-q"><div class="b1">'+hl(1,'WORKING AT HEIGHT – CONTROL MEASURES')+'</div>'+
+ hl(2,chk('Full body harness inspected and tagged',1)+chk('Lifeline anchored to approved anchorage point',1)+chk('Barricade and signage at all landing doors',1),1)+
+ '<div class="b2">Rescue arrangement</div>'+row('Rescue plan reference',hl(3,tb('Rescue plan RP-07 briefed to team'),1),{cw:200})+
+ row('Weather condition',hl(4,dd('',{bad:1,err:'Please select the Answer.'}),1),{cw:200})+'</div>'},
+ legend:['Bold section heading from the template','Tick-box items (not enforced: tick honestly)','Text answer','Drop-down answer: the only compulsory type (“Please select the Answer.”)'],
+ note:'Question wording here is an example. The real questions come from the Work Type template stored in the database.'};
+
+var A1=attach({uploading:'RiskAssessment_WAH_L2.pdf',files:[['L2_shaft_barricade.jpg','IMG','05 Oct 2026','ahkow.lim@konglift.com.sg'],['RiskAssessment_WAH_L2.pdf','PDF','05 Oct 2026','ahkow.lim@konglift.com.sg']],gallery:['L2_shaft_barricade.jpg']});
+S.ptwattach={url:'PTW/NewPTW.aspx?Status=N',frame:{active:'Permit To Work>New Permit',body:
+ title('Permit To Work - New')+'<div class="mk-fade">'+CHECK+'</div>'+
+ hl(1,A1.up,1)+hl(2,A1.files,1)+hl(3,A1.gal,1)},
+ legend:['Browse File (or drag a file onto the box) and the allowed-file note','Uploaded files list, with Delete','Photo gallery']};
+
+S.ptwsubmit={url:'PTW/NewPTW.aspx?Status=N',frame:{active:'Permit To Work>New Permit',body:
+ title('Permit To Work - New')+'<div class="mk-fade">'+A1.files+'</div>'+
+ part('PTW Applicant',hl(1,DECL,1)+hl(2,two(row('Name',tb('Mr. Lim Ah Kow',{ro:1}),{cw:110}),row('Designation',tb('Site Supervisor',{ro:1}),{cw:110}))+two(row('Company Name',tb('Kong Lift Engineering Pte Ltd',{ro:1}),{cw:110}),''),1)+
+   row('Remarks',hl(3,memo('Work at night shift not required',2),1),{cw:110,top:1})+btns(hl(4,btn('Submit','pri'))))+hl(5,loc())},
+ legend:['Applicant declaration','Name / Designation / Company Name (from your profile)','Remarks (keep under 150 characters)','Submit','Location captured from the browser']};
+
+function pendingList(st,sel){var r=ptwListRow(st,{btns:hl(1,btn('Verify'))});
+  return '<div class="mk-mini">'+title('Permit To Work - Pending')+grid({search:true,rows:[r.row],preview:[r.pv],pager:false})+'</div><div class="mk-arrow">clicking <b>Verify</b> opens the permit ↓</div>';}
+S.ptwassess={url:'PTW/NewPTW.aspx?Status=P',frame:{active:'Permit To Work>Pending',initials:'OK',body:
+ pendingList('SUBMITTED')+hl(2,title('Permit To Work - Submitted'),1)+'<div class="mk-fade">'+applicantPart(true)+'</div>'+
+ hl(3,assessorPart(false,{rem:'RA and rescue plan sighted',btn:btns(hl(4,btn('Verify','pri')))}),1)+
+ reasonBox(5,'',[btn('Reject'),btn('Return')])},
+ legend:['Pending list row with its Verify button (status shown in bold: SUBMITTED)','Heading “Permit To Work - Submitted”','Part 2: Endorsement by WAH Assessor, with its statement, your details and Remarks','Verify: endorse, so the status becomes ASSESSED','Reason box with Reject and Return (a reason is required)']};
+
+S.ptwsafety={url:'PTW/NewPTW.aspx?Status=P',frame:{active:'Permit To Work>Pending',initials:'RK',body:
+ hl(1,title('Permit To Work - Assessed'),1)+'<div class="mk-fade">'+applicantPart(true)+'</div>'+hl(2,assessorPart(true),1)+
+ hl(3,safetyPart(false,{rem:'Lifeline anchorage confirmed at L12 machine room',btn:btns(hl(4,btn('Verify','pri')))}),1)+reasonBox(5,'',[btn('Reject'),btn('Return')])},
+ legend:['Heading “Permit To Work - Assessed”','Part 2 completed: assessor name and time','Part 3: HEA Safety, “Satisfaction of the safety provision taken by applicant.”','Verify, so the status becomes VERIFIED','Reject / Return with reason']};
+
+S.ptwapprove={url:'PTW/NewPTW.aspx?Status=P',frame:{active:'Permit To Work>Pending',initials:'TW',body:
+ hl(1,title('Permit To Work - Safety Verified'),1)+'<div class="mk-fade">'+assessorPart(true)+safetyPart(true)+'</div>'+
+ hl(2,approvePart(false,{rem:'Approved. Work hours 08:00–18:00 only.',btn:btns(hl(3,btn('Approve','pri')))}),1)+reasonBox(4,'',[btn('Reject'),btn('Return')])},
+ legend:['Heading “Permit To Work - Safety Verified”','Part 4: Approval by HEA Project Manager / Authorized Competent Person, with “Permit To Work is :”','Approve, so the status becomes APPROVED and work may start','Reject / Return with reason']};
+
+function dayRow(n,date,a,b,o){o=o||{};var en=o.en;
+  return '<div class="mk-day"><div class="dh">Day '+n+' ('+date+')</div><div class="mk-2"><div>'+chk('Applicant',a,{dis:!en})+memo(a?'Harness check done 07:45, 4 workers':'',1,{dis:!en})+btns(btn('Verify',en?'pri':'dis'))+'</div><div>'+chk('Assessor',b,{dis:!en})+memo(b?'Site walk 10:30 – OK':'',1,{dis:!en})+btns(btn('Verify',en?'pri':'dis'))+'</div></div></div>';}
+S.ptwdaily={url:'PTW/MyPTW.aspx → Details',frame:{active:'Permit To Work>Permit List',body:
+ title('Permit To Work - Approved')+'<div class="mk-fade">'+approvePart(true)+'</div>'+
+ hl(1,part('Part 5: Daily Review by WAH Supervisor or Above',
+   hl(2,dayRow(1,'08/10/26',1,1,{en:1}),1)+dayRow(2,'09/10/26',0,0)+dayRow(3,'10/10/26',0,0)+'<div class="mk-muted" style="padding:4px 0">… Day 4 (11/10/26), Day 5 (12/10/26)</div>'),1)},
+ legend:['Part 5: Daily Review by WAH Supervisor or Above','Today’s row: Applicant and Assessor each tick, add a remark and click Verify. Later days stay greyed out until their date.']};
+
+S.ptwrevoke={url:'PTW/NewPTW.aspx?Status=P',frame:{active:'Permit To Work>Pending',initials:'RK',body:
+ title('Permit To Work - Approved')+'<div class="mk-fade">'+approvePart(true)+'</div>'+
+ reasonBox(1,'Worker found without lanyard at L9, 10/10/2026 14:20',[hl(2,btn('Revoke','danger'))])},
+ legend:['Reason box (required)','Revoke: the status becomes REVOKED. This is final and cannot be undone from the screens.']};
+
+S.ptwcomplete={url:'PTW/MyPTW.aspx → Details',frame:{active:'Permit To Work>Permit List',body:
+ title('Permit To Work - Approved')+'<div class="mk-fade">'+part('Part 5: Daily Review by WAH Supervisor or Above',dayRow(5,'12/10/26',1,1))+'</div>'+
+ hl(1,part('Part 6: Notification of Work Completion (To be fill up by Permit Applicant)','<div class="mk-decl">Notification of Work Completion (To be fill up by Permit Applicant).</div>'+
+   signer('Mr. Lim Ah Kow','Site Supervisor','Kong Lift Engineering Pte Ltd','Guide rails L1–L12 installed, shaft cleared, barricades remain')+btns(hl(2,btn('Complete the Permit','pri')))),1)},
+ legend:['Part 6: Notification of Work Completion (applicant only)','Complete the Permit, so the status becomes CLOSED']};
+
+S.ptwclosure={url:'PTW/NewPTW.aspx?Status=P',frame:{active:'Permit To Work>Pending',initials:'SH',body:
+ hl(1,title('Permit To Work - Closed'),1)+'<div class="mk-fade">'+part('Part 6: Notification of Work Completion (To be fill up by Permit Applicant) (Closed on 12 Oct 2026 17:30)',signer('Mr. Lim Ah Kow','Site Supervisor','Kong Lift Engineering Pte Ltd','Guide rails L1–L12 installed, shaft cleared, barricades remain',{dis:1}))+'</div>'+
+ hl(2,part('Part 7: Closure Review','<div class="mk-decl">Acknowledgement of activity completion by Main Constructor.</div>'+signer('Ms. Sharon Ho','Site Manager','Hitachi Elevator Asia Pte Ltd','Area inspected, handed over to finishing works')+btns(hl(3,btn('Review','pri'))+btn('Back'))),1)},
+ legend:['Heading “Permit To Work - Closed”','Part 7: Closure Review','Review and Back buttons. After Review the status still shows CLOSED (known issue).']};
+
+var lr=ptwListRow('RETURNED',{btns:btn('Report')+' '+hl(1,btn('Details'))});
+S.ptwreturned={url:'PTW/MyPTW.aspx',frame:{active:'Permit To Work>Permit List',body:
+ '<div class="mk-mini">'+title('Permit To Work List')+grid({search:true,rows:[lr.row],preview:[lr.pv],pager:false})+'</div><div class="mk-arrow">clicking <b>Details</b> opens ↓</div>'+
+ title('Permit To Work - Returned')+hl(2,'<div class="mk-reason">'+row('For Return, Reject &amp; Revoke : Please specify the reason',memo('Rescue plan not attached',2,{dis:1}),{top:1,cw:220})+'</div>',1)+
+ hl(3,ptwHeader({edit:1}),1)+'<div class="mk-upl">'+tb('RescuePlan_RP07.pdf')+btn('Browse File','pri')+'</div>'+btns(hl(4,btn('Submit','pri')))},
+ legend:['Details on the RETURNED row in your Permit To Work List','The reason, read-only','Fields are editable again (change the dates if they are now in the past)','Submit resubmits, and the approval chain restarts from the beginning']};
+
+var rr=ptwListRow('APPROVED',{btns:hl(1,btn('Report'))+' '+btn('Details')});
+var rr2=ptwListRow('SUBMITTED',{btns:btn('Report')+' '+btn('Details')});
+rr2.row=['15 Oct 2026','17 Oct 2026','Working at Height',rr2.row[3]];
+S.ptwreport={url:'PTW/MyPTW.aspx',frame:{active:'Permit To Work>Permit List',body:
+ title('Permit To Work List')+grid({search:true,rows:[rr.row,rr2.row],preview:[rr.pv,rr2.pv.replace('levels 1–12','levels 13–14')]})+
+ '<div class="mk-dl">'+hl(2,'<span>⬇ PTW_3f2a9c1e-7b4d-4e0a-9c55-1d2e8f6a0b77.pdf</span>')+'</div>'},
+ legend:['Report button: downloads the printable permit','The downloaded PDF (named by an internal code, not a permit number)']};
+
+/* ---- TBM ---- */
+S.tbmnew={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',initials:'LA',body:
+ title('Toolbox Meeting - New')+row('Project Name',hl(1,tb(P,{ro:1}),1))+row('Toolbox Meeting Date',hl(2,dt('09/10/2026',{w:220})))+
+ hl(3,two(row('Supervisor / Manager',tb('Tan Wei Ming')),row('Safety Supervisor',tb('Rajesh Kumar'),{cw:120})),1)+
+ hl(4,two(row('Work Description (AM)',memo('Guide rail installation L2, levels 5–8; material hoisting at L1',3),{top:1}),row('Work Description (PM)',memo('',3),{top:1,cw:120})),1)},
+ legend:['Project Name','Toolbox Meeting Date (not later than tomorrow)','Supervisor / Manager and Safety Supervisor','Work Description (AM) or (PM): fill exactly one']};
+
+S.tbmq={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+'<div class="mk-fade">'+tbmTop()+'</div>'+
+ '<div class="mk-q"><div class="b2">'+hl(1,'Please carry out items briefing and select "Yes" after it is done. :-')+'</div>'+
+ hl(2,TBMQ.map(function(q){return row(q,dd('Yes'),{cw:380});}).join(''),1)+'</div>'+row('Remarks',hl(3,memo('New worker Ahmad briefed separately on harness use',2),1),{top:1})},
+ legend:['Briefing heading','Each item answered from its drop-down (required)','Remarks'],note:'Briefing questions are examples. The real ones come from the “TBM” template.'};
+
+S.tbmatt={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+grid({title:'Attendee Records',toolbar:[hl(1,tbtn('Add Attendee','+')),tbtn('Remove Attendee','−')],cols:['User ID','Full Name','Position','Contractor Name'],rows:ATT.slice(0,2),sel:1})+
+ '<div class="mk-editform">'+row('User ID',hl(2,dd('chen.jun@konglift.com.sg'),1)+'<div class="mk-ddl"><table><tr><th>UserID</th><th>FullName</th><th>Position</th><th>ConstructorName</th></tr><tr class="sel"><td>chen.jun@konglift.com.sg</td><td>Mr. Chen Jun</td><td>Installer</td><td>Kong Lift Engineering Pte Ltd</td></tr><tr><td>ong.ks@konglift.com.sg</td><td>Mr. Ong Kah Seng</td><td>WAH Assessor</td><td>Kong Lift Engineering Pte Ltd</td></tr></table></div>')+
+ hl(3,two(row('Full Name',tb('Mr. Chen Jun',{ro:1})),row('Position',tb('Installer',{ro:1}),{cw:90}))+row('Contractor Name',tb('Kong Lift Engineering Pte Ltd',{ro:1})),1)+btns(btn('Update','pri'),btn('Cancel'))+'</div>'},
+ legend:['Add Attendee / Remove Attendee','User ID picker (only people of your own company in this project)','Full Name, Position and Contractor Name fill in automatically']};
+
+S.tbmhaz={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+grid({title:'Hazard / Issue Records',toolbar:[hl(1,tbtn('New Record','+')+tbtn('Update Record','✎')+tbtn('Remove Record','−'))],cols:['Work Activity','What cause the hazard?','What happen as a result?','Action To Be Taken'],rows:[['Working at height','Open shaft edge at L6','Fall from height','Priority 1']]})+
+ '<div class="mk-editform">'+hl(2,row('Work Activity',dd('Hoisting'))+row('Others, Please specify',tb('',{dis:1}))+
+ row('What cause the hazard?',memo('Unsecured load on chain block at L1',2),{top:1})+row('What happen as a result?',memo('Load drops into pit, struck-by injury',2),{top:1})+
+ row('Action To Be Taken',dd('Priority 1: Measures with environment and facilities (Elimination, Subsitution, Engineering Control)'))+row('Remarks for Actions',memo('Exclusion zone barricaded under hoist',2),{top:1}),1)+btns(btn('Update','pri'),btn('Cancel'))+'</div>'},
+ legend:['New Record / Update Record / Remove Record','Hazard fields: Work Activity, cause, result, action priority and remarks (all required)']};
+
+S.tbmgoal={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+row('Today Team Action Goal',hl(1,memo('100% harness hook-on above 2 m',2),1),{top:1})+
+ row('Today Touch and Call',hl(2,memo('Hook on – OK!',2),1),{top:1})+row('Feedback from worker at site',hl(3,memo('Request more lighting at L7 landing',2),1),{top:1})},
+ legend:['Today Team Action Goal (required)','Today Touch and Call (required)','Feedback from worker at site (required)']};
+
+S.tbmequip={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+grid({title:'Unit No / Manufacturing Number',toolbar:[hl(1,tbtn('Add Equipment','+')+tbtn('Remove Equipment','−'))],cols:['Registration No','Equipment Type','Equipment Name','Machine Type'],rows:[['L-2231','MFG NO','Lift L2 – Passenger 13p','Elevator']]})+
+ '<div class="mk-editform">'+two(row('Registration No',hl(2,dd('L-2231'),1)),row('Machine Type',hl(3,dd('Elevator'),1),{cw:110}))+'</div>'+
+ hl(4,'<div class="mk-q"><div class="b1">SAFETY CHECKLIST – ELEVATOR</div>'+chk('Car top control switched to INSPECTION',1)+chk('Pit stop switch tested',1)+chk('Landing door restrictor fitted',0)+chk('Machine room lock-out / tag-out applied',0)+'</div>',1)},
+ legend:['Add Equipment / Remove Equipment','Registration No picker (any equipment of the project)','Machine Type: Elevator or Escalator, which decides the checklist','Generated safety checklist: tick it only after the equipment list is final'],note:'Checklist items are examples. The real items come from the SAFETYCHECKLIST-E / -P templates.'};
+
+var A2=attach({files:[['TBM_0910_AM_group.jpg','IMG','09 Oct 2026','ahkow.lim@konglift.com.sg']],gallery:['TBM_0910_AM_group.jpg']});
+S.tbmdecl={url:'TBM/NewTBM.aspx?Status=N',frame:{active:'Toolbox Meeting>New Meeting',body:
+ title('Toolbox Meeting - New')+hl(1,A2.up,1)+A2.files+
+ part('Applicant Details','<div class="mk-decl">I will ensure that the check items specified in the Key Points Confirmation Sheet are thoroughly implemented, and I will fulfill my responsibilities as the person in-charge of the work as outlined below.</div><div class="mk-muted">Check the each box below for confirmation :-</div>'+
+  hl(2,DECL4.map(function(d){return chk(d,1);}).join(''),1)+hl(3,two(row('Name',tb('Mr. Lim Ah Kow',{ro:1}),{cw:110}),row('Designation',tb('Site Supervisor',{ro:1}),{cw:110}))+row('Company Name',tb('Kong Lift Engineering Pte Ltd',{ro:1}),{cw:110}),1)+btns(hl(4,btn('Submit','pri'))))+loc()},
+ legend:['Browse File: add a group photo of the briefing','The four declarations (all mandatory)','Name / Designation / Company Name from your profile','Submit']};
+
+S.tbmapprove={url:'TBM/NewTBM.aspx?Status=P',frame:{active:'Toolbox Meeting>Pending',initials:'TW',body:
+ '<div class="mk-mini">'+title('Toolbox Meeting - Pending')+grid({search:true,rows:[['09 Oct 2026',hl(1,btn('Verify'))]],preview:['<div>Today Team Action Goal : 100% harness hook-on above 2 m</div>'+status('SUBMITTED')],pager:false})+'</div><div class="mk-arrow">clicking <b>Verify</b> opens ↓</div>'+
+ title('Toolbox Meeting - Submitted')+hl(2,'<div class="mk-reason">'+row('If want to Return or Reject, please specify the Reason :-',memo('',2),{top:1,cw:220})+'</div>',1)+
+ hl(3,part('Part 2: Approval by HEA Project Manager / Authorized Competent Person',signer('Mr. Tan Wei Ming','Project Manager','Hitachi Elevator Asia Pte Ltd','Good briefing')),1)+btns(hl(4,btn('Approve','pri')+btn('Reject')+btn('Return')))},
+ legend:['Pending row with its Verify button','Reason box (needed for Return or Reject)','Part 2: Approval by HEA Project Manager / Authorized Competent Person','Approve / Reject / Return']};
+
+var t1=tbmListRow('RETURNED'),t2=tbmListRow('APPROVED');
+t1.row[1]=btn('Export PDF')+' '+hl(1,btn('Details'));t2.row[1]=hl(2,btn('Export PDF'))+' '+btn('Details');t2.row[0]='08 Oct 2026';
+S.tbmlist={url:'TBM/MyTBM.aspx',frame:{active:'Toolbox Meeting>Meeting List',body:
+ title('Toolbox Meeting List')+grid({search:true,rows:[t1.row,t2.row],preview:[t1.pv,t2.pv]})+'<div class="mk-tip">Download this Toolbox Meeting as a PDF</div>'},
+ legend:['Details on the RETURNED meeting: fix it and Submit again','Export PDF (tooltip “Download this Toolbox Meeting as a PDF”)']};
+
+/* ---- CCP ---- */
+S.ccpnew={url:'CCP/NewCCP.aspx?Status=N',frame:{active:'Compliance Check Point>New CCP',initials:'NA',body:
+ title('Compliance Check Point - New')+row('Project Name',tb(P,{ro:1}))+row('Manufacturing Number',hl(1,dd('L-2231'),1))+row('Key Activities',hl(2,dd('Entrance Barricade'),1))+
+ row('Date',hl(3,dt('06/10/2026',{w:220})))+row('Activities Description',hl(4,memo('Rigid barricades installed at L1–L12 landings, signage posted',2),1),{top:1})+hl(5,CCPQ,1)},
+ legend:['Manufacturing Number (equipment type “MFG NO” only)','Key Activities: loads that activity’s checklist','Date','Activities Description (max 500 characters)','“Control Measures Implemented :-” checklist: every answer required'],note:'Checklist questions are examples. The real ones come from the key-activity template.'};
+
+var A3=attach({files:[['L2_barricade_L1.jpg','IMG','06 Oct 2026','aisyah.nur@hitachi.com'],['L2_barricade_L7.jpg','IMG','06 Oct 2026','aisyah.nur@hitachi.com']],gallery:['L2_barricade_L1.jpg','L2_barricade_L7.jpg']});
+S.ccpsubmit={url:'CCP/NewCCP.aspx?Status=N',frame:{active:'Compliance Check Point>New CCP',initials:'NA',body:
+ title('Compliance Check Point - New')+'<div class="mk-fade">'+CCPQ+'</div>'+hl(1,A3.up,1)+A3.files+hl(2,A3.gal,1)+btns(hl(3,btn('Submit','pri')+btn('Cancel')))+loc()},
+ legend:['Browse File','Photo gallery','Submit / Cancel']};
+
+S.ccpapprove={url:'CCP/NewCCP.aspx?Status=P',frame:{active:'Compliance Check Point>Pending',initials:'SA',body:
+ title('Compliance Check Point - Submitted')+'<div class="mk-fade">'+ccpTop({dis:1})+'</div>'+
+ hl(1,'<div class="mk-reason">'+row('If want to Return or Reject, please specify the Reason :-',memo('L7 barricade missing in photos',2),{top:1,cw:220})+'</div>',1)+btns(hl(2,btn('Approve','pri')+btn('Reject')+btn('Return')))},
+ legend:['Reason box (needed for Return or Reject)','Approve (status becomes COMPLETED) / Reject / Return']};
+
+S.ccpreturned={url:'CCP/MyCCP.aspx → Details',frame:{active:'Compliance Check Point>CCP List',initials:'NA',body:
+ title('Compliance Check Point - Returned')+hl(1,'<div class="mk-reason">'+row('If want to Return or Reject, please specify the Reason :-',memo('L7 barricade missing in photos',2,{dis:1}),{top:1,cw:220})+'</div>',1)+
+ ccpTop()+'<div class="mk-upl">'+tb('L2_barricade_L7_fixed.jpg')+btn('Browse File','pri')+'</div>'+btns(hl(2,btn('Submit','pri')+btn('Delete')+btn('Cancel')))},
+ legend:['The return reason (read-only)','Submit (resubmit), Delete (withdraw) or Cancel']};
+
+S.ccpreport={url:'CCP/CCPReport.aspx',frame:{active:'Compliance Check Point>CCP Monitoring',body:
+ title('CCP Project Monitoring')+hl(1,two(row('Date From',dt('01/09/2026',{w:180}),{cw:90}),row('Date To',dt('02/10/2026',{w:180}),{cw:90})),1)+btns(hl(2,btn('Refresh','pri')))+
+ grid({toolbar:[hl(3,tbtn('Customization Window','▦')),hl(4,tbtn('Export to','⬇')+'<span class="mk-menu">PDF · CSV · Export to XLSX</span>')],cols:['ProjectName','RegistrationNo','EquipmentName','Description','Entrance Barricade','Life lines &amp; Safety Hook','Hoisting of Guiderails'],
+  rows:[[P,'L-2231','Lift L2','Passenger 13p','06/10/2026','29/09/2026',''],[P,'L-2232','Lift L3','Passenger 13p','07/10/2026','','']]})},
+ legend:['Date From / Date To','Refresh','Customization Window: drag the seven key-activity columns in. They are hidden at first.','Export to PDF / CSV / XLSX']};
+
+/* ---- Dashboard ---- */
+function donut(t,parts){var tot=parts.reduce(function(a,p){return a+p[1];},0),a0=0,s='';
+  parts.forEach(function(p){var a1=a0+p[1]/tot*Math.PI*2,x0=60+50*Math.sin(a0),y0=60-50*Math.cos(a0),x1=60+50*Math.sin(a1),y1=60-50*Math.cos(a1);
+    s+='<path d="M'+x0+' '+y0+' A50 50 0 '+(a1-a0>Math.PI?1:0)+' 1 '+x1+' '+y1+'" stroke="'+p[2]+'" stroke-width="22" fill="none"/>';a0=a1;});
+  return '<div class="mk-chart"><div class="ct">'+t+'</div><svg viewBox="0 0 120 120" width="130" height="130">'+s+'</svg><div class="lg">'+parts.map(function(p){return '<span><i style="background:'+p[2]+'"></i>'+p[0]+' '+p[1]+'</span>';}).join('')+'</div></div>';}
+function bars(){var days=['01/10','02/10','03/10','04/10','05/10','06/10','07/10','08/10','09/10'],a=[3,3.5,0,4,4.5,4,4.5,4,4.5],b=[2,2,0,2,2.5,2,2,2,2],s='';
+  days.forEach(function(d,i){var x=20+i*52;s+='<rect x="'+x+'" y="'+(110-a[i]*18)+'" width="18" height="'+a[i]*18+'" fill="#4F81BD"/><rect x="'+(x+20)+'" y="'+(110-b[i]*18)+'" width="18" height="'+b[i]*18+'" fill="#C0504D"/><text x="'+(x+18)+'" y="124" font-size="9" text-anchor="middle" fill="#555">'+d+'</text>';});
+  return '<div class="mk-chart wide"><div class="ct">Manpower at Site</div><svg viewBox="0 0 490 130" width="490" height="130"><line x1="10" y1="110" x2="485" y2="110" stroke="#bbb"/>'+s+'</svg><div class="lg"><span><i style="background:#4F81BD"></i>Kong Lift Engineering Pte Ltd</span><span><i style="background:#C0504D"></i>Hitachi Elevator Asia Pte Ltd</span></div></div>';}
+S.overview={url:'ProjectOverview.aspx',frame:{active:'Project Overview',body:
+ title('Project Overview ('+P+')')+hl(1,'<div class="mk-pp">'+photo(200,130,'project photo')+'<div class="mk-kv"><span>Name</span><b>'+P+'</b><span>Location</span><b>512 Tampines Ave 9, Singapore 520512</b><span>Main Constructor</span><b>Hitachi Elevator Asia Pte Ltd</b><span>Contact</span><b>Ms. Sharon Ho (Number : 6555 0123)</b></div></div>',1)+
+ hl(2,'<div class="mk-charts">'+donut('Permit To Work',[['Approved',12,'#4F81BD'],['Submitted',3,'#9BBB59'],['Returned',1,'#F79646'],['Closed',6,'#8064A2']])+donut('Toobox Meeting',[['Approved',38,'#4F81BD'],['Submitted',4,'#9BBB59'],['Returned',2,'#F79646']])+donut('Compliance Check Point',[['Approved',9,'#4F81BD'],['Submitted',2,'#9BBB59']])+'</div>',1)+
+ hl(3,bars(),1)+grid({toolbar:[hl(4,tbtn('Export to XLSX','⬇'))],cols:['Applied Date','Company Name','Applicant Name','Job Designation','Session'],rows:[['09/10/2026','Kong Lift Engineering Pte Ltd','Mr. Ahmad Rizal','Installer','AM'],['09/10/2026','Kong Lift Engineering Pte Ltd','Mr. Chen Jun','Installer','AM']]})},
+ legend:['Project details','Status doughnuts for Permit To Work, “Toobox Meeting” (misspelt on screen) and Compliance Check Point','Manpower at Site: last 9 days, per company, from toolbox meetings (½ per session)','Detail grid with Export to XLSX']};
+
+S.tbmreport={url:'Settings/TBMReportAll.aspx',frame:{active:'TBM Report',body:
+ title('TBM Report')+grid({toolbar:[hl(3,tbtn('Export to XLSX','⬇'))],search:hl(2,'<div class="mk-group">Drag a column header here to group by that column</div>'),
+  cols:['Applied Date','Project Name','Company Name','Applicant Name','Job Designation','MFG No','Session'],
+  rows:[['09/10/2026',P,'Kong Lift Engineering Pte Ltd','Mr. Ahmad Rizal','Installer','L-2231','AM'],['09/10/2026',P,'Kong Lift Engineering Pte Ltd','Mr. Chen Jun','Installer','L-2231','AM'],['09/10/2026','Bukit Batok West Ave 8 Blk 291','Kong Lift Engineering Pte Ltd','Mr. Ong Kah Seng','WAH Assessor','(No MFG Selected)','PM']],
+  footer:'Count = 3'})},
+ legend:['Columns: Applied Date, Project Name, Company Name, Applicant Name, Job Designation, MFG No, Session','Group panel','Export to XLSX']};
+S.tbmreport.frame.body=S.tbmreport.frame.body.replace('<th>Applied Date</th>','<th>'+hl(1,'Applied Date')+'</th>');
+
+/* ---- Documents ---- */
+S.docnew={url:'DocumentManagement.aspx',frame:{active:'Documents',body:
+ title('Document List')+grid({toolbar:[hl(1,tbtn('New','+')+tbtn('Edit','✎'))],rows:[['Method Statement','MS-009 Rail Bracket Fixing Rev A',btn('Download')]]}),
+ overlay:popup('New',row('Document Type',hl(2,dd('Method Statement'),1))+row('Title',hl(3,tb('MS-012 Guide Rail Installation Rev B'),1))+
+  row('Document',hl(4,'<div class="mk-upl">'+tb('MS-012_RevB.pdf')+'<span class="mk-link">Remove</span></div><div class="mk-small">Allowed file extensions: .jpg, .jpeg, .gif, .png.<br>Maximum file size: 4 MB.</div>',1)),hl(5,btn('Update','pri'))+btn('Cancel'),560)},
+ legend:['New / Edit','Document Type','Title','Document upload, with its Remove link','Update']};
+
+S.doclist={url:'DocumentManagement.aspx',frame:{active:'Documents',body:
+ title('Document List')+grid({toolbar:[tbtn('New','+'),tbtn('Edit','✎')],search:true,rows:[[hl(1,'Method Statement'),'MS-012 Guide Rail Installation Rev B',hl(2,btn('Download'))],['Method Statement','MS-009 Rail Bracket Fixing Rev A',btn('Download')],['Lifting Plan','LP-004 Traction Machine Hoisting',btn('Download')]],sel:0})},
+ legend:['Document Type and Title','Download']};
+
+/* ---- Admin ---- */
+S.contractors={url:'Settings/ConstructorSetting.aspx',frame:{active:'Project Overview',config:'Contractor List',body:
+ title('Contractor List - (All Projects)')+grid({toolbar:[hl(1,tbtn('New','+')+tbtn('Edit','✎')+tbtn('Lock','🔒')+tbtn('Unlock','🔓'))],search:true,cols:['Name','Description','Address','Contact Person','Contact Number','Status'],
+  rows:[['Hitachi Elevator Asia Pte Ltd','Main contractor','…','Ms. Sharon Ho','6555 0123','ACTIVE'],['Kong Lift Engineering Pte Ltd','Lift installation subcontractor','21 Woodlands Close #05-12','Mr Kong Boon Hock','+65 6123 4567','ACTIVE']]}),
+ overlay:popup('New',hl(3,row('Name',tb('Kong Lift Engineering Pte Ltd'))+row('Description',tb('Lift installation subcontractor'))+row('Address',memo('21 Woodlands Close #05-12, Singapore 737854',2),{top:1})+row('Contact Person',tb('Mr Kong Boon Hock'))+row('Contact Number',tb('+65 6123 4567')),1),btn('Update','pri')+btn('Cancel'),560)},
+ legend:['New / Edit / Lock / Unlock (Lock and Unlock act immediately)','Columns: Name, Description, Address, Contact Person, Contact Number, Status','Edit form: all fields required. The Name cannot be changed later.']};
+
+S.contractors.frame.body=S.contractors.frame.body.replace('<th>Name</th>','<th>'+hl(2,'Name')+'</th>');
+
+S.usernew={url:'Settings/UserSetting.aspx',frame:{active:'Project Overview',config:'User Management',body:
+ title('User Management - (All Projects)')+userGrid({hlNew:1})+
+ '<div class="mk-detail">'+grid({title:'User Role Collection',toolbar:[hl(3,tbtn('New','+')+tbtn('Delete','−'))],cols:['User Role'],rows:[['PTW USER'],['TBM USER']],pager:false})+'</div>',
+ overlay:popup('New',hl(2,two(row('Title',dd('Mr'),{cw:110}),row('First Name',tb('Lim'),{cw:100}))+two(row('Last Name',tb('Ah Kow'),{cw:110}),row('Document Type',dd('FIN'),{cw:100}))+
+   two(row('Document No',tb('G1234567N'),{cw:110}),row('Contact No',tb('9123 4567'),{cw:100}))+row('Email Address',tb('ahkow.lim@konglift.com.sg'),{cw:110})+
+   two(row('Contractor Name',dd('Kong Lift Engineering Pte Ltd'),{cw:110}),row('Position',tb('Site Supervisor'),{cw:100}))+row('Photo','<div class="mk-upl">'+photo(60,60,'')+'<span class="mk-small">You can upload JPG, GIF or PNG file. Maximum files size is 4 MB.</span></div>',{cw:110}),1),
+   btn('Update','pri')+btn('Cancel'),660)},
+ legend:['New','Edit form: the Email Address becomes the User ID, and a password is emailed automatically','Expand the user row, then use “User Role Collection” New / Delete to give roles']};
+
+S.userlist={url:'Settings/UserSetting.aspx',frame:{active:'Project Overview',config:'User Management',body:
+ title('User Management - (All Projects)')+userGrid({hlR:1,hlRn:1,hlD:1,hlDn:2}),
+ overlay:'<div class="mk-confirm">'+hl(3,'<div class="mk-cbox"><div>Are you sure you want to proceed?</div>'+btns(btn('OK','pri'),btn('Cancel'))+'</div>',1)+'</div>'},
+ legend:['Reset Password: runs immediately, with no confirmation','Delete: permanent','Confirmation shown for Delete']};
+
+S.projectnew={url:'Settings/ProjectSetting.aspx',frame:{active:'Project Overview',config:'Project Management',body:
+ title('Project Management - (All Projects)')+grid({toolbar:[hl(1,tbtn('New','+'))],search:true,cols:['Project Name','Status',''],rows:[[P,'ACTIVE',hl(3,btn('Edit')+' '+btn('Lock')+' '+btn('Unlock'))]],preview:['HDB BTO – 6 passenger lifts, 2 escalators · Hitachi Elevator Asia Pte Ltd · 01/03/2026 ~ 30/11/2026']}),
+ overlay:popup('New',hl(2,row('Photo',photo(90,60,''))+row('Project Name',tb(P))+row('Description',tb('HDB BTO – 6 passenger lifts, 2 escalators'))+row('Location',tb('512 Tampines Ave 9, Singapore 520512'))+row('Main Constructor',dd('Hitachi Elevator Asia Pte Ltd'))+two(row('Start Date',dt('01/03/2026')),row('End Date',dt('30/11/2026'),{cw:80})),1),btn('Update','pri')+btn('Cancel'),620)},
+ legend:['New','Edit form: Project Name (permanent), Description, Location, Main Constructor, Start / End Date','Row buttons Edit / Lock / Unlock (a locked project disappears, and IT must unlock it)']};
+
+S.projectcfg={url:'Settings/ProjectConstructor.aspx',frame:{active:'Project Overview',config:'Project Configuration',body:
+ title('Project Configuration - (All Projects)')+grid({search:true,cols:['Project','Status'],rows:[['▾ '+P,'ACTIVE']],pager:false})+
+ '<div class="mk-detail">'+hl(1,grid({title:'1. Contractors',toolbar:[tbtn('Add','+'),tbtn('Delete','−')],cols:['Name','Description'],rows:[['Kong Lift Engineering Pte Ltd','Lift installation subcontractor'],['Sin Heng Scaffolding Pte Ltd','Scaffolding']],pager:false}),1)+
+ hl(2,grid({title:'2. Manpower &amp; Staff',toolbar:[tbtn('Add','+'),tbtn('Delete','−')],cols:['User ID','Full Name','Position','Constructor Name'],rows:[['rajesh.kumar@hitachi.com','Mr. Rajesh Kumar','Safety Officer','Hitachi Elevator Asia Pte Ltd']],pager:false}),1)+'</div>'},
+ legend:['1. Contractors: Add / Delete companies on this project','2. Manpower & Staff: Add / Delete individual people (User ID picker searches all active users)']};
+
+S.equipment={url:'Settings/EquipmentSetting.aspx',frame:{active:'Project Overview',config:'Equipment List',body:
+ title('Equipment List - '+P)+grid({toolbar:[tbtn('New','+'),tbtn('Edit','✎'),tbtn('Lock','🔒'),tbtn('Unlock','🔓')],search:true,cols:['Registration No','Equipment Type','Equipment Name','Description','Status'],rows:[['L-2231',hl(1,'MFG NO'),'Lift L2 – Passenger 13p','Hitachi Urban Ace, 13 persons, 1.75 m/s, 14 stops','ACTIVE'],['E-0911','MFG NO','Escalator ES1','Void deck to L2','ACTIVE']]}),
+ overlay:popup('New',hl(2,row('Registration No',tb('L-2231'))+row('Equipment Type',dd('MFG NO'))+row('Equipment Name',tb('Lift L2 – Passenger 13p'))+row('Description',memo('Hitachi Urban Ace, 13 persons, 1.75 m/s, 14 stops',2),{top:1})+two(row('Photo',photo(80,56,'')),row('Document',photo(80,56,''),{cw:80})),1),btn('Update','pri')+btn('Cancel'),600)},
+ legend:['Equipment Type “MFG NO”: needed for a unit to appear on permits and CCPs','Equipment form: Registration No (unique system-wide), Type, Name, Description, Photo, Document']};
+
+S.doctype={url:'Settings/DocumentTypeSetting.aspx',frame:{active:'Project Overview',config:'Document Type',body:
+ title('Document Type - (All Projects)')+grid({toolbar:[hl(1,tbtn('New','+')+tbtn('Edit','✎')+tbtn('Lock','🔒')+tbtn('Unlock','🔓'))],search:true,cols:['Document Type','Description','Status'],rows:[['Method Statement','Approved method statements','ACTIVE'],['Lifting Plan','Appointed person lifting plans','ACTIVE']]}),
+ overlay:popup('New',hl(2,row('Document Type',tb('Lifting Plan'))+row('Description',tb('Appointed person lifting plans')),1),btn('Update','pri')+btn('Cancel'),520)},
+ legend:['New / Edit / Lock / Unlock','Document Type and Description (both required)']};
+
+var ORDER=['signin','projects','nav','userself','account','ptwnew','ptwcheck','ptwattach','ptwsubmit','ptwassess','ptwsafety','ptwapprove','ptwdaily','ptwrevoke','ptwcomplete','ptwclosure','ptwreturned','ptwreport',
+ 'tbmnew','tbmq','tbmatt','tbmhaz','tbmgoal','tbmequip','tbmdecl','tbmapprove','tbmlist','ccpnew','ccpsubmit','ccpapprove','ccpreturned','ccpreport','overview','tbmreport','docnew','doclist',
+ 'contractors','usernew','userlist','projectnew','projectcfg','equipment','doctype'];
+
+function build(id){var s=S[id];if(!s)return null;var f=s.frame;f.url=f.url||s.url;
+  var w=document.createElement('figure');w.className='mk-wrap';
+  w.innerHTML='<div class="mk-ribbon">Reconstructed screen · drawn from the page design, not a real screenshot</div><div class="mk-box"><div class="mk-stage">'+frame(f)+'</div></div>'+
+   '<figcaption class="mk-legend">'+(s.legend?'<ol>'+s.legend.map(function(l){return '<li>'+l+'</li>';}).join('')+'</ol>':'')+(s.note?'<p class="mk-n">'+s.note+'</p>':'')+'</figcaption>';
+  return w;}
+window.EPTW_MOCKS={ORDER:ORDER,build:build};
+})();
+
+</script>
+<script>
+(function(){
+  var M=window.EPTW_MOCKS; if(!M) return;
+  var shots=[].slice.call(document.querySelectorAll('.shot'));
+  shots.forEach(function(sh,i){ var id=M.ORDER[i]; var el=M.build(id); if(el){ el.setAttribute('data-mock',id); sh.parentNode.insertBefore(el, sh); } });
+  function fit(){
+    document.querySelectorAll('.mk-wrap').forEach(function(w){
+      if(!w.offsetParent) return;
+      var box=w.querySelector('.mk-box'), st=w.querySelector('.mk-stage');
+      var s=Math.min(1, box.parentNode.clientWidth/1000);
+      st.style.transform='scale('+s+')';
+      box.style.height=Math.ceil(st.offsetHeight*s)+'px';
+    });
+  }
+  window.EPTW_fit=fit;
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  document.addEventListener('click', function(){ setTimeout(fit,0); });
+  document.getElementById('q').addEventListener('input', function(){ setTimeout(fit,250); });
+  fit();
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
 <script>
 (function(){
